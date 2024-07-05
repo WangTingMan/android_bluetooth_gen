@@ -20,6 +20,24 @@
 #include <sys/types.h>
 #endif
 
+#include <functional>
+
+#define USE_FAKE_CXX_INTERFACE
+
+#ifdef USE_FAKE_CXX_INTERFACE
+
+namespace rust {
+
+template<typename T>
+using Vec = std::vector<T>;
+
+template <typename FunType>
+using Fn = std::function<FunType>;
+
+}
+
+#else
+
 namespace rust {
 inline namespace cxxbridge1 {
 
@@ -1110,3 +1128,6 @@ struct IsRelocatable
 
 } // namespace cxxbridge1
 } // namespace rust
+
+#endif
+

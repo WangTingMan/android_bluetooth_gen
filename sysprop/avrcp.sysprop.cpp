@@ -9,7 +9,6 @@
 #include <limits>
 #include <utility>
 
-#include <strings.h>
 #ifdef __BIONIC__
 #include <sys/system_properties.h>
 [[maybe_unused]] static bool SetProp(const char* key, const char* value) {
@@ -25,6 +24,10 @@
 
 #include <android-base/parseint.h>
 #include <log/log.h>
+
+#ifndef strcasecmp
+#define strcasecmp strcmp
+#endif
 
 namespace {
 
