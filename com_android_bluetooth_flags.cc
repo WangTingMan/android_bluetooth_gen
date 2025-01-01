@@ -1880,8 +1880,99 @@ class flag_provider : public flag_provider_interface {
             }
             return cache_[186];
         }
+
+        virtual bool a2dp_check_lea_iso_channel() override
+        {
+            if( cache_[187] == -1 )
+            {
+                cache_[187] = server_configurable_flags::GetServerConfigurableFlag(
+                    "aconfig_flags.bluetooth",
+                    "com.android.bluetooth.flags.a2dp_check_lea_iso_channel",
+                    "false" ) == "true";
+            }
+            return cache_[187];
+        }
+
+        virtual bool a2dp_aidl_encoding_interval() override
+        {
+            if( cache_[188] == -1 )
+            {
+                cache_[188] = server_configurable_flags::GetServerConfigurableFlag(
+                    "aconfig_flags.bluetooth",
+                    "com.android.bluetooth.flags.a2dp_aidl_encoding_interval",
+                    "false" ) == "true";
+            }
+            return cache_[188];
+        }
+
+        virtual bool ignore_notify_when_already_connected() override
+        {
+            if( cache_[189] == -1 )
+            {
+                cache_[189] = server_configurable_flags::GetServerConfigurableFlag(
+                    "aconfig_flags.bluetooth",
+                    "com.android.bluetooth.flags.ignore_notify_when_already_connected",
+                    "false" ) == "true";
+            }
+            return cache_[189];
+        }
+        virtual bool asha_encrypted_l2c_coc() override
+        {
+            if( cache_[190] == -1 )
+            {
+                cache_[190] = server_configurable_flags::GetServerConfigurableFlag(
+                    "aconfig_flags.bluetooth",
+                    "com.android.bluetooth.flags.asha_encrypted_l2c_coc",
+                    "false" ) == "true";
+            }
+            return cache_[190];
+        }
+        virtual bool leaudio_broadcast_update_metadata_callback() override
+        {
+            if( cache_[191] == -1 )
+            {
+                cache_[191] = server_configurable_flags::GetServerConfigurableFlag(
+                    "aconfig_flags.bluetooth",
+                    "com.android.bluetooth.flags.leaudio_broadcast_update_metadata_callback",
+                    "false" ) == "true";
+            }
+            return cache_[191];
+        }
+        virtual bool gatt_fix_multiple_direct_connect() override
+        {
+            if( cache_[192] == -1 )
+            {
+                cache_[192] = server_configurable_flags::GetServerConfigurableFlag(
+                    "aconfig_flags.bluetooth",
+                    "com.android.bluetooth.flags.gatt_fix_multiple_direct_connect",
+                    "false" ) == "true";
+            }
+            return cache_[192];
+        }
+        virtual bool l2cap_update_existing_conn_interval_with_base_interval() override
+        {
+            if( cache_[193] == -1 )
+            {
+                cache_[193] = server_configurable_flags::GetServerConfigurableFlag(
+                    "aconfig_flags.bluetooth",
+                    "com.android.bluetooth.flags.l2cap_update_existing_conn_interval_with_base_interval",
+                    "false" ) == "true";
+            }
+            return cache_[193];
+        }
+        virtual bool headtracker_sdu_size() override
+        {
+            if( cache_[194] == -1 )
+            {
+                cache_[194] = server_configurable_flags::GetServerConfigurableFlag(
+                    "aconfig_flags.bluetooth",
+                    "com.android.bluetooth.flags.headtracker_sdu_size",
+                    "false" ) == "true";
+            }
+            return cache_[194];
+        }
     private:
-        std::vector<int8_t> cache_ = std::vector<int8_t>(187, -1);
+        std::vector<int8_t> cache_ = std::vector<int8_t>(195, -1);
     };
 
 std::unique_ptr<flag_provider_interface> provider_ =
@@ -1907,6 +1998,14 @@ bool com_android_bluetooth_flags_a2dp_offload_codec_extensibility() {
 
 bool com_android_bluetooth_flags_a2dp_service_looper() {
     return com::android::bluetooth::flags::a2dp_service_looper();
+}
+
+bool com_android_bluetooth_flags_a2dp_check_lea_iso_channel() {
+    return com::android::bluetooth::flags::a2dp_check_lea_iso_channel();
+}
+
+bool com_android_bluetooth_flags_a2dp_aidl_encoding_interval() {
+    return com::android::bluetooth::flags::a2dp_aidl_encoding_interval();
 }
 
 bool com_android_bluetooth_flags_abs_volume_sdp_conflict() {
@@ -2637,5 +2736,26 @@ bool com_android_bluetooth_flags_vcp_mute_unmute() {
     return com::android::bluetooth::flags::vcp_mute_unmute();
 }
 
+bool com_android_bluetooth_flags_ignore_notify_when_already_connected() {
+    return com::android::bluetooth::flags::ignore_notify_when_already_connected();
+}
 
+bool com_android_bluetooth_flags_asha_encrypted_l2c_coc() {
+    return com::android::bluetooth::flags::asha_encrypted_l2c_coc();
+}
 
+bool com_android_bluetooth_flags_leaudio_broadcast_update_metadata_callback() {
+    return com::android::bluetooth::flags::leaudio_broadcast_update_metadata_callback();
+}
+
+bool com_android_bluetooth_flags_gatt_fix_multiple_direct_connect() {
+    return com::android::bluetooth::flags::gatt_fix_multiple_direct_connect();
+}
+
+bool com_android_bluetooth_flags_l2cap_update_existing_conn_interval_with_base_interval() {
+    return com::android::bluetooth::flags::l2cap_update_existing_conn_interval_with_base_interval();
+}
+
+bool com_android_bluetooth_flags_headtracker_sdu_size() {
+    return com::android::bluetooth::flags::headtracker_sdu_size();
+}

@@ -16,6 +16,8 @@ public:
     virtual bool a2dp_ignore_started_when_responder() = 0;
     virtual bool a2dp_offload_codec_extensibility() = 0;
     virtual bool a2dp_service_looper() = 0;
+    virtual bool a2dp_check_lea_iso_channel() = 0;
+    virtual bool a2dp_aidl_encoding_interval() = 0;
     virtual bool abs_volume_sdp_conflict() = 0;
     virtual bool airplane_mode_x_ble_on() = 0;
     virtual bool allow_switching_hid_and_hogp() = 0;
@@ -198,6 +200,12 @@ public:
     virtual bool use_le_shim_connection_map_guard() = 0;
     virtual bool use_local_oob_extended_command() = 0;
     virtual bool vcp_mute_unmute() = 0;
+    virtual bool ignore_notify_when_already_connected() = 0;
+    virtual bool asha_encrypted_l2c_coc() = 0;
+    virtual bool leaudio_broadcast_update_metadata_callback() = 0;
+    virtual bool gatt_fix_multiple_direct_connect() = 0;
+    virtual bool l2cap_update_existing_conn_interval_with_base_interval() = 0;
+    virtual bool headtracker_sdu_size() = 0;
 };
 
 extern std::unique_ptr<flag_provider_interface> provider_;
@@ -217,6 +225,14 @@ inline bool a2dp_offload_codec_extensibility() {
 }
 inline bool a2dp_service_looper() {
     return provider_->a2dp_service_looper();
+}
+inline bool a2dp_check_lea_iso_channel()
+{
+    return provider_->a2dp_check_lea_iso_channel();
+}
+inline bool a2dp_aidl_encoding_interval()
+{
+    return provider_->a2dp_aidl_encoding_interval();
 }
 inline bool abs_volume_sdp_conflict() {
     return provider_->abs_volume_sdp_conflict();
@@ -764,7 +780,24 @@ inline bool use_local_oob_extended_command() {
 inline bool vcp_mute_unmute() {
     return provider_->vcp_mute_unmute();
 }
-
+inline bool ignore_notify_when_already_connected() {
+    return provider_->ignore_notify_when_already_connected();
+}
+inline bool asha_encrypted_l2c_coc() {
+    return provider_->asha_encrypted_l2c_coc();
+}
+inline bool leaudio_broadcast_update_metadata_callback() {
+    return provider_->leaudio_broadcast_update_metadata_callback();
+}
+inline bool gatt_fix_multiple_direct_connect() {
+    return provider_->gatt_fix_multiple_direct_connect();
+}
+inline bool l2cap_update_existing_conn_interval_with_base_interval(){
+    return provider_->l2cap_update_existing_conn_interval_with_base_interval();
+}
+inline bool headtracker_sdu_size(){
+    return provider_->headtracker_sdu_size();
+}
 }
 
 extern "C" {
@@ -776,6 +809,8 @@ bool com_android_bluetooth_flags_a2dp_concurrent_source_sink();
 bool com_android_bluetooth_flags_a2dp_ignore_started_when_responder();
 bool com_android_bluetooth_flags_a2dp_offload_codec_extensibility();
 bool com_android_bluetooth_flags_a2dp_service_looper();
+bool com_android_bluetooth_flags_a2dp_check_lea_iso_channel();
+bool com_android_bluetooth_flags_a2dp_aidl_encoding_interval();
 bool com_android_bluetooth_flags_abs_volume_sdp_conflict();
 bool com_android_bluetooth_flags_airplane_mode_x_ble_on();
 bool com_android_bluetooth_flags_allow_switching_hid_and_hogp();
@@ -958,7 +993,12 @@ bool com_android_bluetooth_flags_use_entire_message_handle();
 bool com_android_bluetooth_flags_use_le_shim_connection_map_guard();
 bool com_android_bluetooth_flags_use_local_oob_extended_command();
 bool com_android_bluetooth_flags_vcp_mute_unmute();
-
+bool com_android_bluetooth_flags_ignore_notify_when_already_connected();
+bool com_android_bluetooth_flags_asha_encrypted_l2c_coc();
+bool com_android_bluetooth_flags_leaudio_broadcast_update_metadata_callback();
+bool com_android_bluetooth_flags_gatt_fix_multiple_direct_connect();
+bool com_android_bluetooth_flags_l2cap_update_existing_conn_interval_with_base_interval();
+bool com_android_bluetooth_flags_headtracker_sdu_size();
 #ifdef __cplusplus
 } // extern "C"
 #endif

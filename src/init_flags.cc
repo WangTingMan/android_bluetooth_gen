@@ -96,7 +96,7 @@ bool pbap_pse_dynamic_version_upgrade_is_enabled() noexcept {
 }
 
 bool redact_log_is_enabled() noexcept {
-    INVOKE_FOR_FLAG();
+    return false;
 }
 
 bool sco_codec_select_lc3_is_enabled() noexcept {
