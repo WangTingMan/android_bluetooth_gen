@@ -206,6 +206,7 @@ public:
     virtual bool gatt_fix_multiple_direct_connect() = 0;
     virtual bool l2cap_update_existing_conn_interval_with_base_interval() = 0;
     virtual bool headtracker_sdu_size() = 0;
+    virtual bool get_all_element_attributes_empty() = 0;
 };
 
 extern std::unique_ptr<flag_provider_interface> provider_;
@@ -798,6 +799,9 @@ inline bool l2cap_update_existing_conn_interval_with_base_interval(){
 inline bool headtracker_sdu_size(){
     return provider_->headtracker_sdu_size();
 }
+inline bool get_all_element_attributes_empty() {
+    return provider_->get_all_element_attributes_empty();
+}
 }
 
 extern "C" {
@@ -999,6 +1003,7 @@ bool com_android_bluetooth_flags_leaudio_broadcast_update_metadata_callback();
 bool com_android_bluetooth_flags_gatt_fix_multiple_direct_connect();
 bool com_android_bluetooth_flags_l2cap_update_existing_conn_interval_with_base_interval();
 bool com_android_bluetooth_flags_headtracker_sdu_size();
+bool com_android_bluetooth_flags_get_all_element_attributes_empty();
 #ifdef __cplusplus
 } // extern "C"
 #endif

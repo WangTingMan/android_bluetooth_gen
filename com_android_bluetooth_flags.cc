@@ -1971,6 +1971,17 @@ class flag_provider : public flag_provider_interface {
             }
             return cache_[194];
         }
+        virtual bool get_all_element_attributes_empty() override
+        {
+            if (cache_[195] == -1)
+            {
+                cache_[195] = server_configurable_flags::GetServerConfigurableFlag(
+                    "aconfig_flags.bluetooth",
+                    "com.android.bluetooth.flags.get_all_element_attributes_empty",
+                    "false") == "true";
+            }
+            return cache_[195];
+        }
     private:
         std::vector<int8_t> cache_ = std::vector<int8_t>(195, -1);
     };
@@ -2759,3 +2770,9 @@ bool com_android_bluetooth_flags_l2cap_update_existing_conn_interval_with_base_i
 bool com_android_bluetooth_flags_headtracker_sdu_size() {
     return com::android::bluetooth::flags::headtracker_sdu_size();
 }
+
+bool com_android_bluetooth_flags_get_all_element_attributes_empty()
+{
+    return com::android::bluetooth::flags::get_all_element_attributes_empty();
+}
+

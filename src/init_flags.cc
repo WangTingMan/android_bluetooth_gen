@@ -128,7 +128,7 @@ bool subrating_is_enabled() noexcept {
 }
 
 bool use_unified_connection_manager_is_enabled() noexcept {
-    INVOKE_FOR_FLAG();
+    return false;
 }
 
 bool sdp_return_classic_services_when_le_discovery_fails_is_enabled() noexcept {
