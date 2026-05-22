@@ -17,4 +17,50 @@ std::optional<std::int32_t> random_address_rotation_interval_max();
 
 std::optional<bool> allow_enc_with_bredr();
 
+std::optional<std::int32_t> iso_aggressive_connection_threshold();
+
+std::optional<std::int32_t> iso_min_connection_interval();
+
+std::optional<std::int32_t> iso_max_connection_interval();
+
+std::optional<std::int32_t> batch_scan_screen_off_minimum_delay_floor_ms();
+
+std::optional<std::int32_t> batch_scan_unfiltered_delay_floor_ms();
+
+std::optional<std::int32_t> batch_scan_unfiltered_screen_off_delay_floor_ms();
+
+std::optional<std::int32_t> batch_scan_screen_off_delay_ms();
+
+std::optional<std::int32_t> rssi_read_throttle_ms();
+
+std::optional<std::int32_t> subrate_mode_low_min_subrate();
+
+std::optional<std::int32_t> subrate_mode_low_max_subrate();
+
+std::optional<std::int32_t> subrate_mode_low_latency();
+
+std::optional<std::int32_t> subrate_mode_low_cont_number();
+
+std::optional<std::int32_t> subrate_mode_balanced_min_subrate();
+
+std::optional<std::int32_t> subrate_mode_balanced_max_subrate();
+
+std::optional<std::int32_t> subrate_mode_balanced_latency();
+
+std::optional<std::int32_t> subrate_mode_balanced_cont_number();
+
+std::optional<std::int32_t> subrate_mode_high_min_subrate();
+
+std::optional<std::int32_t> subrate_mode_high_max_subrate();
+
+std::optional<std::int32_t> subrate_mode_high_latency();
+
+std::optional<std::int32_t> subrate_mode_high_cont_number();
+
+std::optional<std::int32_t> subrate_le_audio_mode_max_subrate();
+
+std::optional<std::int32_t> subrate_le_audio_mode_min_subrate();
+
+std::optional<std::int32_t> subrate_le_audio_mode_cont_number();
+
 }  // namespace android::sysprop::bluetooth::Ble

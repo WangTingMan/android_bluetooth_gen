@@ -210,4 +210,96 @@ std::optional<bool> allow_enc_with_bredr() {
     return GetProp<std::optional<bool>>("bluetooth.ble.allow_enc_with_bredr");
 }
 
+std::optional<std::int32_t> iso_aggressive_connection_threshold() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.iso_aggressive_connection_threshold");
+}
+
+std::optional<std::int32_t> iso_min_connection_interval() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.iso_min_connection_interval");
+}
+
+std::optional<std::int32_t> iso_max_connection_interval() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.iso_max_connection_interval");
+}
+
+std::optional<std::int32_t> batch_scan_screen_off_minimum_delay_floor_ms() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.batch_scan.screen_off_minimum_delay_floor_ms.config");
+}
+
+std::optional<std::int32_t> batch_scan_unfiltered_delay_floor_ms() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.batch_scan.unfiltered_delay_floor_ms.config");
+}
+
+std::optional<std::int32_t> batch_scan_unfiltered_screen_off_delay_floor_ms() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.batch_scan.unfiltered_screen_off_delay_floor_ms.config");
+}
+
+std::optional<std::int32_t> batch_scan_screen_off_delay_ms() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.batch_scan.screen_off_delay_ms.config");
+}
+
+std::optional<std::int32_t> rssi_read_throttle_ms() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.rssi_read_throttle_ms.config");
+}
+
+std::optional<std::int32_t> subrate_mode_low_min_subrate() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_low_min_subrate.config");
+}
+
+std::optional<std::int32_t> subrate_mode_low_max_subrate() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_low_max_subrate.config");
+}
+
+std::optional<std::int32_t> subrate_mode_low_latency() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_low_latency.config");
+}
+
+std::optional<std::int32_t> subrate_mode_low_cont_number() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_low_cont_number.config");
+}
+
+std::optional<std::int32_t> subrate_mode_balanced_min_subrate() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_balanced_min_subrate.config");
+}
+
+std::optional<std::int32_t> subrate_mode_balanced_max_subrate() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_balanced_max_subrate.config");
+}
+
+std::optional<std::int32_t> subrate_mode_balanced_latency() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_balanced_latency.config");
+}
+
+std::optional<std::int32_t> subrate_mode_balanced_cont_number() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_balanced_cont_number.config");
+}
+
+std::optional<std::int32_t> subrate_mode_high_min_subrate() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_high_min_subrate.config");
+}
+
+std::optional<std::int32_t> subrate_mode_high_max_subrate() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_high_max_subrate.config");
+}
+
+std::optional<std::int32_t> subrate_mode_high_latency() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_high_latency.config");
+}
+
+std::optional<std::int32_t> subrate_mode_high_cont_number() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_mode_high_cont_number.config");
+}
+
+std::optional<std::int32_t> subrate_le_audio_mode_max_subrate() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_le_audio_mode_max_subrate.config");
+}
+
+std::optional<std::int32_t> subrate_le_audio_mode_min_subrate() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_le_audio_mode_min_subrate.config");
+}
+
+std::optional<std::int32_t> subrate_le_audio_mode_cont_number() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.ble.client.subrate_le_audio_mode_cont_number.config");
+}
+
 }  // namespace android::sysprop::bluetooth::Ble

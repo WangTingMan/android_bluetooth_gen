@@ -218,4 +218,12 @@ std::optional<bool> swb_aptx_power_management() {
     return GetProp<std::optional<bool>>("bluetooth.hfp.swb.aptx.power_management.enabled");
 }
 
+std::optional<bool> answer_call_with_video() {
+    return GetProp<std::optional<bool>>("bluetooth.hfp.answer_call_with_video.enabled");
+}
+
+std::optional<bool> send_ringtone_on_dnd() {
+    return GetProp<std::optional<bool>>("bluetooth.hfp.send_ringtone_on_dnd.enabled");
+}
+
 }  // namespace android::sysprop::bluetooth::Hfp
