@@ -5,2418 +5,4267 @@
 
 #include <algorithm>
 #include <cstdint>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
 
+// Must be included last.
+#include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
-
-namespace _pb = ::PROTOBUF_NAMESPACE_ID;
-namespace _pbi = _pb::internal;
-
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace android {
 namespace bluetooth {
 }  // namespace bluetooth
 }  // namespace android
 namespace android {
 namespace bluetooth {
+PROTOBUF_CONSTINIT const uint32_t ConnectionStateEnum_internal_data_[] = {
+    262144u, 0u, };
 bool ConnectionStateEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 3;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    ConnectionStateEnum_strings[4] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> ConnectionStateEnum_strings[4] = {};
+static const char ConnectionStateEnum_names[] = {
+    "CONNECTION_STATE_CONNECTED"
+    "CONNECTION_STATE_CONNECTING"
+    "CONNECTION_STATE_DISCONNECTED"
+    "CONNECTION_STATE_DISCONNECTING"
+};
 
-static const char ConnectionStateEnum_names[] =
-  "CONNECTION_STATE_CONNECTED"
-  "CONNECTION_STATE_CONNECTING"
-  "CONNECTION_STATE_DISCONNECTED"
-  "CONNECTION_STATE_DISCONNECTING";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry ConnectionStateEnum_entries[] = {
-  { {ConnectionStateEnum_names + 0, 26}, 2 },
-  { {ConnectionStateEnum_names + 26, 27}, 1 },
-  { {ConnectionStateEnum_names + 53, 29}, 0 },
-  { {ConnectionStateEnum_names + 82, 30}, 3 },
+static const ::google::protobuf::internal::EnumEntry ConnectionStateEnum_entries[] =
+    {
+        {{&ConnectionStateEnum_names[0], 26}, 2},
+        {{&ConnectionStateEnum_names[26], 27}, 1},
+        {{&ConnectionStateEnum_names[53], 29}, 0},
+        {{&ConnectionStateEnum_names[82], 30}, 3},
 };
 
 static const int ConnectionStateEnum_entries_by_number[] = {
-  2, // 0 -> CONNECTION_STATE_DISCONNECTED
-  1, // 1 -> CONNECTION_STATE_CONNECTING
-  0, // 2 -> CONNECTION_STATE_CONNECTED
-  3, // 3 -> CONNECTION_STATE_DISCONNECTING
+    2,  // 0 -> CONNECTION_STATE_DISCONNECTED
+    1,  // 1 -> CONNECTION_STATE_CONNECTING
+    0,  // 2 -> CONNECTION_STATE_CONNECTED
+    3,  // 3 -> CONNECTION_STATE_DISCONNECTING
 };
 
-const std::string& ConnectionStateEnum_Name(
-    ConnectionStateEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          ConnectionStateEnum_entries,
-          ConnectionStateEnum_entries_by_number,
+const std::string& ConnectionStateEnum_Name(ConnectionStateEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          ConnectionStateEnum_entries, ConnectionStateEnum_entries_by_number,
           4, ConnectionStateEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      ConnectionStateEnum_entries,
-      ConnectionStateEnum_entries_by_number,
-      4, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     ConnectionStateEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      ConnectionStateEnum_entries, ConnectionStateEnum_entries_by_number, 4,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : ConnectionStateEnum_strings[idx].get();
 }
-bool ConnectionStateEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ConnectionStateEnum* value) {
+
+bool ConnectionStateEnum_Parse(absl::string_view name, ConnectionStateEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       ConnectionStateEnum_entries, 4, name, &int_value);
   if (success) {
     *value = static_cast<ConnectionStateEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t EnableDisableReasonEnum_internal_data_[] = {
+    983040u, 0u, };
 bool EnableDisableReasonEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 14;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    EnableDisableReasonEnum_strings[15] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> EnableDisableReasonEnum_strings[13] = {};
+static const char EnableDisableReasonEnum_names[] = {
+    "ENABLE_DISABLE_REASON_AIRPLANE_MODE"
+    "ENABLE_DISABLE_REASON_APPLICATION_DIED"
+    "ENABLE_DISABLE_REASON_APPLICATION_REQUEST"
+    "ENABLE_DISABLE_REASON_AUTO_ON"
+    "ENABLE_DISABLE_REASON_CRASH"
+    "ENABLE_DISABLE_REASON_DISALLOWED"
+    "ENABLE_DISABLE_REASON_FACTORY_RESET"
+    "ENABLE_DISABLE_REASON_INIT_FLAGS_CHANGED"
+    "ENABLE_DISABLE_REASON_RESTARTED"
+    "ENABLE_DISABLE_REASON_RESTORE_USER_SETTING"
+    "ENABLE_DISABLE_REASON_SATELLITE_MODE"
+    "ENABLE_DISABLE_REASON_START_ERROR"
+    "ENABLE_DISABLE_REASON_SYSTEM_BOOT"
+    "ENABLE_DISABLE_REASON_UNSPECIFIED"
+    "ENABLE_DISABLE_REASON_USER_SWITCH"
+};
 
-static const char EnableDisableReasonEnum_names[] =
-  "ENABLE_DISABLE_REASON_AIRPLANE_MODE"
-  "ENABLE_DISABLE_REASON_APPLICATION_REQUEST"
-  "ENABLE_DISABLE_REASON_CRASH"
-  "ENABLE_DISABLE_REASON_DISALLOWED"
-  "ENABLE_DISABLE_REASON_FACTORY_RESET"
-  "ENABLE_DISABLE_REASON_INIT_FLAGS_CHANGED"
-  "ENABLE_DISABLE_REASON_RESTARTED"
-  "ENABLE_DISABLE_REASON_RESTORE_USER_SETTING"
-  "ENABLE_DISABLE_REASON_SATELLITE_MODE"
-  "ENABLE_DISABLE_REASON_START_ERROR"
-  "ENABLE_DISABLE_REASON_SYSTEM_BOOT"
-  "ENABLE_DISABLE_REASON_UNSPECIFIED"
-  "ENABLE_DISABLE_REASON_USER_SWITCH";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry EnableDisableReasonEnum_entries[] = {
-  { {EnableDisableReasonEnum_names + 0, 35}, 2 },
-  { {EnableDisableReasonEnum_names + 35, 41}, 1 },
-  { {EnableDisableReasonEnum_names + 76, 27}, 7 },
-  { {EnableDisableReasonEnum_names + 103, 32}, 3 },
-  { {EnableDisableReasonEnum_names + 135, 35}, 10 },
-  { {EnableDisableReasonEnum_names + 170, 40}, 11 },
-  { {EnableDisableReasonEnum_names + 210, 31}, 4 },
-  { {EnableDisableReasonEnum_names + 241, 42}, 9 },
-  { {EnableDisableReasonEnum_names + 283, 36}, 12 },
-  { {EnableDisableReasonEnum_names + 319, 33}, 5 },
-  { {EnableDisableReasonEnum_names + 352, 33}, 6 },
-  { {EnableDisableReasonEnum_names + 385, 33}, 0 },
-  { {EnableDisableReasonEnum_names + 418, 33}, 8 },
+static const ::google::protobuf::internal::EnumEntry EnableDisableReasonEnum_entries[] =
+    {
+        {{&EnableDisableReasonEnum_names[0], 35}, 2},
+        {{&EnableDisableReasonEnum_names[35], 38}, 13},
+        {{&EnableDisableReasonEnum_names[73], 41}, 1},
+        {{&EnableDisableReasonEnum_names[114], 29}, 14},
+        {{&EnableDisableReasonEnum_names[143], 27}, 7},
+        {{&EnableDisableReasonEnum_names[170], 32}, 3},
+        {{&EnableDisableReasonEnum_names[202], 35}, 10},
+        {{&EnableDisableReasonEnum_names[237], 40}, 11},
+        {{&EnableDisableReasonEnum_names[277], 31}, 4},
+        {{&EnableDisableReasonEnum_names[308], 42}, 9},
+        {{&EnableDisableReasonEnum_names[350], 36}, 12},
+        {{&EnableDisableReasonEnum_names[386], 33}, 5},
+        {{&EnableDisableReasonEnum_names[419], 33}, 6},
+        {{&EnableDisableReasonEnum_names[452], 33}, 0},
+        {{&EnableDisableReasonEnum_names[485], 33}, 8},
 };
 
 static const int EnableDisableReasonEnum_entries_by_number[] = {
-  11, // 0 -> ENABLE_DISABLE_REASON_UNSPECIFIED
-  1, // 1 -> ENABLE_DISABLE_REASON_APPLICATION_REQUEST
-  0, // 2 -> ENABLE_DISABLE_REASON_AIRPLANE_MODE
-  3, // 3 -> ENABLE_DISABLE_REASON_DISALLOWED
-  6, // 4 -> ENABLE_DISABLE_REASON_RESTARTED
-  9, // 5 -> ENABLE_DISABLE_REASON_START_ERROR
-  10, // 6 -> ENABLE_DISABLE_REASON_SYSTEM_BOOT
-  2, // 7 -> ENABLE_DISABLE_REASON_CRASH
-  12, // 8 -> ENABLE_DISABLE_REASON_USER_SWITCH
-  7, // 9 -> ENABLE_DISABLE_REASON_RESTORE_USER_SETTING
-  4, // 10 -> ENABLE_DISABLE_REASON_FACTORY_RESET
-  5, // 11 -> ENABLE_DISABLE_REASON_INIT_FLAGS_CHANGED
-  8, // 12 -> ENABLE_DISABLE_REASON_SATELLITE_MODE
+    13,  // 0 -> ENABLE_DISABLE_REASON_UNSPECIFIED
+    2,  // 1 -> ENABLE_DISABLE_REASON_APPLICATION_REQUEST
+    0,  // 2 -> ENABLE_DISABLE_REASON_AIRPLANE_MODE
+    5,  // 3 -> ENABLE_DISABLE_REASON_DISALLOWED
+    8,  // 4 -> ENABLE_DISABLE_REASON_RESTARTED
+    11,  // 5 -> ENABLE_DISABLE_REASON_START_ERROR
+    12,  // 6 -> ENABLE_DISABLE_REASON_SYSTEM_BOOT
+    4,  // 7 -> ENABLE_DISABLE_REASON_CRASH
+    14,  // 8 -> ENABLE_DISABLE_REASON_USER_SWITCH
+    9,  // 9 -> ENABLE_DISABLE_REASON_RESTORE_USER_SETTING
+    6,  // 10 -> ENABLE_DISABLE_REASON_FACTORY_RESET
+    7,  // 11 -> ENABLE_DISABLE_REASON_INIT_FLAGS_CHANGED
+    10,  // 12 -> ENABLE_DISABLE_REASON_SATELLITE_MODE
+    1,  // 13 -> ENABLE_DISABLE_REASON_APPLICATION_DIED
+    3,  // 14 -> ENABLE_DISABLE_REASON_AUTO_ON
 };
 
-const std::string& EnableDisableReasonEnum_Name(
-    EnableDisableReasonEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          EnableDisableReasonEnum_entries,
-          EnableDisableReasonEnum_entries_by_number,
-          13, EnableDisableReasonEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      EnableDisableReasonEnum_entries,
-      EnableDisableReasonEnum_entries_by_number,
-      13, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     EnableDisableReasonEnum_strings[idx].get();
+const std::string& EnableDisableReasonEnum_Name(EnableDisableReasonEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          EnableDisableReasonEnum_entries, EnableDisableReasonEnum_entries_by_number,
+          15, EnableDisableReasonEnum_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      EnableDisableReasonEnum_entries, EnableDisableReasonEnum_entries_by_number, 15,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : EnableDisableReasonEnum_strings[idx].get();
 }
-bool EnableDisableReasonEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EnableDisableReasonEnum* value) {
+
+bool EnableDisableReasonEnum_Parse(absl::string_view name, EnableDisableReasonEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
-      EnableDisableReasonEnum_entries, 13, name, &int_value);
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      EnableDisableReasonEnum_entries, 15, name, &int_value);
   if (success) {
     *value = static_cast<EnableDisableReasonEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t DirectionEnum_internal_data_[] = {
+    196608u, 0u, };
 bool DirectionEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 2;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    DirectionEnum_strings[3] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> DirectionEnum_strings[3] = {};
+static const char DirectionEnum_names[] = {
+    "DIRECTION_INCOMING"
+    "DIRECTION_OUTGOING"
+    "DIRECTION_UNKNOWN"
+};
 
-static const char DirectionEnum_names[] =
-  "DIRECTION_INCOMING"
-  "DIRECTION_OUTGOING"
-  "DIRECTION_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry DirectionEnum_entries[] = {
-  { {DirectionEnum_names + 0, 18}, 2 },
-  { {DirectionEnum_names + 18, 18}, 1 },
-  { {DirectionEnum_names + 36, 17}, 0 },
+static const ::google::protobuf::internal::EnumEntry DirectionEnum_entries[] =
+    {
+        {{&DirectionEnum_names[0], 18}, 2},
+        {{&DirectionEnum_names[18], 18}, 1},
+        {{&DirectionEnum_names[36], 17}, 0},
 };
 
 static const int DirectionEnum_entries_by_number[] = {
-  2, // 0 -> DIRECTION_UNKNOWN
-  1, // 1 -> DIRECTION_OUTGOING
-  0, // 2 -> DIRECTION_INCOMING
+    2,  // 0 -> DIRECTION_UNKNOWN
+    1,  // 1 -> DIRECTION_OUTGOING
+    0,  // 2 -> DIRECTION_INCOMING
 };
 
-const std::string& DirectionEnum_Name(
-    DirectionEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          DirectionEnum_entries,
-          DirectionEnum_entries_by_number,
+const std::string& DirectionEnum_Name(DirectionEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          DirectionEnum_entries, DirectionEnum_entries_by_number,
           3, DirectionEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      DirectionEnum_entries,
-      DirectionEnum_entries_by_number,
-      3, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     DirectionEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      DirectionEnum_entries, DirectionEnum_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : DirectionEnum_strings[idx].get();
 }
-bool DirectionEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DirectionEnum* value) {
+
+bool DirectionEnum_Parse(absl::string_view name, DirectionEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       DirectionEnum_entries, 3, name, &int_value);
   if (success) {
     *value = static_cast<DirectionEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t LinkTypeEnum_internal_data_[] = {
+    196608u, 65536u, 4095u, };
 bool LinkTypeEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 4095:
-      return true;
-    default:
-      return false;
-  }
+  return ::_pbi::ValidateEnum(value, LinkTypeEnum_internal_data_);
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    LinkTypeEnum_strings[4] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> LinkTypeEnum_strings[4] = {};
+static const char LinkTypeEnum_names[] = {
+    "LINK_TYPE_ACL"
+    "LINK_TYPE_ESCO"
+    "LINK_TYPE_SCO"
+    "LINK_TYPE_UNKNOWN"
+};
 
-static const char LinkTypeEnum_names[] =
-  "LINK_TYPE_ACL"
-  "LINK_TYPE_ESCO"
-  "LINK_TYPE_SCO"
-  "LINK_TYPE_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry LinkTypeEnum_entries[] = {
-  { {LinkTypeEnum_names + 0, 13}, 1 },
-  { {LinkTypeEnum_names + 13, 14}, 2 },
-  { {LinkTypeEnum_names + 27, 13}, 0 },
-  { {LinkTypeEnum_names + 40, 17}, 4095 },
+static const ::google::protobuf::internal::EnumEntry LinkTypeEnum_entries[] =
+    {
+        {{&LinkTypeEnum_names[0], 13}, 1},
+        {{&LinkTypeEnum_names[13], 14}, 2},
+        {{&LinkTypeEnum_names[27], 13}, 0},
+        {{&LinkTypeEnum_names[40], 17}, 4095},
 };
 
 static const int LinkTypeEnum_entries_by_number[] = {
-  2, // 0 -> LINK_TYPE_SCO
-  0, // 1 -> LINK_TYPE_ACL
-  1, // 2 -> LINK_TYPE_ESCO
-  3, // 4095 -> LINK_TYPE_UNKNOWN
+    2,  // 0 -> LINK_TYPE_SCO
+    0,  // 1 -> LINK_TYPE_ACL
+    1,  // 2 -> LINK_TYPE_ESCO
+    3,  // 4095 -> LINK_TYPE_UNKNOWN
 };
 
-const std::string& LinkTypeEnum_Name(
-    LinkTypeEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          LinkTypeEnum_entries,
-          LinkTypeEnum_entries_by_number,
+const std::string& LinkTypeEnum_Name(LinkTypeEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          LinkTypeEnum_entries, LinkTypeEnum_entries_by_number,
           4, LinkTypeEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      LinkTypeEnum_entries,
-      LinkTypeEnum_entries_by_number,
-      4, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     LinkTypeEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      LinkTypeEnum_entries, LinkTypeEnum_entries_by_number, 4,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : LinkTypeEnum_strings[idx].get();
 }
-bool LinkTypeEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, LinkTypeEnum* value) {
+
+bool LinkTypeEnum_Parse(absl::string_view name, LinkTypeEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       LinkTypeEnum_entries, 4, name, &int_value);
   if (success) {
     *value = static_cast<LinkTypeEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t DeviceInfoSrcEnum_internal_data_[] = {
+    196608u, 0u, };
 bool DeviceInfoSrcEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 2;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    DeviceInfoSrcEnum_strings[3] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> DeviceInfoSrcEnum_strings[3] = {};
+static const char DeviceInfoSrcEnum_names[] = {
+    "DEVICE_INFO_EXTERNAL"
+    "DEVICE_INFO_INTERNAL"
+    "DEVICE_INFO_SRC_UNKNOWN"
+};
 
-static const char DeviceInfoSrcEnum_names[] =
-  "DEVICE_INFO_EXTERNAL"
-  "DEVICE_INFO_INTERNAL"
-  "DEVICE_INFO_SRC_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry DeviceInfoSrcEnum_entries[] = {
-  { {DeviceInfoSrcEnum_names + 0, 20}, 2 },
-  { {DeviceInfoSrcEnum_names + 20, 20}, 1 },
-  { {DeviceInfoSrcEnum_names + 40, 23}, 0 },
+static const ::google::protobuf::internal::EnumEntry DeviceInfoSrcEnum_entries[] =
+    {
+        {{&DeviceInfoSrcEnum_names[0], 20}, 2},
+        {{&DeviceInfoSrcEnum_names[20], 20}, 1},
+        {{&DeviceInfoSrcEnum_names[40], 23}, 0},
 };
 
 static const int DeviceInfoSrcEnum_entries_by_number[] = {
-  2, // 0 -> DEVICE_INFO_SRC_UNKNOWN
-  1, // 1 -> DEVICE_INFO_INTERNAL
-  0, // 2 -> DEVICE_INFO_EXTERNAL
+    2,  // 0 -> DEVICE_INFO_SRC_UNKNOWN
+    1,  // 1 -> DEVICE_INFO_INTERNAL
+    0,  // 2 -> DEVICE_INFO_EXTERNAL
 };
 
-const std::string& DeviceInfoSrcEnum_Name(
-    DeviceInfoSrcEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          DeviceInfoSrcEnum_entries,
-          DeviceInfoSrcEnum_entries_by_number,
+const std::string& DeviceInfoSrcEnum_Name(DeviceInfoSrcEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          DeviceInfoSrcEnum_entries, DeviceInfoSrcEnum_entries_by_number,
           3, DeviceInfoSrcEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      DeviceInfoSrcEnum_entries,
-      DeviceInfoSrcEnum_entries_by_number,
-      3, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     DeviceInfoSrcEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      DeviceInfoSrcEnum_entries, DeviceInfoSrcEnum_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : DeviceInfoSrcEnum_strings[idx].get();
 }
-bool DeviceInfoSrcEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DeviceInfoSrcEnum* value) {
+
+bool DeviceInfoSrcEnum_Parse(absl::string_view name, DeviceInfoSrcEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       DeviceInfoSrcEnum_entries, 3, name, &int_value);
   if (success) {
     *value = static_cast<DeviceInfoSrcEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t DeviceTypeEnum_internal_data_[] = {
+    262144u, 0u, };
 bool DeviceTypeEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 3;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    DeviceTypeEnum_strings[4] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> DeviceTypeEnum_strings[4] = {};
+static const char DeviceTypeEnum_names[] = {
+    "DEVICE_TYPE_CLASSIC"
+    "DEVICE_TYPE_DUAL"
+    "DEVICE_TYPE_LE"
+    "DEVICE_TYPE_UNKNOWN"
+};
 
-static const char DeviceTypeEnum_names[] =
-  "DEVICE_TYPE_CLASSIC"
-  "DEVICE_TYPE_DUAL"
-  "DEVICE_TYPE_LE"
-  "DEVICE_TYPE_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry DeviceTypeEnum_entries[] = {
-  { {DeviceTypeEnum_names + 0, 19}, 1 },
-  { {DeviceTypeEnum_names + 19, 16}, 3 },
-  { {DeviceTypeEnum_names + 35, 14}, 2 },
-  { {DeviceTypeEnum_names + 49, 19}, 0 },
+static const ::google::protobuf::internal::EnumEntry DeviceTypeEnum_entries[] =
+    {
+        {{&DeviceTypeEnum_names[0], 19}, 1},
+        {{&DeviceTypeEnum_names[19], 16}, 3},
+        {{&DeviceTypeEnum_names[35], 14}, 2},
+        {{&DeviceTypeEnum_names[49], 19}, 0},
 };
 
 static const int DeviceTypeEnum_entries_by_number[] = {
-  3, // 0 -> DEVICE_TYPE_UNKNOWN
-  0, // 1 -> DEVICE_TYPE_CLASSIC
-  2, // 2 -> DEVICE_TYPE_LE
-  1, // 3 -> DEVICE_TYPE_DUAL
+    3,  // 0 -> DEVICE_TYPE_UNKNOWN
+    0,  // 1 -> DEVICE_TYPE_CLASSIC
+    2,  // 2 -> DEVICE_TYPE_LE
+    1,  // 3 -> DEVICE_TYPE_DUAL
 };
 
-const std::string& DeviceTypeEnum_Name(
-    DeviceTypeEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          DeviceTypeEnum_entries,
-          DeviceTypeEnum_entries_by_number,
+const std::string& DeviceTypeEnum_Name(DeviceTypeEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          DeviceTypeEnum_entries, DeviceTypeEnum_entries_by_number,
           4, DeviceTypeEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      DeviceTypeEnum_entries,
-      DeviceTypeEnum_entries_by_number,
-      4, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     DeviceTypeEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      DeviceTypeEnum_entries, DeviceTypeEnum_entries_by_number, 4,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : DeviceTypeEnum_strings[idx].get();
 }
-bool DeviceTypeEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DeviceTypeEnum* value) {
+
+bool DeviceTypeEnum_Parse(absl::string_view name, DeviceTypeEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       DeviceTypeEnum_entries, 4, name, &int_value);
   if (success) {
     *value = static_cast<DeviceTypeEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t TransportTypeEnum_internal_data_[] = {
+    196608u, 0u, };
 bool TransportTypeEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 2;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    TransportTypeEnum_strings[3] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> TransportTypeEnum_strings[3] = {};
+static const char TransportTypeEnum_names[] = {
+    "TRANSPORT_TYPE_AUTO"
+    "TRANSPORT_TYPE_BREDR"
+    "TRANSPORT_TYPE_LE"
+};
 
-static const char TransportTypeEnum_names[] =
-  "TRANSPORT_TYPE_AUTO"
-  "TRANSPORT_TYPE_BREDR"
-  "TRANSPORT_TYPE_LE";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry TransportTypeEnum_entries[] = {
-  { {TransportTypeEnum_names + 0, 19}, 0 },
-  { {TransportTypeEnum_names + 19, 20}, 1 },
-  { {TransportTypeEnum_names + 39, 17}, 2 },
+static const ::google::protobuf::internal::EnumEntry TransportTypeEnum_entries[] =
+    {
+        {{&TransportTypeEnum_names[0], 19}, 0},
+        {{&TransportTypeEnum_names[19], 20}, 1},
+        {{&TransportTypeEnum_names[39], 17}, 2},
 };
 
 static const int TransportTypeEnum_entries_by_number[] = {
-  0, // 0 -> TRANSPORT_TYPE_AUTO
-  1, // 1 -> TRANSPORT_TYPE_BREDR
-  2, // 2 -> TRANSPORT_TYPE_LE
+    0,  // 0 -> TRANSPORT_TYPE_AUTO
+    1,  // 1 -> TRANSPORT_TYPE_BREDR
+    2,  // 2 -> TRANSPORT_TYPE_LE
 };
 
-const std::string& TransportTypeEnum_Name(
-    TransportTypeEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          TransportTypeEnum_entries,
-          TransportTypeEnum_entries_by_number,
+const std::string& TransportTypeEnum_Name(TransportTypeEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          TransportTypeEnum_entries, TransportTypeEnum_entries_by_number,
           3, TransportTypeEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      TransportTypeEnum_entries,
-      TransportTypeEnum_entries_by_number,
-      3, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     TransportTypeEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      TransportTypeEnum_entries, TransportTypeEnum_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : TransportTypeEnum_strings[idx].get();
 }
-bool TransportTypeEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, TransportTypeEnum* value) {
+
+bool TransportTypeEnum_Parse(absl::string_view name, TransportTypeEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       TransportTypeEnum_entries, 3, name, &int_value);
   if (success) {
     *value = static_cast<TransportTypeEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t BondStateEnum_internal_data_[] = {
+    65536u, 32u, 3584u, };
 bool BondStateEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 10:
-    case 11:
-    case 12:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 12 && ((7169u >> value) & 1) != 0;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BondStateEnum_strings[4] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> BondStateEnum_strings[4] = {};
+static const char BondStateEnum_names[] = {
+    "BOND_STATE_BONDED"
+    "BOND_STATE_BONDING"
+    "BOND_STATE_NONE"
+    "BOND_STATE_UNKNOWN"
+};
 
-static const char BondStateEnum_names[] =
-  "BOND_STATE_BONDED"
-  "BOND_STATE_BONDING"
-  "BOND_STATE_NONE"
-  "BOND_STATE_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry BondStateEnum_entries[] = {
-  { {BondStateEnum_names + 0, 17}, 12 },
-  { {BondStateEnum_names + 17, 18}, 11 },
-  { {BondStateEnum_names + 35, 15}, 10 },
-  { {BondStateEnum_names + 50, 18}, 0 },
+static const ::google::protobuf::internal::EnumEntry BondStateEnum_entries[] =
+    {
+        {{&BondStateEnum_names[0], 17}, 12},
+        {{&BondStateEnum_names[17], 18}, 11},
+        {{&BondStateEnum_names[35], 15}, 10},
+        {{&BondStateEnum_names[50], 18}, 0},
 };
 
 static const int BondStateEnum_entries_by_number[] = {
-  3, // 0 -> BOND_STATE_UNKNOWN
-  2, // 10 -> BOND_STATE_NONE
-  1, // 11 -> BOND_STATE_BONDING
-  0, // 12 -> BOND_STATE_BONDED
+    3,  // 0 -> BOND_STATE_UNKNOWN
+    2,  // 10 -> BOND_STATE_NONE
+    1,  // 11 -> BOND_STATE_BONDING
+    0,  // 12 -> BOND_STATE_BONDED
 };
 
-const std::string& BondStateEnum_Name(
-    BondStateEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          BondStateEnum_entries,
-          BondStateEnum_entries_by_number,
+const std::string& BondStateEnum_Name(BondStateEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BondStateEnum_entries, BondStateEnum_entries_by_number,
           4, BondStateEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      BondStateEnum_entries,
-      BondStateEnum_entries_by_number,
-      4, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     BondStateEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BondStateEnum_entries, BondStateEnum_entries_by_number, 4,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BondStateEnum_strings[idx].get();
 }
-bool BondStateEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, BondStateEnum* value) {
+
+bool BondStateEnum_Parse(absl::string_view name, BondStateEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       BondStateEnum_entries, 4, name, &int_value);
   if (success) {
     *value = static_cast<BondStateEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t BondSubStateEnum_internal_data_[] = {
+    589824u, 0u, };
 bool BondSubStateEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 8;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BondSubStateEnum_strings[9] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> BondSubStateEnum_strings[9] = {};
+static const char BondSubStateEnum_names[] = {
+    "BOND_SUB_STATE_LOCAL_BOND_STATE_INTENT_SENT"
+    "BOND_SUB_STATE_LOCAL_OOB_DATA_PROVIDED"
+    "BOND_SUB_STATE_LOCAL_PIN_REPLIED"
+    "BOND_SUB_STATE_LOCAL_PIN_REQUESTED"
+    "BOND_SUB_STATE_LOCAL_SSP_REPLIED"
+    "BOND_SUB_STATE_LOCAL_SSP_REQUESTED"
+    "BOND_SUB_STATE_LOCAL_START_PAIRING"
+    "BOND_SUB_STATE_LOCAL_START_PAIRING_OOB"
+    "BOND_SUB_STATE_UNKNOWN"
+};
 
-static const char BondSubStateEnum_names[] =
-  "BOND_SUB_STATE_LOCAL_BOND_STATE_INTENT_SENT"
-  "BOND_SUB_STATE_LOCAL_OOB_DATA_PROVIDED"
-  "BOND_SUB_STATE_LOCAL_PIN_REPLIED"
-  "BOND_SUB_STATE_LOCAL_PIN_REQUESTED"
-  "BOND_SUB_STATE_LOCAL_SSP_REPLIED"
-  "BOND_SUB_STATE_LOCAL_SSP_REQUESTED"
-  "BOND_SUB_STATE_LOCAL_START_PAIRING"
-  "BOND_SUB_STATE_LOCAL_START_PAIRING_OOB"
-  "BOND_SUB_STATE_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry BondSubStateEnum_entries[] = {
-  { {BondSubStateEnum_names + 0, 43}, 6 },
-  { {BondSubStateEnum_names + 43, 38}, 1 },
-  { {BondSubStateEnum_names + 81, 32}, 3 },
-  { {BondSubStateEnum_names + 113, 34}, 2 },
-  { {BondSubStateEnum_names + 147, 32}, 5 },
-  { {BondSubStateEnum_names + 179, 34}, 4 },
-  { {BondSubStateEnum_names + 213, 34}, 7 },
-  { {BondSubStateEnum_names + 247, 38}, 8 },
-  { {BondSubStateEnum_names + 285, 22}, 0 },
+static const ::google::protobuf::internal::EnumEntry BondSubStateEnum_entries[] =
+    {
+        {{&BondSubStateEnum_names[0], 43}, 6},
+        {{&BondSubStateEnum_names[43], 38}, 1},
+        {{&BondSubStateEnum_names[81], 32}, 3},
+        {{&BondSubStateEnum_names[113], 34}, 2},
+        {{&BondSubStateEnum_names[147], 32}, 5},
+        {{&BondSubStateEnum_names[179], 34}, 4},
+        {{&BondSubStateEnum_names[213], 34}, 7},
+        {{&BondSubStateEnum_names[247], 38}, 8},
+        {{&BondSubStateEnum_names[285], 22}, 0},
 };
 
 static const int BondSubStateEnum_entries_by_number[] = {
-  8, // 0 -> BOND_SUB_STATE_UNKNOWN
-  1, // 1 -> BOND_SUB_STATE_LOCAL_OOB_DATA_PROVIDED
-  3, // 2 -> BOND_SUB_STATE_LOCAL_PIN_REQUESTED
-  2, // 3 -> BOND_SUB_STATE_LOCAL_PIN_REPLIED
-  5, // 4 -> BOND_SUB_STATE_LOCAL_SSP_REQUESTED
-  4, // 5 -> BOND_SUB_STATE_LOCAL_SSP_REPLIED
-  0, // 6 -> BOND_SUB_STATE_LOCAL_BOND_STATE_INTENT_SENT
-  6, // 7 -> BOND_SUB_STATE_LOCAL_START_PAIRING
-  7, // 8 -> BOND_SUB_STATE_LOCAL_START_PAIRING_OOB
+    8,  // 0 -> BOND_SUB_STATE_UNKNOWN
+    1,  // 1 -> BOND_SUB_STATE_LOCAL_OOB_DATA_PROVIDED
+    3,  // 2 -> BOND_SUB_STATE_LOCAL_PIN_REQUESTED
+    2,  // 3 -> BOND_SUB_STATE_LOCAL_PIN_REPLIED
+    5,  // 4 -> BOND_SUB_STATE_LOCAL_SSP_REQUESTED
+    4,  // 5 -> BOND_SUB_STATE_LOCAL_SSP_REPLIED
+    0,  // 6 -> BOND_SUB_STATE_LOCAL_BOND_STATE_INTENT_SENT
+    6,  // 7 -> BOND_SUB_STATE_LOCAL_START_PAIRING
+    7,  // 8 -> BOND_SUB_STATE_LOCAL_START_PAIRING_OOB
 };
 
-const std::string& BondSubStateEnum_Name(
-    BondSubStateEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          BondSubStateEnum_entries,
-          BondSubStateEnum_entries_by_number,
+const std::string& BondSubStateEnum_Name(BondSubStateEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BondSubStateEnum_entries, BondSubStateEnum_entries_by_number,
           9, BondSubStateEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      BondSubStateEnum_entries,
-      BondSubStateEnum_entries_by_number,
-      9, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     BondSubStateEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BondSubStateEnum_entries, BondSubStateEnum_entries_by_number, 9,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BondSubStateEnum_strings[idx].get();
 }
-bool BondSubStateEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, BondSubStateEnum* value) {
+
+bool BondSubStateEnum_Parse(absl::string_view name, BondSubStateEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       BondSubStateEnum_entries, 9, name, &int_value);
   if (success) {
     *value = static_cast<BondSubStateEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t UnbondReasonEnum_internal_data_[] = {
+    655360u, 0u, };
 bool UnbondReasonEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 9;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    UnbondReasonEnum_strings[10] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> UnbondReasonEnum_strings[10] = {};
+static const char UnbondReasonEnum_names[] = {
+    "UNBOND_REASON_AUTH_CANCELED"
+    "UNBOND_REASON_AUTH_FAILED"
+    "UNBOND_REASON_AUTH_REJECTED"
+    "UNBOND_REASON_AUTH_TIMEOUT"
+    "UNBOND_REASON_DISCOVERY_IN_PROGRESS"
+    "UNBOND_REASON_REMOTE_AUTH_CANCELED"
+    "UNBOND_REASON_REMOTE_DEVICE_DOWN"
+    "UNBOND_REASON_REMOVED"
+    "UNBOND_REASON_REPEATED_ATTEMPTS"
+    "UNBOND_REASON_UNKNOWN"
+};
 
-static const char UnbondReasonEnum_names[] =
-  "UNBOND_REASON_AUTH_CANCELED"
-  "UNBOND_REASON_AUTH_FAILED"
-  "UNBOND_REASON_AUTH_REJECTED"
-  "UNBOND_REASON_AUTH_TIMEOUT"
-  "UNBOND_REASON_DISCOVERY_IN_PROGRESS"
-  "UNBOND_REASON_REMOTE_AUTH_CANCELED"
-  "UNBOND_REASON_REMOTE_DEVICE_DOWN"
-  "UNBOND_REASON_REMOVED"
-  "UNBOND_REASON_REPEATED_ATTEMPTS"
-  "UNBOND_REASON_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry UnbondReasonEnum_entries[] = {
-  { {UnbondReasonEnum_names + 0, 27}, 3 },
-  { {UnbondReasonEnum_names + 27, 25}, 1 },
-  { {UnbondReasonEnum_names + 52, 27}, 2 },
-  { {UnbondReasonEnum_names + 79, 26}, 6 },
-  { {UnbondReasonEnum_names + 105, 35}, 5 },
-  { {UnbondReasonEnum_names + 140, 34}, 8 },
-  { {UnbondReasonEnum_names + 174, 32}, 4 },
-  { {UnbondReasonEnum_names + 206, 21}, 9 },
-  { {UnbondReasonEnum_names + 227, 31}, 7 },
-  { {UnbondReasonEnum_names + 258, 21}, 0 },
+static const ::google::protobuf::internal::EnumEntry UnbondReasonEnum_entries[] =
+    {
+        {{&UnbondReasonEnum_names[0], 27}, 3},
+        {{&UnbondReasonEnum_names[27], 25}, 1},
+        {{&UnbondReasonEnum_names[52], 27}, 2},
+        {{&UnbondReasonEnum_names[79], 26}, 6},
+        {{&UnbondReasonEnum_names[105], 35}, 5},
+        {{&UnbondReasonEnum_names[140], 34}, 8},
+        {{&UnbondReasonEnum_names[174], 32}, 4},
+        {{&UnbondReasonEnum_names[206], 21}, 9},
+        {{&UnbondReasonEnum_names[227], 31}, 7},
+        {{&UnbondReasonEnum_names[258], 21}, 0},
 };
 
 static const int UnbondReasonEnum_entries_by_number[] = {
-  9, // 0 -> UNBOND_REASON_UNKNOWN
-  1, // 1 -> UNBOND_REASON_AUTH_FAILED
-  2, // 2 -> UNBOND_REASON_AUTH_REJECTED
-  0, // 3 -> UNBOND_REASON_AUTH_CANCELED
-  6, // 4 -> UNBOND_REASON_REMOTE_DEVICE_DOWN
-  4, // 5 -> UNBOND_REASON_DISCOVERY_IN_PROGRESS
-  3, // 6 -> UNBOND_REASON_AUTH_TIMEOUT
-  8, // 7 -> UNBOND_REASON_REPEATED_ATTEMPTS
-  5, // 8 -> UNBOND_REASON_REMOTE_AUTH_CANCELED
-  7, // 9 -> UNBOND_REASON_REMOVED
+    9,  // 0 -> UNBOND_REASON_UNKNOWN
+    1,  // 1 -> UNBOND_REASON_AUTH_FAILED
+    2,  // 2 -> UNBOND_REASON_AUTH_REJECTED
+    0,  // 3 -> UNBOND_REASON_AUTH_CANCELED
+    6,  // 4 -> UNBOND_REASON_REMOTE_DEVICE_DOWN
+    4,  // 5 -> UNBOND_REASON_DISCOVERY_IN_PROGRESS
+    3,  // 6 -> UNBOND_REASON_AUTH_TIMEOUT
+    8,  // 7 -> UNBOND_REASON_REPEATED_ATTEMPTS
+    5,  // 8 -> UNBOND_REASON_REMOTE_AUTH_CANCELED
+    7,  // 9 -> UNBOND_REASON_REMOVED
 };
 
-const std::string& UnbondReasonEnum_Name(
-    UnbondReasonEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          UnbondReasonEnum_entries,
-          UnbondReasonEnum_entries_by_number,
+const std::string& UnbondReasonEnum_Name(UnbondReasonEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          UnbondReasonEnum_entries, UnbondReasonEnum_entries_by_number,
           10, UnbondReasonEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      UnbondReasonEnum_entries,
-      UnbondReasonEnum_entries_by_number,
-      10, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     UnbondReasonEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      UnbondReasonEnum_entries, UnbondReasonEnum_entries_by_number, 10,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : UnbondReasonEnum_strings[idx].get();
 }
-bool UnbondReasonEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, UnbondReasonEnum* value) {
+
+bool UnbondReasonEnum_Parse(absl::string_view name, UnbondReasonEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       UnbondReasonEnum_entries, 10, name, &int_value);
   if (success) {
     *value = static_cast<UnbondReasonEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t SocketTypeEnum_internal_data_[] = {
+    327680u, 0u, };
 bool SocketTypeEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 4;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    SocketTypeEnum_strings[5] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> SocketTypeEnum_strings[5] = {};
+static const char SocketTypeEnum_names[] = {
+    "SOCKET_TYPE_L2CAP_BREDR"
+    "SOCKET_TYPE_L2CAP_LE"
+    "SOCKET_TYPE_RFCOMM"
+    "SOCKET_TYPE_SCO"
+    "SOCKET_TYPE_UNKNOWN"
+};
 
-static const char SocketTypeEnum_names[] =
-  "SOCKET_TYPE_L2CAP_BREDR"
-  "SOCKET_TYPE_L2CAP_LE"
-  "SOCKET_TYPE_RFCOMM"
-  "SOCKET_TYPE_SCO"
-  "SOCKET_TYPE_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry SocketTypeEnum_entries[] = {
-  { {SocketTypeEnum_names + 0, 23}, 3 },
-  { {SocketTypeEnum_names + 23, 20}, 4 },
-  { {SocketTypeEnum_names + 43, 18}, 1 },
-  { {SocketTypeEnum_names + 61, 15}, 2 },
-  { {SocketTypeEnum_names + 76, 19}, 0 },
+static const ::google::protobuf::internal::EnumEntry SocketTypeEnum_entries[] =
+    {
+        {{&SocketTypeEnum_names[0], 23}, 3},
+        {{&SocketTypeEnum_names[23], 20}, 4},
+        {{&SocketTypeEnum_names[43], 18}, 1},
+        {{&SocketTypeEnum_names[61], 15}, 2},
+        {{&SocketTypeEnum_names[76], 19}, 0},
 };
 
 static const int SocketTypeEnum_entries_by_number[] = {
-  4, // 0 -> SOCKET_TYPE_UNKNOWN
-  2, // 1 -> SOCKET_TYPE_RFCOMM
-  3, // 2 -> SOCKET_TYPE_SCO
-  0, // 3 -> SOCKET_TYPE_L2CAP_BREDR
-  1, // 4 -> SOCKET_TYPE_L2CAP_LE
+    4,  // 0 -> SOCKET_TYPE_UNKNOWN
+    2,  // 1 -> SOCKET_TYPE_RFCOMM
+    3,  // 2 -> SOCKET_TYPE_SCO
+    0,  // 3 -> SOCKET_TYPE_L2CAP_BREDR
+    1,  // 4 -> SOCKET_TYPE_L2CAP_LE
 };
 
-const std::string& SocketTypeEnum_Name(
-    SocketTypeEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          SocketTypeEnum_entries,
-          SocketTypeEnum_entries_by_number,
+const std::string& SocketTypeEnum_Name(SocketTypeEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          SocketTypeEnum_entries, SocketTypeEnum_entries_by_number,
           5, SocketTypeEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      SocketTypeEnum_entries,
-      SocketTypeEnum_entries_by_number,
-      5, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     SocketTypeEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      SocketTypeEnum_entries, SocketTypeEnum_entries_by_number, 5,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : SocketTypeEnum_strings[idx].get();
 }
-bool SocketTypeEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SocketTypeEnum* value) {
+
+bool SocketTypeEnum_Parse(absl::string_view name, SocketTypeEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       SocketTypeEnum_entries, 5, name, &int_value);
   if (success) {
     *value = static_cast<SocketTypeEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t SocketConnectionstateEnum_internal_data_[] = {
+    393216u, 0u, };
 bool SocketConnectionstateEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 5;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    SocketConnectionstateEnum_strings[6] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> SocketConnectionstateEnum_strings[6] = {};
+static const char SocketConnectionstateEnum_names[] = {
+    "SOCKET_CONNECTION_STATE_CONNECTED"
+    "SOCKET_CONNECTION_STATE_CONNECTING"
+    "SOCKET_CONNECTION_STATE_DISCONNECTED"
+    "SOCKET_CONNECTION_STATE_DISCONNECTING"
+    "SOCKET_CONNECTION_STATE_LISTENING"
+    "SOCKET_CONNECTION_STATE_UNKNOWN"
+};
 
-static const char SocketConnectionstateEnum_names[] =
-  "SOCKET_CONNECTION_STATE_CONNECTED"
-  "SOCKET_CONNECTION_STATE_CONNECTING"
-  "SOCKET_CONNECTION_STATE_DISCONNECTED"
-  "SOCKET_CONNECTION_STATE_DISCONNECTING"
-  "SOCKET_CONNECTION_STATE_LISTENING"
-  "SOCKET_CONNECTION_STATE_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry SocketConnectionstateEnum_entries[] = {
-  { {SocketConnectionstateEnum_names + 0, 33}, 3 },
-  { {SocketConnectionstateEnum_names + 33, 34}, 2 },
-  { {SocketConnectionstateEnum_names + 67, 36}, 5 },
-  { {SocketConnectionstateEnum_names + 103, 37}, 4 },
-  { {SocketConnectionstateEnum_names + 140, 33}, 1 },
-  { {SocketConnectionstateEnum_names + 173, 31}, 0 },
+static const ::google::protobuf::internal::EnumEntry SocketConnectionstateEnum_entries[] =
+    {
+        {{&SocketConnectionstateEnum_names[0], 33}, 3},
+        {{&SocketConnectionstateEnum_names[33], 34}, 2},
+        {{&SocketConnectionstateEnum_names[67], 36}, 5},
+        {{&SocketConnectionstateEnum_names[103], 37}, 4},
+        {{&SocketConnectionstateEnum_names[140], 33}, 1},
+        {{&SocketConnectionstateEnum_names[173], 31}, 0},
 };
 
 static const int SocketConnectionstateEnum_entries_by_number[] = {
-  5, // 0 -> SOCKET_CONNECTION_STATE_UNKNOWN
-  4, // 1 -> SOCKET_CONNECTION_STATE_LISTENING
-  1, // 2 -> SOCKET_CONNECTION_STATE_CONNECTING
-  0, // 3 -> SOCKET_CONNECTION_STATE_CONNECTED
-  3, // 4 -> SOCKET_CONNECTION_STATE_DISCONNECTING
-  2, // 5 -> SOCKET_CONNECTION_STATE_DISCONNECTED
+    5,  // 0 -> SOCKET_CONNECTION_STATE_UNKNOWN
+    4,  // 1 -> SOCKET_CONNECTION_STATE_LISTENING
+    1,  // 2 -> SOCKET_CONNECTION_STATE_CONNECTING
+    0,  // 3 -> SOCKET_CONNECTION_STATE_CONNECTED
+    3,  // 4 -> SOCKET_CONNECTION_STATE_DISCONNECTING
+    2,  // 5 -> SOCKET_CONNECTION_STATE_DISCONNECTED
 };
 
-const std::string& SocketConnectionstateEnum_Name(
-    SocketConnectionstateEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          SocketConnectionstateEnum_entries,
-          SocketConnectionstateEnum_entries_by_number,
+const std::string& SocketConnectionstateEnum_Name(SocketConnectionstateEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          SocketConnectionstateEnum_entries, SocketConnectionstateEnum_entries_by_number,
           6, SocketConnectionstateEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      SocketConnectionstateEnum_entries,
-      SocketConnectionstateEnum_entries_by_number,
-      6, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     SocketConnectionstateEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      SocketConnectionstateEnum_entries, SocketConnectionstateEnum_entries_by_number, 6,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : SocketConnectionstateEnum_strings[idx].get();
 }
-bool SocketConnectionstateEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SocketConnectionstateEnum* value) {
+
+bool SocketConnectionstateEnum_Parse(absl::string_view name, SocketConnectionstateEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       SocketConnectionstateEnum_entries, 6, name, &int_value);
   if (success) {
     *value = static_cast<SocketConnectionstateEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t SocketRoleEnum_internal_data_[] = {
+    196608u, 0u, };
 bool SocketRoleEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 2;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    SocketRoleEnum_strings[3] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> SocketRoleEnum_strings[3] = {};
+static const char SocketRoleEnum_names[] = {
+    "SOCKET_ROLE_CONNECTION"
+    "SOCKET_ROLE_LISTEN"
+    "SOCKET_ROLE_UNKNOWN"
+};
 
-static const char SocketRoleEnum_names[] =
-  "SOCKET_ROLE_CONNECTION"
-  "SOCKET_ROLE_LISTEN"
-  "SOCKET_ROLE_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry SocketRoleEnum_entries[] = {
-  { {SocketRoleEnum_names + 0, 22}, 2 },
-  { {SocketRoleEnum_names + 22, 18}, 1 },
-  { {SocketRoleEnum_names + 40, 19}, 0 },
+static const ::google::protobuf::internal::EnumEntry SocketRoleEnum_entries[] =
+    {
+        {{&SocketRoleEnum_names[0], 22}, 2},
+        {{&SocketRoleEnum_names[22], 18}, 1},
+        {{&SocketRoleEnum_names[40], 19}, 0},
 };
 
 static const int SocketRoleEnum_entries_by_number[] = {
-  2, // 0 -> SOCKET_ROLE_UNKNOWN
-  1, // 1 -> SOCKET_ROLE_LISTEN
-  0, // 2 -> SOCKET_ROLE_CONNECTION
+    2,  // 0 -> SOCKET_ROLE_UNKNOWN
+    1,  // 1 -> SOCKET_ROLE_LISTEN
+    0,  // 2 -> SOCKET_ROLE_CONNECTION
 };
 
-const std::string& SocketRoleEnum_Name(
-    SocketRoleEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          SocketRoleEnum_entries,
-          SocketRoleEnum_entries_by_number,
+const std::string& SocketRoleEnum_Name(SocketRoleEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          SocketRoleEnum_entries, SocketRoleEnum_entries_by_number,
           3, SocketRoleEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      SocketRoleEnum_entries,
-      SocketRoleEnum_entries_by_number,
-      3, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     SocketRoleEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      SocketRoleEnum_entries, SocketRoleEnum_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : SocketRoleEnum_strings[idx].get();
 }
-bool SocketRoleEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SocketRoleEnum* value) {
+
+bool SocketRoleEnum_Parse(absl::string_view name, SocketRoleEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       SocketRoleEnum_entries, 3, name, &int_value);
   if (success) {
     *value = static_cast<SocketRoleEnum>(int_value);
   }
   return success;
 }
-bool L2capCocConnectionResult_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 14:
-    case 15:
-    case 1000:
-    case 1001:
-    case 1002:
-    case 1003:
-    case 1004:
-    case 1005:
-    case 2000:
-      return true;
-    default:
-      return false;
-  }
+PROTOBUF_CONSTINIT const uint32_t SocketErrorEnum_internal_data_[] = {
+    1114112u, 0u, };
+bool SocketErrorEnum_IsValid(int value) {
+  return 0 <= value && value <= 16;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    SocketErrorEnum_strings[17] = {};
+
+static const char SocketErrorEnum_names[] = {
+    "SOCKET_ERROR_ADD_SDP_FAILURE"
+    "SOCKET_ERROR_CLIENT_INIT_FAILURE"
+    "SOCKET_ERROR_CONNECTION_FAILURE"
+    "SOCKET_ERROR_LISTEN_FAILURE"
+    "SOCKET_ERROR_NONE"
+    "SOCKET_ERROR_OFFLOAD_HAL_OPEN_FAILURE"
+    "SOCKET_ERROR_OFFLOAD_SERVER_NOT_ACCEPTING"
+    "SOCKET_ERROR_OPEN_FAILURE"
+    "SOCKET_ERROR_READ_SIGNALED_FAILURE"
+    "SOCKET_ERROR_RECEIVE_DATA_FAILURE"
+    "SOCKET_ERROR_SCN_ALLOCATION_FAILURE"
+    "SOCKET_ERROR_SDP_DISCOVERY_FAILURE"
+    "SOCKET_ERROR_SEND_SCN_FAILURE"
+    "SOCKET_ERROR_SEND_TO_APP_FAILURE"
+    "SOCKET_ERROR_SERVER_START_FAILURE"
+    "SOCKET_ERROR_UNKNOWN"
+    "SOCKET_ERROR_WRITE_SIGNALED_FAILURE"
+};
+
+static const ::google::protobuf::internal::EnumEntry SocketErrorEnum_entries[] =
+    {
+        {{&SocketErrorEnum_names[0], 28}, 15},
+        {{&SocketErrorEnum_names[28], 32}, 3},
+        {{&SocketErrorEnum_names[60], 31}, 5},
+        {{&SocketErrorEnum_names[91], 27}, 4},
+        {{&SocketErrorEnum_names[118], 17}, 1},
+        {{&SocketErrorEnum_names[135], 37}, 8},
+        {{&SocketErrorEnum_names[172], 41}, 7},
+        {{&SocketErrorEnum_names[213], 25}, 6},
+        {{&SocketErrorEnum_names[238], 34}, 11},
+        {{&SocketErrorEnum_names[272], 33}, 10},
+        {{&SocketErrorEnum_names[305], 35}, 14},
+        {{&SocketErrorEnum_names[340], 34}, 16},
+        {{&SocketErrorEnum_names[374], 29}, 13},
+        {{&SocketErrorEnum_names[403], 32}, 9},
+        {{&SocketErrorEnum_names[435], 33}, 2},
+        {{&SocketErrorEnum_names[468], 20}, 0},
+        {{&SocketErrorEnum_names[488], 35}, 12},
+};
+
+static const int SocketErrorEnum_entries_by_number[] = {
+    15,  // 0 -> SOCKET_ERROR_UNKNOWN
+    4,  // 1 -> SOCKET_ERROR_NONE
+    14,  // 2 -> SOCKET_ERROR_SERVER_START_FAILURE
+    1,  // 3 -> SOCKET_ERROR_CLIENT_INIT_FAILURE
+    3,  // 4 -> SOCKET_ERROR_LISTEN_FAILURE
+    2,  // 5 -> SOCKET_ERROR_CONNECTION_FAILURE
+    7,  // 6 -> SOCKET_ERROR_OPEN_FAILURE
+    6,  // 7 -> SOCKET_ERROR_OFFLOAD_SERVER_NOT_ACCEPTING
+    5,  // 8 -> SOCKET_ERROR_OFFLOAD_HAL_OPEN_FAILURE
+    13,  // 9 -> SOCKET_ERROR_SEND_TO_APP_FAILURE
+    9,  // 10 -> SOCKET_ERROR_RECEIVE_DATA_FAILURE
+    8,  // 11 -> SOCKET_ERROR_READ_SIGNALED_FAILURE
+    16,  // 12 -> SOCKET_ERROR_WRITE_SIGNALED_FAILURE
+    12,  // 13 -> SOCKET_ERROR_SEND_SCN_FAILURE
+    10,  // 14 -> SOCKET_ERROR_SCN_ALLOCATION_FAILURE
+    0,  // 15 -> SOCKET_ERROR_ADD_SDP_FAILURE
+    11,  // 16 -> SOCKET_ERROR_SDP_DISCOVERY_FAILURE
+};
+
+const std::string& SocketErrorEnum_Name(SocketErrorEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          SocketErrorEnum_entries, SocketErrorEnum_entries_by_number,
+          17, SocketErrorEnum_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      SocketErrorEnum_entries, SocketErrorEnum_entries_by_number, 17,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : SocketErrorEnum_strings[idx].get();
 }
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> L2capCocConnectionResult_strings[23] = {};
+bool SocketErrorEnum_Parse(absl::string_view name, SocketErrorEnum* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      SocketErrorEnum_entries, 17, name, &int_value);
+  if (success) {
+    *value = static_cast<SocketErrorEnum>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t L2capCocConnectionResult_internal_data_[] = {
+    1048576u, 458752u, 1003u, 1001u, 1005u, 1000u, 1002u, 1004u, 2000u, };
+bool L2capCocConnectionResult_IsValid(int value) {
+  return ::_pbi::ValidateEnum(value, L2capCocConnectionResult_internal_data_);
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    L2capCocConnectionResult_strings[23] = {};
 
-static const char L2capCocConnectionResult_names[] =
-  "RESULT_L2CAP_CONN_ACL_FAILURE"
-  "RESULT_L2CAP_CONN_BLUETOOTH_GET_SOCKET_MANAGER_FAILED"
-  "RESULT_L2CAP_CONN_BLUETOOTH_NULL_BLUETOOTH_DEVICE"
-  "RESULT_L2CAP_CONN_BLUETOOTH_NULL_FILE_DESCRIPTOR"
-  "RESULT_L2CAP_CONN_BLUETOOTH_OFF"
-  "RESULT_L2CAP_CONN_BLUETOOTH_SOCKET_CONNECTION_CLOSED"
-  "RESULT_L2CAP_CONN_BLUETOOTH_SOCKET_CONNECTION_FAILED"
-  "RESULT_L2CAP_CONN_BLUETOOTH_UNABLE_TO_SEND_RPC"
-  "RESULT_L2CAP_CONN_CL_SEC_FAILURE"
-  "RESULT_L2CAP_CONN_INSUFFICIENT_AUTHENTICATION"
-  "RESULT_L2CAP_CONN_INSUFFICIENT_AUTHORIZATION"
-  "RESULT_L2CAP_CONN_INSUFFICIENT_ENCRYP"
-  "RESULT_L2CAP_CONN_INSUFFICIENT_ENCRYP_KEY_SIZE"
-  "RESULT_L2CAP_CONN_INVALID_PARAMETERS"
-  "RESULT_L2CAP_CONN_INVALID_SOURCE_CID"
-  "RESULT_L2CAP_CONN_NO_PSM"
-  "RESULT_L2CAP_CONN_NO_RESOURCES"
-  "RESULT_L2CAP_CONN_SERVER_FAILURE"
-  "RESULT_L2CAP_CONN_SOURCE_CID_ALREADY_ALLOCATED"
-  "RESULT_L2CAP_CONN_SUCCESS"
-  "RESULT_L2CAP_CONN_TIMEOUT"
-  "RESULT_L2CAP_CONN_UNACCEPTABLE_PARAMETERS"
-  "RESULT_L2CAP_CONN_UNKNOWN";
+static const char L2capCocConnectionResult_names[] = {
+    "RESULT_L2CAP_CONN_ACL_FAILURE"
+    "RESULT_L2CAP_CONN_BLUETOOTH_GET_SOCKET_MANAGER_FAILED"
+    "RESULT_L2CAP_CONN_BLUETOOTH_NULL_BLUETOOTH_DEVICE"
+    "RESULT_L2CAP_CONN_BLUETOOTH_NULL_FILE_DESCRIPTOR"
+    "RESULT_L2CAP_CONN_BLUETOOTH_OFF"
+    "RESULT_L2CAP_CONN_BLUETOOTH_SOCKET_CONNECTION_CLOSED"
+    "RESULT_L2CAP_CONN_BLUETOOTH_SOCKET_CONNECTION_FAILED"
+    "RESULT_L2CAP_CONN_BLUETOOTH_UNABLE_TO_SEND_RPC"
+    "RESULT_L2CAP_CONN_CL_SEC_FAILURE"
+    "RESULT_L2CAP_CONN_INSUFFICIENT_AUTHENTICATION"
+    "RESULT_L2CAP_CONN_INSUFFICIENT_AUTHORIZATION"
+    "RESULT_L2CAP_CONN_INSUFFICIENT_ENCRYP"
+    "RESULT_L2CAP_CONN_INSUFFICIENT_ENCRYP_KEY_SIZE"
+    "RESULT_L2CAP_CONN_INVALID_PARAMETERS"
+    "RESULT_L2CAP_CONN_INVALID_SOURCE_CID"
+    "RESULT_L2CAP_CONN_NO_PSM"
+    "RESULT_L2CAP_CONN_NO_RESOURCES"
+    "RESULT_L2CAP_CONN_SERVER_FAILURE"
+    "RESULT_L2CAP_CONN_SOURCE_CID_ALREADY_ALLOCATED"
+    "RESULT_L2CAP_CONN_SUCCESS"
+    "RESULT_L2CAP_CONN_TIMEOUT"
+    "RESULT_L2CAP_CONN_UNACCEPTABLE_PARAMETERS"
+    "RESULT_L2CAP_CONN_UNKNOWN"
+};
 
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry L2capCocConnectionResult_entries[] = {
-  { {L2capCocConnectionResult_names + 0, 29}, 2 },
-  { {L2capCocConnectionResult_names + 29, 53}, 1004 },
-  { {L2capCocConnectionResult_names + 82, 49}, 1003 },
-  { {L2capCocConnectionResult_names + 131, 48}, 1005 },
-  { {L2capCocConnectionResult_names + 179, 31}, 15 },
-  { {L2capCocConnectionResult_names + 210, 52}, 1001 },
-  { {L2capCocConnectionResult_names + 262, 52}, 1000 },
-  { {L2capCocConnectionResult_names + 314, 46}, 1002 },
-  { {L2capCocConnectionResult_names + 360, 32}, 3 },
-  { {L2capCocConnectionResult_names + 392, 45}, 4 },
-  { {L2capCocConnectionResult_names + 437, 44}, 5 },
-  { {L2capCocConnectionResult_names + 481, 37}, 7 },
-  { {L2capCocConnectionResult_names + 518, 46}, 6 },
-  { {L2capCocConnectionResult_names + 564, 36}, 11 },
-  { {L2capCocConnectionResult_names + 600, 36}, 8 },
-  { {L2capCocConnectionResult_names + 636, 24}, 13 },
-  { {L2capCocConnectionResult_names + 660, 30}, 12 },
-  { {L2capCocConnectionResult_names + 690, 32}, 2000 },
-  { {L2capCocConnectionResult_names + 722, 46}, 9 },
-  { {L2capCocConnectionResult_names + 768, 25}, 1 },
-  { {L2capCocConnectionResult_names + 793, 25}, 14 },
-  { {L2capCocConnectionResult_names + 818, 41}, 10 },
-  { {L2capCocConnectionResult_names + 859, 25}, 0 },
+static const ::google::protobuf::internal::EnumEntry L2capCocConnectionResult_entries[] =
+    {
+        {{&L2capCocConnectionResult_names[0], 29}, 2},
+        {{&L2capCocConnectionResult_names[29], 53}, 1004},
+        {{&L2capCocConnectionResult_names[82], 49}, 1003},
+        {{&L2capCocConnectionResult_names[131], 48}, 1005},
+        {{&L2capCocConnectionResult_names[179], 31}, 15},
+        {{&L2capCocConnectionResult_names[210], 52}, 1001},
+        {{&L2capCocConnectionResult_names[262], 52}, 1000},
+        {{&L2capCocConnectionResult_names[314], 46}, 1002},
+        {{&L2capCocConnectionResult_names[360], 32}, 3},
+        {{&L2capCocConnectionResult_names[392], 45}, 4},
+        {{&L2capCocConnectionResult_names[437], 44}, 5},
+        {{&L2capCocConnectionResult_names[481], 37}, 7},
+        {{&L2capCocConnectionResult_names[518], 46}, 6},
+        {{&L2capCocConnectionResult_names[564], 36}, 11},
+        {{&L2capCocConnectionResult_names[600], 36}, 8},
+        {{&L2capCocConnectionResult_names[636], 24}, 13},
+        {{&L2capCocConnectionResult_names[660], 30}, 12},
+        {{&L2capCocConnectionResult_names[690], 32}, 2000},
+        {{&L2capCocConnectionResult_names[722], 46}, 9},
+        {{&L2capCocConnectionResult_names[768], 25}, 1},
+        {{&L2capCocConnectionResult_names[793], 25}, 14},
+        {{&L2capCocConnectionResult_names[818], 41}, 10},
+        {{&L2capCocConnectionResult_names[859], 25}, 0},
 };
 
 static const int L2capCocConnectionResult_entries_by_number[] = {
-  22, // 0 -> RESULT_L2CAP_CONN_UNKNOWN
-  19, // 1 -> RESULT_L2CAP_CONN_SUCCESS
-  0, // 2 -> RESULT_L2CAP_CONN_ACL_FAILURE
-  8, // 3 -> RESULT_L2CAP_CONN_CL_SEC_FAILURE
-  9, // 4 -> RESULT_L2CAP_CONN_INSUFFICIENT_AUTHENTICATION
-  10, // 5 -> RESULT_L2CAP_CONN_INSUFFICIENT_AUTHORIZATION
-  12, // 6 -> RESULT_L2CAP_CONN_INSUFFICIENT_ENCRYP_KEY_SIZE
-  11, // 7 -> RESULT_L2CAP_CONN_INSUFFICIENT_ENCRYP
-  14, // 8 -> RESULT_L2CAP_CONN_INVALID_SOURCE_CID
-  18, // 9 -> RESULT_L2CAP_CONN_SOURCE_CID_ALREADY_ALLOCATED
-  21, // 10 -> RESULT_L2CAP_CONN_UNACCEPTABLE_PARAMETERS
-  13, // 11 -> RESULT_L2CAP_CONN_INVALID_PARAMETERS
-  16, // 12 -> RESULT_L2CAP_CONN_NO_RESOURCES
-  15, // 13 -> RESULT_L2CAP_CONN_NO_PSM
-  20, // 14 -> RESULT_L2CAP_CONN_TIMEOUT
-  4, // 15 -> RESULT_L2CAP_CONN_BLUETOOTH_OFF
-  6, // 1000 -> RESULT_L2CAP_CONN_BLUETOOTH_SOCKET_CONNECTION_FAILED
-  5, // 1001 -> RESULT_L2CAP_CONN_BLUETOOTH_SOCKET_CONNECTION_CLOSED
-  7, // 1002 -> RESULT_L2CAP_CONN_BLUETOOTH_UNABLE_TO_SEND_RPC
-  2, // 1003 -> RESULT_L2CAP_CONN_BLUETOOTH_NULL_BLUETOOTH_DEVICE
-  1, // 1004 -> RESULT_L2CAP_CONN_BLUETOOTH_GET_SOCKET_MANAGER_FAILED
-  3, // 1005 -> RESULT_L2CAP_CONN_BLUETOOTH_NULL_FILE_DESCRIPTOR
-  17, // 2000 -> RESULT_L2CAP_CONN_SERVER_FAILURE
+    22,  // 0 -> RESULT_L2CAP_CONN_UNKNOWN
+    19,  // 1 -> RESULT_L2CAP_CONN_SUCCESS
+    0,  // 2 -> RESULT_L2CAP_CONN_ACL_FAILURE
+    8,  // 3 -> RESULT_L2CAP_CONN_CL_SEC_FAILURE
+    9,  // 4 -> RESULT_L2CAP_CONN_INSUFFICIENT_AUTHENTICATION
+    10,  // 5 -> RESULT_L2CAP_CONN_INSUFFICIENT_AUTHORIZATION
+    12,  // 6 -> RESULT_L2CAP_CONN_INSUFFICIENT_ENCRYP_KEY_SIZE
+    11,  // 7 -> RESULT_L2CAP_CONN_INSUFFICIENT_ENCRYP
+    14,  // 8 -> RESULT_L2CAP_CONN_INVALID_SOURCE_CID
+    18,  // 9 -> RESULT_L2CAP_CONN_SOURCE_CID_ALREADY_ALLOCATED
+    21,  // 10 -> RESULT_L2CAP_CONN_UNACCEPTABLE_PARAMETERS
+    13,  // 11 -> RESULT_L2CAP_CONN_INVALID_PARAMETERS
+    16,  // 12 -> RESULT_L2CAP_CONN_NO_RESOURCES
+    15,  // 13 -> RESULT_L2CAP_CONN_NO_PSM
+    20,  // 14 -> RESULT_L2CAP_CONN_TIMEOUT
+    4,  // 15 -> RESULT_L2CAP_CONN_BLUETOOTH_OFF
+    6,  // 1000 -> RESULT_L2CAP_CONN_BLUETOOTH_SOCKET_CONNECTION_FAILED
+    5,  // 1001 -> RESULT_L2CAP_CONN_BLUETOOTH_SOCKET_CONNECTION_CLOSED
+    7,  // 1002 -> RESULT_L2CAP_CONN_BLUETOOTH_UNABLE_TO_SEND_RPC
+    2,  // 1003 -> RESULT_L2CAP_CONN_BLUETOOTH_NULL_BLUETOOTH_DEVICE
+    1,  // 1004 -> RESULT_L2CAP_CONN_BLUETOOTH_GET_SOCKET_MANAGER_FAILED
+    3,  // 1005 -> RESULT_L2CAP_CONN_BLUETOOTH_NULL_FILE_DESCRIPTOR
+    17,  // 2000 -> RESULT_L2CAP_CONN_SERVER_FAILURE
 };
 
-const std::string& L2capCocConnectionResult_Name(
-    L2capCocConnectionResult value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          L2capCocConnectionResult_entries,
-          L2capCocConnectionResult_entries_by_number,
+const std::string& L2capCocConnectionResult_Name(L2capCocConnectionResult value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          L2capCocConnectionResult_entries, L2capCocConnectionResult_entries_by_number,
           23, L2capCocConnectionResult_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      L2capCocConnectionResult_entries,
-      L2capCocConnectionResult_entries_by_number,
-      23, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     L2capCocConnectionResult_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      L2capCocConnectionResult_entries, L2capCocConnectionResult_entries_by_number, 23,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : L2capCocConnectionResult_strings[idx].get();
 }
-bool L2capCocConnectionResult_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, L2capCocConnectionResult* value) {
+
+bool L2capCocConnectionResult_Parse(absl::string_view name, L2capCocConnectionResult* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       L2capCocConnectionResult_entries, 23, name, &int_value);
   if (success) {
     *value = static_cast<L2capCocConnectionResult>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t CodePathCounterKeyEnum_internal_data_[] = {
+    65536u, 14221312u, 120200u, 103014u, 120714u, 101004u, 103118u, 120401u, 121102u, 100101u, 102007u, 103102u, 120004u, 120259u, 120704u, 120906u, 121110u, 100007u, 100109u, 101104u, 103006u, 103022u, 103110u, 103126u, 120102u, 120251u, 120303u, 120600u, 120710u, 120902u, 121000u, 121106u, 121114u, 100003u, 100011u, 100105u, 101000u, 101008u, 102003u, 103002u, 103010u, 103018u, 103026u, 103106u, 103114u, 103122u, 120000u, 120008u, 120106u, 120204u, 120255u, 120263u, 120307u, 120502u, 120700u, 120708u, 120712u, 120900u, 120904u, 120908u, 121100u, 121104u, 121108u, 121112u, 121116u, 100001u, 100005u, 100009u, 100013u, 100103u, 100107u, 100111u, 101002u, 101006u, 101102u, 102001u, 102005u, 102009u, 103004u, 103008u, 103012u, 103016u, 103020u, 103024u, 103028u, 103104u, 103108u, 103112u, 103116u, 103120u, 103124u, 103128u, 120002u, 120006u, 120100u, 120104u, 120108u, 120202u, 120206u, 120253u, 120257u, 120261u, 120301u, 120305u, 120309u, 120500u, 120504u, 120602u, 120702u, 120706u, 120709u, 120711u, 120713u, 120800u, 120901u, 120903u, 120905u, 120907u, 120909u, 121001u, 121101u, 121103u, 121105u, 121107u, 121109u, 121111u, 121113u, 121115u, 121117u, 100000u, 100002u, 100004u, 100006u, 100008u, 100010u, 100012u, 100100u, 100102u, 100104u, 100106u, 100108u, 100110u, 100112u, 101001u, 101003u, 101005u, 101007u, 101101u, 101103u, 102000u, 102002u, 102004u, 102006u, 102008u, 103001u, 103003u, 103005u, 103007u, 103009u, 103011u, 103013u, 103015u, 103017u, 103019u, 103021u, 103023u, 103025u, 103027u, 103101u, 103103u, 103105u, 103107u, 103109u, 103111u, 103113u, 103115u, 103117u, 103119u, 103121u, 103123u, 103125u, 103127u, 103129u, 120001u, 120003u, 120005u, 120007u, 120009u, 120101u, 120103u, 120105u, 120107u, 120109u, 120201u, 120203u, 120205u, 120250u, 120252u, 120254u, 120256u, 120258u, 120260u, 120262u, 120300u, 120302u, 120304u, 120306u, 120308u, 120400u, 120402u, 120501u, 120503u, 120505u, 120601u, 120603u, 120701u, 120703u, 120705u, 120707u, };
 bool CodePathCounterKeyEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 100000:
-    case 100001:
-    case 100002:
-    case 100003:
-    case 100004:
-    case 100005:
-    case 100006:
-    case 100007:
-    case 100008:
-    case 100009:
-    case 100010:
-    case 100011:
-    case 100012:
-    case 100013:
-    case 100100:
-    case 100101:
-    case 100102:
-    case 100103:
-    case 100104:
-    case 100105:
-    case 100106:
-    case 100107:
-    case 100108:
-    case 100109:
-    case 100110:
-    case 100111:
-    case 100112:
-    case 101000:
-    case 101001:
-    case 101002:
-    case 101003:
-    case 101004:
-    case 101005:
-    case 101006:
-    case 101007:
-    case 101008:
-    case 101101:
-    case 101102:
-    case 101103:
-    case 101104:
-    case 102000:
-    case 102001:
-    case 102002:
-    case 102003:
-    case 102004:
-    case 102005:
-    case 102006:
-    case 102007:
-    case 102008:
-    case 102009:
-    case 103001:
-    case 103002:
-    case 103003:
-    case 103004:
-    case 103005:
-    case 103006:
-    case 103007:
-    case 103008:
-    case 103009:
-    case 103010:
-    case 103011:
-    case 103012:
-    case 103013:
-    case 103014:
-    case 103015:
-    case 103016:
-    case 103017:
-    case 103018:
-    case 103019:
-    case 103020:
-    case 103021:
-    case 103022:
-    case 103023:
-    case 103024:
-    case 103025:
-    case 103026:
-    case 103027:
-    case 103028:
-    case 103101:
-    case 103102:
-    case 103103:
-    case 103104:
-    case 103105:
-    case 103106:
-    case 103107:
-    case 103108:
-    case 103109:
-    case 103110:
-    case 103111:
-    case 103112:
-    case 103113:
-    case 103114:
-    case 103115:
-    case 103116:
-    case 103117:
-    case 103118:
-    case 103119:
-    case 103120:
-    case 103121:
-    case 103122:
-    case 103123:
-    case 103124:
-    case 103125:
-    case 103126:
-    case 103127:
-    case 103128:
-    case 103129:
-    case 120000:
-    case 120001:
-    case 120002:
-    case 120003:
-    case 120004:
-    case 120005:
-    case 120006:
-    case 120007:
-    case 120008:
-    case 120009:
-    case 120100:
-    case 120101:
-    case 120102:
-    case 120103:
-    case 120104:
-    case 120105:
-    case 120106:
-    case 120107:
-    case 120108:
-    case 120109:
-    case 120200:
-    case 120201:
-    case 120202:
-    case 120203:
-    case 120204:
-    case 120205:
-    case 120206:
-    case 120250:
-    case 120251:
-    case 120252:
-    case 120253:
-    case 120254:
-    case 120255:
-    case 120256:
-    case 120257:
-    case 120258:
-    case 120259:
-    case 120260:
-    case 120261:
-    case 120262:
-    case 120263:
-    case 120300:
-    case 120301:
-    case 120302:
-    case 120303:
-    case 120304:
-    case 120305:
-    case 120306:
-    case 120307:
-    case 120308:
-    case 120309:
-    case 120400:
-    case 120401:
-    case 120402:
-    case 120500:
-    case 120501:
-    case 120502:
-    case 120503:
-    case 120504:
-    case 120505:
-    case 120600:
-    case 120601:
-    case 120602:
-    case 120603:
-    case 120700:
-    case 120701:
-    case 120702:
-    case 120703:
-    case 120704:
-    case 120705:
-    case 120706:
-    case 120707:
-    case 120708:
-    case 120709:
-    case 120710:
-    case 120711:
-    case 120712:
-    case 120713:
-    case 120714:
-    case 120800:
-    case 120900:
-    case 120901:
-    case 120902:
-    case 120903:
-    case 120904:
-    case 120905:
-    case 120906:
-    case 120907:
-    case 120908:
-    case 120909:
-    case 121000:
-    case 121001:
-    case 121100:
-    case 121101:
-    case 121102:
-    case 121103:
-    case 121104:
-    case 121105:
-    case 121106:
-    case 121107:
-    case 121108:
-    case 121109:
-    case 121110:
-    case 121111:
-    case 121112:
-    case 121113:
-    case 121114:
-    case 121115:
-    case 121116:
-    case 121117:
-      return true;
-    default:
-      return false;
-  }
+  return ::_pbi::ValidateEnum(value, CodePathCounterKeyEnum_internal_data_);
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    CodePathCounterKeyEnum_strings[218] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> CodePathCounterKeyEnum_strings[218] = {};
+static const char CodePathCounterKeyEnum_names[] = {
+    "A2DP_ALREADY_CONNECTING"
+    "A2DP_CONNECTION_ACL_DISCONNECTED"
+    "A2DP_CONNECTION_CLOSE"
+    "A2DP_CONNECTION_DISCONNECTED"
+    "A2DP_CONNECTION_FAILURE"
+    "A2DP_CONNECTION_REJECT_EVT"
+    "A2DP_CONNECTION_SUCCESS"
+    "A2DP_CONNECTION_TIMEOUT"
+    "A2DP_CONNECTION_UNKNOWN_EVENT"
+    "A2DP_OFFLOAD_START_REQ_FAILURE"
+    "COUNTER_KEY_UNKNOWN"
+    "GATT_CLIENT_CONNECT_IS_AUTOCONNECT"
+    "GATT_CLIENT_CONNECT_IS_AUTOCONNECT_IN_FOREGROUND"
+    "GATT_CLIENT_CONNECT_IS_AUTOCONNECT_NOT_IN_FOREGROUND"
+    "GATT_CLIENT_CONNECT_IS_DIRECT"
+    "GATT_CLIENT_CONNECT_IS_DIRECT_IN_FOREGROUND"
+    "GATT_CLIENT_CONNECT_IS_DIRECT_NOT_IN_FOREGROUND"
+    "GATT_SERVER_CONNECT_IS_AUTOCONNECT_IN_FOREGROUND"
+    "GATT_SERVER_CONNECT_IS_AUTOCONNECT_NOT_IN_FOREGROUND"
+    "GATT_SERVER_CONNECT_IS_DIRECT_IN_FOREGROUND"
+    "GATT_SERVER_CONNECT_IS_DIRECT_NOT_IN_FOREGROUND"
+    "HFP_COLLISON_AT_AG_OPEN"
+    "HFP_COLLISON_AT_CONNECTING"
+    "HFP_SELF_INITIATED_AG_FAILED"
+    "HFP_SLC_SETUP_FAILED"
+    "HIDD_ERR_ALREADY_CONN"
+    "HIDD_ERR_ALREADY_REGISTERED"
+    "HIDD_ERR_CONGESTED_AT_DATA_WRITE"
+    "HIDD_ERR_CONGESTED_AT_FLAG_CHECK"
+    "HIDD_ERR_CONN_IN_PROCESS"
+    "HIDD_ERR_DEVICE_NOT_IN_USE_AT_CONNECT"
+    "HIDD_ERR_DEVICE_NOT_IN_USE_AT_DISCONNECT"
+    "HIDD_ERR_DISCONNECTING"
+    "HIDD_ERR_HOST_CALLBACK_NULL"
+    "HIDD_ERR_INVALID_PARAM"
+    "HIDD_ERR_INVALID_PARAM_SEND_REPORT"
+    "HIDD_ERR_L2CAP_FAILED_CONTROL"
+    "HIDD_ERR_L2CAP_FAILED_INITIATE"
+    "HIDD_ERR_L2CAP_FAILED_INTERRUPT"
+    "HIDD_ERR_L2CAP_NOT_STARTED_INCOMING"
+    "HIDD_ERR_NOT_REGISTERED_AT_CONNECT"
+    "HIDD_ERR_NOT_REGISTERED_AT_DEREGISTER"
+    "HIDD_ERR_NOT_REGISTERED_AT_DISCONNECT"
+    "HIDD_ERR_NOT_REGISTERED_AT_GET_DEVICE"
+    "HIDD_ERR_NOT_REGISTERED_AT_INITIATE"
+    "HIDD_ERR_NOT_REGISTERED_AT_SDP"
+    "HIDD_ERR_NOT_REGISTERED_DUE_TO_BUFFER_ALLOCATION"
+    "HIDD_ERR_NOT_REGISTERED_DUE_TO_DESCRIPTOR_LENGTH"
+    "HIDD_ERR_NO_CONNECTION_AT_DISCONNECT"
+    "HIDD_ERR_NO_CONNECTION_AT_SEND_DATA"
+    "HIDD_ERR_NO_RESOURCES"
+    "HIDD_REGISTER_DESCRIPTOR_MALFORMED"
+    "HIDH_COUNT_CONNECTION_POLICY_DISABLED"
+    "HIDH_COUNT_CONNECT_REQ_WHEN_MAX_DEVICE_LIMIT_REACHED"
+    "HIDH_COUNT_INCOMING_CONNECTION_REJECTED"
+    "HIDH_COUNT_MAX_ADDED_DEVICE_LIMIT_REACHED"
+    "HIDH_COUNT_SUPPORT_BOTH_HID_AND_HOGP"
+    "HIDH_COUNT_SUPPORT_ONLY_HID_OR_HOGP"
+    "HIDH_COUNT_VIRTUAL_UNPLUG_REQUESTED_BY_REMOTE_DEVICE"
+    "HIDH_COUNT_WRONG_REPORT_TYPE"
+    "HIDH_ERR_ALREADY_CONN"
+    "HIDH_ERR_ALREADY_REGISTERED"
+    "HIDH_ERR_AUTH_FAILED"
+    "HIDH_ERR_CONGESTED_AT_FLAG_CHECK"
+    "HIDH_ERR_CONGESTED_AT_SEND_DATA"
+    "HIDH_ERR_CONN_IN_PROCESS"
+    "HIDH_ERR_INVALID_PARAM_AT_HOST_CLOSE_DEV"
+    "HIDH_ERR_INVALID_PARAM_AT_HOST_OPEN_DEV"
+    "HIDH_ERR_INVALID_PARAM_AT_HOST_REGISTER"
+    "HIDH_ERR_INVALID_PARAM_AT_HOST_REMOVE_DEV"
+    "HIDH_ERR_INVALID_PARAM_AT_HOST_WRITE_DEV"
+    "HIDH_ERR_INVALID_PARAM_AT_SEND_DATA"
+    "HIDH_ERR_L2CAP_FAILED_AT_INITIATE"
+    "HIDH_ERR_L2CAP_FAILED_AT_REGISTER_CONTROL"
+    "HIDH_ERR_L2CAP_FAILED_AT_REGISTER_INTERRUPT"
+    "HIDH_ERR_NO_CONNECTION_AT_HOST_CLOSE_DEV"
+    "HIDH_ERR_NO_CONNECTION_AT_HOST_WRITE_DEV"
+    "HIDH_ERR_NO_CONNECTION_AT_SEND_DATA"
+    "HIDH_ERR_NO_RESOURCES_ADD_DEVICE"
+    "HIDH_ERR_NO_RESOURCES_SDP"
+    "HIDH_ERR_SDP_BUSY"
+    "HID_PLUG_FAILURE"
+    "L2CAP_CONFIG_REQ_FAILURE"
+    "L2CAP_CONFIG_RSP_NEG"
+    "L2CAP_CONNECT_CONFIRM_NEG"
+    "L2CAP_CONNECT_RSP_NEG"
+    "L2CAP_CONN_OTHER_ERROR_AT_CONNECT_RSP"
+    "L2CAP_CREDIT_BASED_CONNECT_RSP_NEG"
+    "L2CAP_INFO_NO_COMPATIBLE_CHANNEL_AT_RSP"
+    "L2CAP_NO_COMPATIBLE_CHANNEL_AT_CSM_CLOSED"
+    "L2CAP_NO_COMPATIBLE_CHANNEL_AT_W4_SEC"
+    "L2CAP_SECURITY_NEG_AT_CSM_CLOSED"
+    "L2CAP_SECURITY_NEG_AT_W4_SEC"
+    "L2CAP_SUCCESS"
+    "L2CAP_TIMEOUT_AT_CONNECT_RSP"
+    "L2CAP_TIMEOUT_AT_CSM_CLOSED"
+    "LE_ADV_COUNT_CONNECTABLE_DISABLE"
+    "LE_ADV_COUNT_CONNECTABLE_ENABLE"
+    "LE_ADV_COUNT_DISABLE"
+    "LE_ADV_COUNT_ENABLE"
+    "LE_ADV_COUNT_PERIODIC_DISABLE"
+    "LE_ADV_COUNT_PERIODIC_ENABLE"
+    "LE_ADV_DURATION_COUNT_CONNECTABLE_1H"
+    "LE_ADV_DURATION_COUNT_CONNECTABLE_1M"
+    "LE_ADV_DURATION_COUNT_CONNECTABLE_30M"
+    "LE_ADV_DURATION_COUNT_CONNECTABLE_3H"
+    "LE_ADV_DURATION_COUNT_CONNECTABLE_3HP"
+    "LE_ADV_DURATION_COUNT_PERIODIC_1H"
+    "LE_ADV_DURATION_COUNT_PERIODIC_1M"
+    "LE_ADV_DURATION_COUNT_PERIODIC_30M"
+    "LE_ADV_DURATION_COUNT_PERIODIC_3H"
+    "LE_ADV_DURATION_COUNT_PERIODIC_3HP"
+    "LE_ADV_DURATION_COUNT_TOTAL_1H"
+    "LE_ADV_DURATION_COUNT_TOTAL_1M"
+    "LE_ADV_DURATION_COUNT_TOTAL_30M"
+    "LE_ADV_DURATION_COUNT_TOTAL_3H"
+    "LE_ADV_DURATION_COUNT_TOTAL_3HP"
+    "LE_ADV_ERROR_ON_START_COUNT"
+    "LE_ADV_INSTANCE_COUNT_10"
+    "LE_ADV_INSTANCE_COUNT_15"
+    "LE_ADV_INSTANCE_COUNT_15P"
+    "LE_ADV_INSTANCE_COUNT_5"
+    "LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD"
+    "LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_CSIS"
+    "LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_DB"
+    "LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_GOOD"
+    "LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD"
+    "LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_CIS_FAILED"
+    "LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_SIGNALING_FAILED"
+    "LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_GOOD"
+    "LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_TRENDING_BAD"
+    "LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD"
+    "LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_CSIS"
+    "LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_DB"
+    "LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_GOOD"
+    "LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD"
+    "LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_CIS_FAILED"
+    "LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_SIGNALING_FAILED"
+    "LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_GOOD"
+    "LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_TRENDING_BAD"
+    "LE_SCAN_ABUSE_COUNT_HW_FILTER_NOT_AVAILABLE"
+    "LE_SCAN_ABUSE_COUNT_SCAN_TIMEOUT"
+    "LE_SCAN_ABUSE_COUNT_TRACKING_HW_FILTER_NOT_AVAILABLE"
+    "LE_SCAN_COUNT_AUTO_BATCH_DISABLE"
+    "LE_SCAN_COUNT_AUTO_BATCH_ENABLE"
+    "LE_SCAN_COUNT_BATCH_DISABLE"
+    "LE_SCAN_COUNT_BATCH_ENABLE"
+    "LE_SCAN_COUNT_FILTERED_DISABLE"
+    "LE_SCAN_COUNT_FILTERED_ENABLE"
+    "LE_SCAN_COUNT_TOTAL_DISABLE"
+    "LE_SCAN_COUNT_TOTAL_ENABLE"
+    "LE_SCAN_COUNT_UNFILTERED_DISABLE"
+    "LE_SCAN_COUNT_UNFILTERED_ENABLE"
+    "LE_SCAN_DURATION_COUNT_BATCH_10M"
+    "LE_SCAN_DURATION_COUNT_BATCH_10S"
+    "LE_SCAN_DURATION_COUNT_BATCH_1H"
+    "LE_SCAN_DURATION_COUNT_BATCH_1HP"
+    "LE_SCAN_DURATION_COUNT_BATCH_1M"
+    "LE_SCAN_DURATION_COUNT_REGULAR_10M"
+    "LE_SCAN_DURATION_COUNT_REGULAR_10S"
+    "LE_SCAN_DURATION_COUNT_REGULAR_1H"
+    "LE_SCAN_DURATION_COUNT_REGULAR_1HP"
+    "LE_SCAN_DURATION_COUNT_REGULAR_1M"
+    "LE_SCAN_RADIO_DURATION_ALL"
+    "LE_SCAN_RADIO_DURATION_BATCH"
+    "LE_SCAN_RADIO_DURATION_BATCH_SCREEN_OFF"
+    "LE_SCAN_RADIO_DURATION_BATCH_SCREEN_ON"
+    "LE_SCAN_RADIO_DURATION_REGULAR"
+    "LE_SCAN_RADIO_DURATION_REGULAR_SCREEN_OFF"
+    "LE_SCAN_RADIO_DURATION_REGULAR_SCREEN_ON"
+    "LE_SCAN_RADIO_SCAN_MODE_AMBIENT_DISCOVERY_COUNT"
+    "LE_SCAN_RADIO_SCAN_MODE_AMBIENT_DISCOVERY_COUNT_SCREEN_OFF"
+    "LE_SCAN_RADIO_SCAN_MODE_BALANCED_COUNT"
+    "LE_SCAN_RADIO_SCAN_MODE_BALANCED_COUNT_SCREEN_OFF"
+    "LE_SCAN_RADIO_SCAN_MODE_LOW_LATENCY_COUNT"
+    "LE_SCAN_RADIO_SCAN_MODE_LOW_LATENCY_COUNT_SCREEN_OFF"
+    "LE_SCAN_RADIO_SCAN_MODE_LOW_POWER_COUNT"
+    "LE_SCAN_RADIO_SCAN_MODE_LOW_POWER_COUNT_SCREEN_OFF"
+    "LE_SCAN_RADIO_SCAN_MODE_OPPORTUNISTIC_COUNT"
+    "LE_SCAN_RADIO_SCAN_MODE_OPPORTUNISTIC_COUNT_SCREEN_OFF"
+    "LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_BALANCED_COUNT"
+    "LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_BALANCED_COUNT_SCREEN_OFF"
+    "LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_COUNT"
+    "LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_COUNT_SCREEN_OFF"
+    "LE_SCAN_RESULTS_COUNT_ALL"
+    "LE_SCAN_RESULTS_COUNT_BATCH"
+    "LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE"
+    "LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE_SCREEN_OFF"
+    "LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE_SCREEN_ON"
+    "LE_SCAN_RESULTS_COUNT_BATCH_SCREEN_OFF"
+    "LE_SCAN_RESULTS_COUNT_BATCH_SCREEN_ON"
+    "LE_SCAN_RESULTS_COUNT_REGULAR"
+    "LE_SCAN_RESULTS_COUNT_REGULAR_SCREEN_OFF"
+    "LE_SCAN_RESULTS_COUNT_REGULAR_SCREEN_ON"
+    "RFCOMM_CONNECTION_SUCCESS_CNF"
+    "RFCOMM_CONNECTION_SUCCESS_IND"
+    "RFCOMM_PORT_CLOSED"
+    "RFCOMM_PORT_NEG_FAILED"
+    "RFCOMM_PORT_PEER_CONNECTION_FAILED"
+    "RFCOMM_PORT_PEER_TIMEOUT"
+    "RFCOMM_PORT_START_CLOSE"
+    "RFCOMM_PORT_START_CNF_FAILED"
+    "RFCOMM_PORT_START_FAILED"
+    "SCREEN_OFF_EVENT"
+    "SCREEN_ON_EVENT"
+    "SDP_ADD_UUID_WITH_INTENT"
+    "SDP_ADD_UUID_WITH_NO_INTENT"
+    "SDP_DROP_UUID"
+    "SDP_FAILURE"
+    "SDP_FETCH_UUID_REQUEST"
+    "SDP_FETCH_UUID_SKIP_ALREADY_BONDED"
+    "SDP_FETCH_UUID_SKIP_ALREADY_CACHED"
+    "SDP_INVOKE_SDP_CYCLE"
+    "SDP_NOT_SENDING_DELAYED_UUID"
+    "SDP_SENDING_DELAYED_UUID"
+    "SDP_SENT_UUID"
+    "SDP_SUCCESS"
+    "SDP_UUIDS_EQUAL_SKIP"
+};
 
-static const char CodePathCounterKeyEnum_names[] =
-  "A2DP_ALREADY_CONNECTING"
-  "A2DP_CONNECTION_ACL_DISCONNECTED"
-  "A2DP_CONNECTION_CLOSE"
-  "A2DP_CONNECTION_DISCONNECTED"
-  "A2DP_CONNECTION_FAILURE"
-  "A2DP_CONNECTION_REJECT_EVT"
-  "A2DP_CONNECTION_SUCCESS"
-  "A2DP_CONNECTION_TIMEOUT"
-  "A2DP_CONNECTION_UNKNOWN_EVENT"
-  "A2DP_OFFLOAD_START_REQ_FAILURE"
-  "GATT_CLIENT_CONNECT_IS_AUTOCONNECT"
-  "GATT_CLIENT_CONNECT_IS_AUTOCONNECT_IN_FOREGROUND"
-  "GATT_CLIENT_CONNECT_IS_AUTOCONNECT_NOT_IN_FOREGROUND"
-  "GATT_CLIENT_CONNECT_IS_DIRECT"
-  "GATT_CLIENT_CONNECT_IS_DIRECT_IN_FOREGROUND"
-  "GATT_CLIENT_CONNECT_IS_DIRECT_NOT_IN_FOREGROUND"
-  "GATT_SERVER_CONNECT_IS_AUTOCONNECT_IN_FOREGROUND"
-  "GATT_SERVER_CONNECT_IS_AUTOCONNECT_NOT_IN_FOREGROUND"
-  "GATT_SERVER_CONNECT_IS_DIRECT_IN_FOREGROUND"
-  "GATT_SERVER_CONNECT_IS_DIRECT_NOT_IN_FOREGROUND"
-  "HFP_COLLISON_AT_AG_OPEN"
-  "HFP_COLLISON_AT_CONNECTING"
-  "HFP_SELF_INITIATED_AG_FAILED"
-  "HFP_SLC_SETUP_FAILED"
-  "HIDD_ERR_ALREADY_CONN"
-  "HIDD_ERR_ALREADY_REGISTERED"
-  "HIDD_ERR_CONGESTED_AT_DATA_WRITE"
-  "HIDD_ERR_CONGESTED_AT_FLAG_CHECK"
-  "HIDD_ERR_CONN_IN_PROCESS"
-  "HIDD_ERR_DEVICE_NOT_IN_USE_AT_CONNECT"
-  "HIDD_ERR_DEVICE_NOT_IN_USE_AT_DISCONNECT"
-  "HIDD_ERR_DISCONNECTING"
-  "HIDD_ERR_HOST_CALLBACK_NULL"
-  "HIDD_ERR_INVALID_PARAM"
-  "HIDD_ERR_INVALID_PARAM_SEND_REPORT"
-  "HIDD_ERR_L2CAP_FAILED_CONTROL"
-  "HIDD_ERR_L2CAP_FAILED_INITIATE"
-  "HIDD_ERR_L2CAP_FAILED_INTERRUPT"
-  "HIDD_ERR_L2CAP_NOT_STARTED_INCOMING"
-  "HIDD_ERR_NOT_REGISTERED_AT_CONNECT"
-  "HIDD_ERR_NOT_REGISTERED_AT_DEREGISTER"
-  "HIDD_ERR_NOT_REGISTERED_AT_DISCONNECT"
-  "HIDD_ERR_NOT_REGISTERED_AT_GET_DEVICE"
-  "HIDD_ERR_NOT_REGISTERED_AT_INITIATE"
-  "HIDD_ERR_NOT_REGISTERED_AT_SDP"
-  "HIDD_ERR_NOT_REGISTERED_DUE_TO_BUFFER_ALLOCATION"
-  "HIDD_ERR_NOT_REGISTERED_DUE_TO_DESCRIPTOR_LENGTH"
-  "HIDD_ERR_NO_CONNECTION_AT_DISCONNECT"
-  "HIDD_ERR_NO_CONNECTION_AT_SEND_DATA"
-  "HIDD_ERR_NO_RESOURCES"
-  "HIDD_REGISTER_DESCRIPTOR_MALFORMED"
-  "HIDH_COUNT_CONNECTION_POLICY_DISABLED"
-  "HIDH_COUNT_CONNECT_REQ_WHEN_MAX_DEVICE_LIMIT_REACHED"
-  "HIDH_COUNT_INCOMING_CONNECTION_REJECTED"
-  "HIDH_COUNT_MAX_ADDED_DEVICE_LIMIT_REACHED"
-  "HIDH_COUNT_SUPPORT_BOTH_HID_AND_HOGP"
-  "HIDH_COUNT_SUPPORT_ONLY_HID_OR_HOGP"
-  "HIDH_COUNT_VIRTUAL_UNPLUG_REQUESTED_BY_REMOTE_DEVICE"
-  "HIDH_COUNT_WRONG_REPORT_TYPE"
-  "HIDH_ERR_ALREADY_CONN"
-  "HIDH_ERR_ALREADY_REGISTERED"
-  "HIDH_ERR_AUTH_FAILED"
-  "HIDH_ERR_CONGESTED_AT_FLAG_CHECK"
-  "HIDH_ERR_CONGESTED_AT_SEND_DATA"
-  "HIDH_ERR_CONN_IN_PROCESS"
-  "HIDH_ERR_INVALID_PARAM_AT_HOST_CLOSE_DEV"
-  "HIDH_ERR_INVALID_PARAM_AT_HOST_OPEN_DEV"
-  "HIDH_ERR_INVALID_PARAM_AT_HOST_REGISTER"
-  "HIDH_ERR_INVALID_PARAM_AT_HOST_REMOVE_DEV"
-  "HIDH_ERR_INVALID_PARAM_AT_HOST_WRITE_DEV"
-  "HIDH_ERR_INVALID_PARAM_AT_SEND_DATA"
-  "HIDH_ERR_L2CAP_FAILED_AT_INITIATE"
-  "HIDH_ERR_L2CAP_FAILED_AT_REGISTER_CONTROL"
-  "HIDH_ERR_L2CAP_FAILED_AT_REGISTER_INTERRUPT"
-  "HIDH_ERR_NO_CONNECTION_AT_HOST_CLOSE_DEV"
-  "HIDH_ERR_NO_CONNECTION_AT_HOST_WRITE_DEV"
-  "HIDH_ERR_NO_CONNECTION_AT_SEND_DATA"
-  "HIDH_ERR_NO_RESOURCES_ADD_DEVICE"
-  "HIDH_ERR_NO_RESOURCES_SDP"
-  "HIDH_ERR_SDP_BUSY"
-  "HID_PLUG_FAILURE"
-  "KEY_UNKNOWN"
-  "L2CAP_CONFIG_REQ_FAILURE"
-  "L2CAP_CONFIG_RSP_NEG"
-  "L2CAP_CONNECT_CONFIRM_NEG"
-  "L2CAP_CONNECT_RSP_NEG"
-  "L2CAP_CONN_OTHER_ERROR_AT_CONNECT_RSP"
-  "L2CAP_CREDIT_BASED_CONNECT_RSP_NEG"
-  "L2CAP_INFO_NO_COMPATIBLE_CHANNEL_AT_RSP"
-  "L2CAP_NO_COMPATIBLE_CHANNEL_AT_CSM_CLOSED"
-  "L2CAP_NO_COMPATIBLE_CHANNEL_AT_W4_SEC"
-  "L2CAP_SECURITY_NEG_AT_CSM_CLOSED"
-  "L2CAP_SECURITY_NEG_AT_W4_SEC"
-  "L2CAP_SUCCESS"
-  "L2CAP_TIMEOUT_AT_CONNECT_RSP"
-  "L2CAP_TIMEOUT_AT_CSM_CLOSED"
-  "LE_ADV_COUNT_CONNECTABLE_DISABLE"
-  "LE_ADV_COUNT_CONNECTABLE_ENABLE"
-  "LE_ADV_COUNT_DISABLE"
-  "LE_ADV_COUNT_ENABLE"
-  "LE_ADV_COUNT_PERIODIC_DISABLE"
-  "LE_ADV_COUNT_PERIODIC_ENABLE"
-  "LE_ADV_DURATION_COUNT_CONNECTABLE_1H"
-  "LE_ADV_DURATION_COUNT_CONNECTABLE_1M"
-  "LE_ADV_DURATION_COUNT_CONNECTABLE_30M"
-  "LE_ADV_DURATION_COUNT_CONNECTABLE_3H"
-  "LE_ADV_DURATION_COUNT_CONNECTABLE_3HP"
-  "LE_ADV_DURATION_COUNT_PERIODIC_1H"
-  "LE_ADV_DURATION_COUNT_PERIODIC_1M"
-  "LE_ADV_DURATION_COUNT_PERIODIC_30M"
-  "LE_ADV_DURATION_COUNT_PERIODIC_3H"
-  "LE_ADV_DURATION_COUNT_PERIODIC_3HP"
-  "LE_ADV_DURATION_COUNT_TOTAL_1H"
-  "LE_ADV_DURATION_COUNT_TOTAL_1M"
-  "LE_ADV_DURATION_COUNT_TOTAL_30M"
-  "LE_ADV_DURATION_COUNT_TOTAL_3H"
-  "LE_ADV_DURATION_COUNT_TOTAL_3HP"
-  "LE_ADV_ERROR_ON_START_COUNT"
-  "LE_ADV_INSTANCE_COUNT_10"
-  "LE_ADV_INSTANCE_COUNT_15"
-  "LE_ADV_INSTANCE_COUNT_15P"
-  "LE_ADV_INSTANCE_COUNT_5"
-  "LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD"
-  "LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_CSIS"
-  "LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_DB"
-  "LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_GOOD"
-  "LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD"
-  "LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_CIS_FAILED"
-  "LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_SIGNALING_FAILED"
-  "LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_GOOD"
-  "LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_TRENDING_BAD"
-  "LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD"
-  "LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_CSIS"
-  "LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_DB"
-  "LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_GOOD"
-  "LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD"
-  "LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_CIS_FAILED"
-  "LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_SIGNALING_FAILED"
-  "LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_GOOD"
-  "LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_TRENDING_BAD"
-  "LE_SCAN_ABUSE_COUNT_HW_FILTER_NOT_AVAILABLE"
-  "LE_SCAN_ABUSE_COUNT_SCAN_TIMEOUT"
-  "LE_SCAN_ABUSE_COUNT_TRACKING_HW_FILTER_NOT_AVAILABLE"
-  "LE_SCAN_COUNT_AUTO_BATCH_DISABLE"
-  "LE_SCAN_COUNT_AUTO_BATCH_ENABLE"
-  "LE_SCAN_COUNT_BATCH_DISABLE"
-  "LE_SCAN_COUNT_BATCH_ENABLE"
-  "LE_SCAN_COUNT_FILTERED_DISABLE"
-  "LE_SCAN_COUNT_FILTERED_ENABLE"
-  "LE_SCAN_COUNT_TOTAL_DISABLE"
-  "LE_SCAN_COUNT_TOTAL_ENABLE"
-  "LE_SCAN_COUNT_UNFILTERED_DISABLE"
-  "LE_SCAN_COUNT_UNFILTERED_ENABLE"
-  "LE_SCAN_DURATION_COUNT_BATCH_10M"
-  "LE_SCAN_DURATION_COUNT_BATCH_10S"
-  "LE_SCAN_DURATION_COUNT_BATCH_1H"
-  "LE_SCAN_DURATION_COUNT_BATCH_1HP"
-  "LE_SCAN_DURATION_COUNT_BATCH_1M"
-  "LE_SCAN_DURATION_COUNT_REGULAR_10M"
-  "LE_SCAN_DURATION_COUNT_REGULAR_10S"
-  "LE_SCAN_DURATION_COUNT_REGULAR_1H"
-  "LE_SCAN_DURATION_COUNT_REGULAR_1HP"
-  "LE_SCAN_DURATION_COUNT_REGULAR_1M"
-  "LE_SCAN_RADIO_DURATION_ALL"
-  "LE_SCAN_RADIO_DURATION_BATCH"
-  "LE_SCAN_RADIO_DURATION_BATCH_SCREEN_OFF"
-  "LE_SCAN_RADIO_DURATION_BATCH_SCREEN_ON"
-  "LE_SCAN_RADIO_DURATION_REGULAR"
-  "LE_SCAN_RADIO_DURATION_REGULAR_SCREEN_OFF"
-  "LE_SCAN_RADIO_DURATION_REGULAR_SCREEN_ON"
-  "LE_SCAN_RADIO_SCAN_MODE_AMBIENT_DISCOVERY_COUNT"
-  "LE_SCAN_RADIO_SCAN_MODE_AMBIENT_DISCOVERY_COUNT_SCREEN_OFF"
-  "LE_SCAN_RADIO_SCAN_MODE_BALANCED_COUNT"
-  "LE_SCAN_RADIO_SCAN_MODE_BALANCED_COUNT_SCREEN_OFF"
-  "LE_SCAN_RADIO_SCAN_MODE_LOW_LATENCY_COUNT"
-  "LE_SCAN_RADIO_SCAN_MODE_LOW_LATENCY_COUNT_SCREEN_OFF"
-  "LE_SCAN_RADIO_SCAN_MODE_LOW_POWER_COUNT"
-  "LE_SCAN_RADIO_SCAN_MODE_LOW_POWER_COUNT_SCREEN_OFF"
-  "LE_SCAN_RADIO_SCAN_MODE_OPPORTUNISTIC_COUNT"
-  "LE_SCAN_RADIO_SCAN_MODE_OPPORTUNISTIC_COUNT_SCREEN_OFF"
-  "LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_BALANCED_COUNT"
-  "LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_BALANCED_COUNT_SCREEN_OFF"
-  "LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_COUNT"
-  "LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_COUNT_SCREEN_OFF"
-  "LE_SCAN_RESULTS_COUNT_ALL"
-  "LE_SCAN_RESULTS_COUNT_BATCH"
-  "LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE"
-  "LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE_SCREEN_OFF"
-  "LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE_SCREEN_ON"
-  "LE_SCAN_RESULTS_COUNT_BATCH_SCREEN_OFF"
-  "LE_SCAN_RESULTS_COUNT_BATCH_SCREEN_ON"
-  "LE_SCAN_RESULTS_COUNT_REGULAR"
-  "LE_SCAN_RESULTS_COUNT_REGULAR_SCREEN_OFF"
-  "LE_SCAN_RESULTS_COUNT_REGULAR_SCREEN_ON"
-  "RFCOMM_CONNECTION_SUCCESS_CNF"
-  "RFCOMM_CONNECTION_SUCCESS_IND"
-  "RFCOMM_PORT_CLOSED"
-  "RFCOMM_PORT_NEG_FAILED"
-  "RFCOMM_PORT_PEER_CONNECTION_FAILED"
-  "RFCOMM_PORT_PEER_TIMEOUT"
-  "RFCOMM_PORT_START_CLOSE"
-  "RFCOMM_PORT_START_CNF_FAILED"
-  "RFCOMM_PORT_START_FAILED"
-  "SCREEN_OFF_EVENT"
-  "SCREEN_ON_EVENT"
-  "SDP_ADD_UUID_WITH_INTENT"
-  "SDP_ADD_UUID_WITH_NO_INTENT"
-  "SDP_DROP_UUID"
-  "SDP_FAILURE"
-  "SDP_FETCH_UUID_REQUEST"
-  "SDP_FETCH_UUID_SKIP_ALREADY_BONDED"
-  "SDP_FETCH_UUID_SKIP_ALREADY_CACHED"
-  "SDP_INVOKE_SDP_CYCLE"
-  "SDP_NOT_SENDING_DELAYED_UUID"
-  "SDP_SENDING_DELAYED_UUID"
-  "SDP_SENT_UUID"
-  "SDP_SUCCESS"
-  "SDP_UUIDS_EQUAL_SKIP";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry CodePathCounterKeyEnum_entries[] = {
-  { {CodePathCounterKeyEnum_names + 0, 23}, 102005 },
-  { {CodePathCounterKeyEnum_names + 23, 32}, 102001 },
-  { {CodePathCounterKeyEnum_names + 55, 21}, 102007 },
-  { {CodePathCounterKeyEnum_names + 76, 28}, 102008 },
-  { {CodePathCounterKeyEnum_names + 104, 23}, 102003 },
-  { {CodePathCounterKeyEnum_names + 127, 26}, 102002 },
-  { {CodePathCounterKeyEnum_names + 153, 23}, 102000 },
-  { {CodePathCounterKeyEnum_names + 176, 23}, 102009 },
-  { {CodePathCounterKeyEnum_names + 199, 29}, 102004 },
-  { {CodePathCounterKeyEnum_names + 228, 30}, 102006 },
-  { {CodePathCounterKeyEnum_names + 258, 34}, 120901 },
-  { {CodePathCounterKeyEnum_names + 292, 48}, 120904 },
-  { {CodePathCounterKeyEnum_names + 340, 52}, 120905 },
-  { {CodePathCounterKeyEnum_names + 392, 29}, 120900 },
-  { {CodePathCounterKeyEnum_names + 421, 43}, 120902 },
-  { {CodePathCounterKeyEnum_names + 464, 47}, 120903 },
-  { {CodePathCounterKeyEnum_names + 511, 48}, 120908 },
-  { {CodePathCounterKeyEnum_names + 559, 52}, 120909 },
-  { {CodePathCounterKeyEnum_names + 611, 43}, 120906 },
-  { {CodePathCounterKeyEnum_names + 654, 47}, 120907 },
-  { {CodePathCounterKeyEnum_names + 701, 23}, 101101 },
-  { {CodePathCounterKeyEnum_names + 724, 26}, 101102 },
-  { {CodePathCounterKeyEnum_names + 750, 28}, 101103 },
-  { {CodePathCounterKeyEnum_names + 778, 20}, 101104 },
-  { {CodePathCounterKeyEnum_names + 798, 21}, 103011 },
-  { {CodePathCounterKeyEnum_names + 819, 27}, 103028 },
-  { {CodePathCounterKeyEnum_names + 846, 32}, 103008 },
-  { {CodePathCounterKeyEnum_names + 878, 32}, 103009 },
-  { {CodePathCounterKeyEnum_names + 910, 24}, 103010 },
-  { {CodePathCounterKeyEnum_names + 934, 37}, 103019 },
-  { {CodePathCounterKeyEnum_names + 971, 40}, 103020 },
-  { {CodePathCounterKeyEnum_names + 1011, 22}, 103012 },
-  { {CodePathCounterKeyEnum_names + 1033, 27}, 103017 },
-  { {CodePathCounterKeyEnum_names + 1060, 22}, 103007 },
-  { {CodePathCounterKeyEnum_names + 1082, 34}, 103018 },
-  { {CodePathCounterKeyEnum_names + 1116, 29}, 103015 },
-  { {CodePathCounterKeyEnum_names + 1145, 30}, 103014 },
-  { {CodePathCounterKeyEnum_names + 1175, 31}, 103016 },
-  { {CodePathCounterKeyEnum_names + 1206, 35}, 103013 },
-  { {CodePathCounterKeyEnum_names + 1241, 34}, 103021 },
-  { {CodePathCounterKeyEnum_names + 1275, 37}, 103024 },
-  { {CodePathCounterKeyEnum_names + 1312, 37}, 103022 },
-  { {CodePathCounterKeyEnum_names + 1349, 37}, 103023 },
-  { {CodePathCounterKeyEnum_names + 1386, 35}, 103003 },
-  { {CodePathCounterKeyEnum_names + 1421, 30}, 103027 },
-  { {CodePathCounterKeyEnum_names + 1451, 48}, 103026 },
-  { {CodePathCounterKeyEnum_names + 1499, 48}, 103025 },
-  { {CodePathCounterKeyEnum_names + 1547, 36}, 103006 },
-  { {CodePathCounterKeyEnum_names + 1583, 35}, 103005 },
-  { {CodePathCounterKeyEnum_names + 1618, 21}, 103004 },
-  { {CodePathCounterKeyEnum_names + 1639, 34}, 103002 },
-  { {CodePathCounterKeyEnum_names + 1673, 37}, 103127 },
-  { {CodePathCounterKeyEnum_names + 1710, 52}, 103124 },
-  { {CodePathCounterKeyEnum_names + 1762, 39}, 103126 },
-  { {CodePathCounterKeyEnum_names + 1801, 41}, 103122 },
-  { {CodePathCounterKeyEnum_names + 1842, 36}, 103128 },
-  { {CodePathCounterKeyEnum_names + 1878, 35}, 103129 },
-  { {CodePathCounterKeyEnum_names + 1913, 52}, 103123 },
-  { {CodePathCounterKeyEnum_names + 1965, 28}, 103125 },
-  { {CodePathCounterKeyEnum_names + 1993, 21}, 103116 },
-  { {CodePathCounterKeyEnum_names + 2014, 27}, 103101 },
-  { {CodePathCounterKeyEnum_names + 2041, 20}, 103120 },
-  { {CodePathCounterKeyEnum_names + 2061, 32}, 103114 },
-  { {CodePathCounterKeyEnum_names + 2093, 31}, 103113 },
-  { {CodePathCounterKeyEnum_names + 2124, 24}, 103115 },
-  { {CodePathCounterKeyEnum_names + 2148, 40}, 103111 },
-  { {CodePathCounterKeyEnum_names + 2188, 39}, 103110 },
-  { {CodePathCounterKeyEnum_names + 2227, 39}, 103108 },
-  { {CodePathCounterKeyEnum_names + 2266, 41}, 103109 },
-  { {CodePathCounterKeyEnum_names + 2307, 40}, 103112 },
-  { {CodePathCounterKeyEnum_names + 2347, 35}, 103107 },
-  { {CodePathCounterKeyEnum_names + 2382, 33}, 103117 },
-  { {CodePathCounterKeyEnum_names + 2415, 41}, 103118 },
-  { {CodePathCounterKeyEnum_names + 2456, 43}, 103119 },
-  { {CodePathCounterKeyEnum_names + 2499, 40}, 103106 },
-  { {CodePathCounterKeyEnum_names + 2539, 40}, 103105 },
-  { {CodePathCounterKeyEnum_names + 2579, 35}, 103104 },
-  { {CodePathCounterKeyEnum_names + 2614, 32}, 103103 },
-  { {CodePathCounterKeyEnum_names + 2646, 25}, 103102 },
-  { {CodePathCounterKeyEnum_names + 2671, 17}, 103121 },
-  { {CodePathCounterKeyEnum_names + 2688, 16}, 103001 },
-  { {CodePathCounterKeyEnum_names + 2704, 11}, 0 },
-  { {CodePathCounterKeyEnum_names + 2715, 24}, 100008 },
-  { {CodePathCounterKeyEnum_names + 2739, 20}, 100009 },
-  { {CodePathCounterKeyEnum_names + 2759, 25}, 100001 },
-  { {CodePathCounterKeyEnum_names + 2784, 21}, 100006 },
-  { {CodePathCounterKeyEnum_names + 2805, 37}, 100013 },
-  { {CodePathCounterKeyEnum_names + 2842, 34}, 100005 },
-  { {CodePathCounterKeyEnum_names + 2876, 39}, 100007 },
-  { {CodePathCounterKeyEnum_names + 2915, 41}, 100002 },
-  { {CodePathCounterKeyEnum_names + 2956, 37}, 100010 },
-  { {CodePathCounterKeyEnum_names + 2993, 32}, 100003 },
-  { {CodePathCounterKeyEnum_names + 3025, 28}, 100011 },
-  { {CodePathCounterKeyEnum_names + 3053, 13}, 100000 },
-  { {CodePathCounterKeyEnum_names + 3066, 28}, 100012 },
-  { {CodePathCounterKeyEnum_names + 3094, 27}, 100004 },
-  { {CodePathCounterKeyEnum_names + 3121, 32}, 120503 },
-  { {CodePathCounterKeyEnum_names + 3153, 31}, 120502 },
-  { {CodePathCounterKeyEnum_names + 3184, 20}, 120501 },
-  { {CodePathCounterKeyEnum_names + 3204, 19}, 120500 },
-  { {CodePathCounterKeyEnum_names + 3223, 29}, 120505 },
-  { {CodePathCounterKeyEnum_names + 3252, 28}, 120504 },
-  { {CodePathCounterKeyEnum_names + 3280, 36}, 120707 },
-  { {CodePathCounterKeyEnum_names + 3316, 36}, 120705 },
-  { {CodePathCounterKeyEnum_names + 3352, 37}, 120706 },
-  { {CodePathCounterKeyEnum_names + 3389, 36}, 120708 },
-  { {CodePathCounterKeyEnum_names + 3425, 37}, 120709 },
-  { {CodePathCounterKeyEnum_names + 3462, 33}, 120712 },
-  { {CodePathCounterKeyEnum_names + 3495, 33}, 120710 },
-  { {CodePathCounterKeyEnum_names + 3528, 34}, 120711 },
-  { {CodePathCounterKeyEnum_names + 3562, 33}, 120713 },
-  { {CodePathCounterKeyEnum_names + 3595, 34}, 120714 },
-  { {CodePathCounterKeyEnum_names + 3629, 30}, 120702 },
-  { {CodePathCounterKeyEnum_names + 3659, 30}, 120700 },
-  { {CodePathCounterKeyEnum_names + 3689, 31}, 120701 },
-  { {CodePathCounterKeyEnum_names + 3720, 30}, 120703 },
-  { {CodePathCounterKeyEnum_names + 3750, 31}, 120704 },
-  { {CodePathCounterKeyEnum_names + 3781, 27}, 120800 },
-  { {CodePathCounterKeyEnum_names + 3808, 24}, 120601 },
-  { {CodePathCounterKeyEnum_names + 3832, 24}, 120602 },
-  { {CodePathCounterKeyEnum_names + 3856, 25}, 120603 },
-  { {CodePathCounterKeyEnum_names + 3881, 23}, 120600 },
-  { {CodePathCounterKeyEnum_names + 3904, 43}, 121101 },
-  { {CodePathCounterKeyEnum_names + 3947, 56}, 121103 },
-  { {CodePathCounterKeyEnum_names + 4003, 54}, 121102 },
-  { {CodePathCounterKeyEnum_names + 4057, 44}, 121100 },
-  { {CodePathCounterKeyEnum_names + 4101, 42}, 121110 },
-  { {CodePathCounterKeyEnum_names + 4143, 58}, 121111 },
-  { {CodePathCounterKeyEnum_names + 4201, 64}, 121112 },
-  { {CodePathCounterKeyEnum_names + 4265, 43}, 121108 },
-  { {CodePathCounterKeyEnum_names + 4308, 51}, 121109 },
-  { {CodePathCounterKeyEnum_names + 4359, 46}, 121105 },
-  { {CodePathCounterKeyEnum_names + 4405, 59}, 121107 },
-  { {CodePathCounterKeyEnum_names + 4464, 57}, 121106 },
-  { {CodePathCounterKeyEnum_names + 4521, 47}, 121104 },
-  { {CodePathCounterKeyEnum_names + 4568, 45}, 121115 },
-  { {CodePathCounterKeyEnum_names + 4613, 61}, 121116 },
-  { {CodePathCounterKeyEnum_names + 4674, 67}, 121117 },
-  { {CodePathCounterKeyEnum_names + 4741, 46}, 121113 },
-  { {CodePathCounterKeyEnum_names + 4787, 54}, 121114 },
-  { {CodePathCounterKeyEnum_names + 4841, 43}, 120401 },
-  { {CodePathCounterKeyEnum_names + 4884, 32}, 120400 },
-  { {CodePathCounterKeyEnum_names + 4916, 52}, 120402 },
-  { {CodePathCounterKeyEnum_names + 4968, 32}, 120009 },
-  { {CodePathCounterKeyEnum_names + 5000, 31}, 120008 },
-  { {CodePathCounterKeyEnum_names + 5031, 27}, 120007 },
-  { {CodePathCounterKeyEnum_names + 5058, 26}, 120006 },
-  { {CodePathCounterKeyEnum_names + 5084, 30}, 120003 },
-  { {CodePathCounterKeyEnum_names + 5114, 29}, 120002 },
-  { {CodePathCounterKeyEnum_names + 5143, 27}, 120001 },
-  { {CodePathCounterKeyEnum_names + 5170, 26}, 120000 },
-  { {CodePathCounterKeyEnum_names + 5196, 32}, 120005 },
-  { {CodePathCounterKeyEnum_names + 5228, 31}, 120004 },
-  { {CodePathCounterKeyEnum_names + 5259, 32}, 120107 },
-  { {CodePathCounterKeyEnum_names + 5291, 32}, 120105 },
-  { {CodePathCounterKeyEnum_names + 5323, 31}, 120108 },
-  { {CodePathCounterKeyEnum_names + 5354, 32}, 120109 },
-  { {CodePathCounterKeyEnum_names + 5386, 31}, 120106 },
-  { {CodePathCounterKeyEnum_names + 5417, 34}, 120102 },
-  { {CodePathCounterKeyEnum_names + 5451, 34}, 120100 },
-  { {CodePathCounterKeyEnum_names + 5485, 33}, 120103 },
-  { {CodePathCounterKeyEnum_names + 5518, 34}, 120104 },
-  { {CodePathCounterKeyEnum_names + 5552, 33}, 120101 },
-  { {CodePathCounterKeyEnum_names + 5585, 26}, 120200 },
-  { {CodePathCounterKeyEnum_names + 5611, 28}, 120202 },
-  { {CodePathCounterKeyEnum_names + 5639, 39}, 120206 },
-  { {CodePathCounterKeyEnum_names + 5678, 38}, 120205 },
-  { {CodePathCounterKeyEnum_names + 5716, 30}, 120201 },
-  { {CodePathCounterKeyEnum_names + 5746, 41}, 120204 },
-  { {CodePathCounterKeyEnum_names + 5787, 40}, 120203 },
-  { {CodePathCounterKeyEnum_names + 5827, 47}, 120254 },
-  { {CodePathCounterKeyEnum_names + 5874, 58}, 120261 },
-  { {CodePathCounterKeyEnum_names + 5932, 38}, 120252 },
-  { {CodePathCounterKeyEnum_names + 5970, 49}, 120259 },
-  { {CodePathCounterKeyEnum_names + 6019, 41}, 120253 },
-  { {CodePathCounterKeyEnum_names + 6060, 52}, 120260 },
-  { {CodePathCounterKeyEnum_names + 6112, 39}, 120251 },
-  { {CodePathCounterKeyEnum_names + 6151, 50}, 120258 },
-  { {CodePathCounterKeyEnum_names + 6201, 43}, 120250 },
-  { {CodePathCounterKeyEnum_names + 6244, 54}, 120257 },
-  { {CodePathCounterKeyEnum_names + 6298, 49}, 120256 },
-  { {CodePathCounterKeyEnum_names + 6347, 60}, 120263 },
-  { {CodePathCounterKeyEnum_names + 6407, 40}, 120255 },
-  { {CodePathCounterKeyEnum_names + 6447, 51}, 120262 },
-  { {CodePathCounterKeyEnum_names + 6498, 25}, 120300 },
-  { {CodePathCounterKeyEnum_names + 6523, 27}, 120302 },
-  { {CodePathCounterKeyEnum_names + 6550, 34}, 120307 },
-  { {CodePathCounterKeyEnum_names + 6584, 45}, 120309 },
-  { {CodePathCounterKeyEnum_names + 6629, 44}, 120308 },
-  { {CodePathCounterKeyEnum_names + 6673, 38}, 120306 },
-  { {CodePathCounterKeyEnum_names + 6711, 37}, 120305 },
-  { {CodePathCounterKeyEnum_names + 6748, 29}, 120301 },
-  { {CodePathCounterKeyEnum_names + 6777, 40}, 120304 },
-  { {CodePathCounterKeyEnum_names + 6817, 39}, 120303 },
-  { {CodePathCounterKeyEnum_names + 6856, 29}, 101001 },
-  { {CodePathCounterKeyEnum_names + 6885, 29}, 101000 },
-  { {CodePathCounterKeyEnum_names + 6914, 18}, 101006 },
-  { {CodePathCounterKeyEnum_names + 6932, 22}, 101005 },
-  { {CodePathCounterKeyEnum_names + 6954, 34}, 101007 },
-  { {CodePathCounterKeyEnum_names + 6988, 24}, 101008 },
-  { {CodePathCounterKeyEnum_names + 7012, 23}, 101003 },
-  { {CodePathCounterKeyEnum_names + 7035, 28}, 101002 },
-  { {CodePathCounterKeyEnum_names + 7063, 24}, 101004 },
-  { {CodePathCounterKeyEnum_names + 7087, 16}, 121001 },
-  { {CodePathCounterKeyEnum_names + 7103, 15}, 121000 },
-  { {CodePathCounterKeyEnum_names + 7118, 24}, 100106 },
-  { {CodePathCounterKeyEnum_names + 7142, 27}, 100107 },
-  { {CodePathCounterKeyEnum_names + 7169, 13}, 100108 },
-  { {CodePathCounterKeyEnum_names + 7182, 11}, 100101 },
-  { {CodePathCounterKeyEnum_names + 7193, 22}, 100112 },
-  { {CodePathCounterKeyEnum_names + 7215, 34}, 100110 },
-  { {CodePathCounterKeyEnum_names + 7249, 34}, 100109 },
-  { {CodePathCounterKeyEnum_names + 7283, 20}, 100111 },
-  { {CodePathCounterKeyEnum_names + 7303, 28}, 100103 },
-  { {CodePathCounterKeyEnum_names + 7331, 24}, 100102 },
-  { {CodePathCounterKeyEnum_names + 7355, 13}, 100104 },
-  { {CodePathCounterKeyEnum_names + 7368, 11}, 100100 },
-  { {CodePathCounterKeyEnum_names + 7379, 20}, 100105 },
+static const ::google::protobuf::internal::EnumEntry CodePathCounterKeyEnum_entries[] =
+    {
+        {{&CodePathCounterKeyEnum_names[0], 23}, 102005},
+        {{&CodePathCounterKeyEnum_names[23], 32}, 102001},
+        {{&CodePathCounterKeyEnum_names[55], 21}, 102007},
+        {{&CodePathCounterKeyEnum_names[76], 28}, 102008},
+        {{&CodePathCounterKeyEnum_names[104], 23}, 102003},
+        {{&CodePathCounterKeyEnum_names[127], 26}, 102002},
+        {{&CodePathCounterKeyEnum_names[153], 23}, 102000},
+        {{&CodePathCounterKeyEnum_names[176], 23}, 102009},
+        {{&CodePathCounterKeyEnum_names[199], 29}, 102004},
+        {{&CodePathCounterKeyEnum_names[228], 30}, 102006},
+        {{&CodePathCounterKeyEnum_names[258], 19}, 0},
+        {{&CodePathCounterKeyEnum_names[277], 34}, 120901},
+        {{&CodePathCounterKeyEnum_names[311], 48}, 120904},
+        {{&CodePathCounterKeyEnum_names[359], 52}, 120905},
+        {{&CodePathCounterKeyEnum_names[411], 29}, 120900},
+        {{&CodePathCounterKeyEnum_names[440], 43}, 120902},
+        {{&CodePathCounterKeyEnum_names[483], 47}, 120903},
+        {{&CodePathCounterKeyEnum_names[530], 48}, 120908},
+        {{&CodePathCounterKeyEnum_names[578], 52}, 120909},
+        {{&CodePathCounterKeyEnum_names[630], 43}, 120906},
+        {{&CodePathCounterKeyEnum_names[673], 47}, 120907},
+        {{&CodePathCounterKeyEnum_names[720], 23}, 101101},
+        {{&CodePathCounterKeyEnum_names[743], 26}, 101102},
+        {{&CodePathCounterKeyEnum_names[769], 28}, 101103},
+        {{&CodePathCounterKeyEnum_names[797], 20}, 101104},
+        {{&CodePathCounterKeyEnum_names[817], 21}, 103011},
+        {{&CodePathCounterKeyEnum_names[838], 27}, 103028},
+        {{&CodePathCounterKeyEnum_names[865], 32}, 103008},
+        {{&CodePathCounterKeyEnum_names[897], 32}, 103009},
+        {{&CodePathCounterKeyEnum_names[929], 24}, 103010},
+        {{&CodePathCounterKeyEnum_names[953], 37}, 103019},
+        {{&CodePathCounterKeyEnum_names[990], 40}, 103020},
+        {{&CodePathCounterKeyEnum_names[1030], 22}, 103012},
+        {{&CodePathCounterKeyEnum_names[1052], 27}, 103017},
+        {{&CodePathCounterKeyEnum_names[1079], 22}, 103007},
+        {{&CodePathCounterKeyEnum_names[1101], 34}, 103018},
+        {{&CodePathCounterKeyEnum_names[1135], 29}, 103015},
+        {{&CodePathCounterKeyEnum_names[1164], 30}, 103014},
+        {{&CodePathCounterKeyEnum_names[1194], 31}, 103016},
+        {{&CodePathCounterKeyEnum_names[1225], 35}, 103013},
+        {{&CodePathCounterKeyEnum_names[1260], 34}, 103021},
+        {{&CodePathCounterKeyEnum_names[1294], 37}, 103024},
+        {{&CodePathCounterKeyEnum_names[1331], 37}, 103022},
+        {{&CodePathCounterKeyEnum_names[1368], 37}, 103023},
+        {{&CodePathCounterKeyEnum_names[1405], 35}, 103003},
+        {{&CodePathCounterKeyEnum_names[1440], 30}, 103027},
+        {{&CodePathCounterKeyEnum_names[1470], 48}, 103026},
+        {{&CodePathCounterKeyEnum_names[1518], 48}, 103025},
+        {{&CodePathCounterKeyEnum_names[1566], 36}, 103006},
+        {{&CodePathCounterKeyEnum_names[1602], 35}, 103005},
+        {{&CodePathCounterKeyEnum_names[1637], 21}, 103004},
+        {{&CodePathCounterKeyEnum_names[1658], 34}, 103002},
+        {{&CodePathCounterKeyEnum_names[1692], 37}, 103127},
+        {{&CodePathCounterKeyEnum_names[1729], 52}, 103124},
+        {{&CodePathCounterKeyEnum_names[1781], 39}, 103126},
+        {{&CodePathCounterKeyEnum_names[1820], 41}, 103122},
+        {{&CodePathCounterKeyEnum_names[1861], 36}, 103128},
+        {{&CodePathCounterKeyEnum_names[1897], 35}, 103129},
+        {{&CodePathCounterKeyEnum_names[1932], 52}, 103123},
+        {{&CodePathCounterKeyEnum_names[1984], 28}, 103125},
+        {{&CodePathCounterKeyEnum_names[2012], 21}, 103116},
+        {{&CodePathCounterKeyEnum_names[2033], 27}, 103101},
+        {{&CodePathCounterKeyEnum_names[2060], 20}, 103120},
+        {{&CodePathCounterKeyEnum_names[2080], 32}, 103114},
+        {{&CodePathCounterKeyEnum_names[2112], 31}, 103113},
+        {{&CodePathCounterKeyEnum_names[2143], 24}, 103115},
+        {{&CodePathCounterKeyEnum_names[2167], 40}, 103111},
+        {{&CodePathCounterKeyEnum_names[2207], 39}, 103110},
+        {{&CodePathCounterKeyEnum_names[2246], 39}, 103108},
+        {{&CodePathCounterKeyEnum_names[2285], 41}, 103109},
+        {{&CodePathCounterKeyEnum_names[2326], 40}, 103112},
+        {{&CodePathCounterKeyEnum_names[2366], 35}, 103107},
+        {{&CodePathCounterKeyEnum_names[2401], 33}, 103117},
+        {{&CodePathCounterKeyEnum_names[2434], 41}, 103118},
+        {{&CodePathCounterKeyEnum_names[2475], 43}, 103119},
+        {{&CodePathCounterKeyEnum_names[2518], 40}, 103106},
+        {{&CodePathCounterKeyEnum_names[2558], 40}, 103105},
+        {{&CodePathCounterKeyEnum_names[2598], 35}, 103104},
+        {{&CodePathCounterKeyEnum_names[2633], 32}, 103103},
+        {{&CodePathCounterKeyEnum_names[2665], 25}, 103102},
+        {{&CodePathCounterKeyEnum_names[2690], 17}, 103121},
+        {{&CodePathCounterKeyEnum_names[2707], 16}, 103001},
+        {{&CodePathCounterKeyEnum_names[2723], 24}, 100008},
+        {{&CodePathCounterKeyEnum_names[2747], 20}, 100009},
+        {{&CodePathCounterKeyEnum_names[2767], 25}, 100001},
+        {{&CodePathCounterKeyEnum_names[2792], 21}, 100006},
+        {{&CodePathCounterKeyEnum_names[2813], 37}, 100013},
+        {{&CodePathCounterKeyEnum_names[2850], 34}, 100005},
+        {{&CodePathCounterKeyEnum_names[2884], 39}, 100007},
+        {{&CodePathCounterKeyEnum_names[2923], 41}, 100002},
+        {{&CodePathCounterKeyEnum_names[2964], 37}, 100010},
+        {{&CodePathCounterKeyEnum_names[3001], 32}, 100003},
+        {{&CodePathCounterKeyEnum_names[3033], 28}, 100011},
+        {{&CodePathCounterKeyEnum_names[3061], 13}, 100000},
+        {{&CodePathCounterKeyEnum_names[3074], 28}, 100012},
+        {{&CodePathCounterKeyEnum_names[3102], 27}, 100004},
+        {{&CodePathCounterKeyEnum_names[3129], 32}, 120503},
+        {{&CodePathCounterKeyEnum_names[3161], 31}, 120502},
+        {{&CodePathCounterKeyEnum_names[3192], 20}, 120501},
+        {{&CodePathCounterKeyEnum_names[3212], 19}, 120500},
+        {{&CodePathCounterKeyEnum_names[3231], 29}, 120505},
+        {{&CodePathCounterKeyEnum_names[3260], 28}, 120504},
+        {{&CodePathCounterKeyEnum_names[3288], 36}, 120707},
+        {{&CodePathCounterKeyEnum_names[3324], 36}, 120705},
+        {{&CodePathCounterKeyEnum_names[3360], 37}, 120706},
+        {{&CodePathCounterKeyEnum_names[3397], 36}, 120708},
+        {{&CodePathCounterKeyEnum_names[3433], 37}, 120709},
+        {{&CodePathCounterKeyEnum_names[3470], 33}, 120712},
+        {{&CodePathCounterKeyEnum_names[3503], 33}, 120710},
+        {{&CodePathCounterKeyEnum_names[3536], 34}, 120711},
+        {{&CodePathCounterKeyEnum_names[3570], 33}, 120713},
+        {{&CodePathCounterKeyEnum_names[3603], 34}, 120714},
+        {{&CodePathCounterKeyEnum_names[3637], 30}, 120702},
+        {{&CodePathCounterKeyEnum_names[3667], 30}, 120700},
+        {{&CodePathCounterKeyEnum_names[3697], 31}, 120701},
+        {{&CodePathCounterKeyEnum_names[3728], 30}, 120703},
+        {{&CodePathCounterKeyEnum_names[3758], 31}, 120704},
+        {{&CodePathCounterKeyEnum_names[3789], 27}, 120800},
+        {{&CodePathCounterKeyEnum_names[3816], 24}, 120601},
+        {{&CodePathCounterKeyEnum_names[3840], 24}, 120602},
+        {{&CodePathCounterKeyEnum_names[3864], 25}, 120603},
+        {{&CodePathCounterKeyEnum_names[3889], 23}, 120600},
+        {{&CodePathCounterKeyEnum_names[3912], 43}, 121101},
+        {{&CodePathCounterKeyEnum_names[3955], 56}, 121103},
+        {{&CodePathCounterKeyEnum_names[4011], 54}, 121102},
+        {{&CodePathCounterKeyEnum_names[4065], 44}, 121100},
+        {{&CodePathCounterKeyEnum_names[4109], 42}, 121110},
+        {{&CodePathCounterKeyEnum_names[4151], 58}, 121111},
+        {{&CodePathCounterKeyEnum_names[4209], 64}, 121112},
+        {{&CodePathCounterKeyEnum_names[4273], 43}, 121108},
+        {{&CodePathCounterKeyEnum_names[4316], 51}, 121109},
+        {{&CodePathCounterKeyEnum_names[4367], 46}, 121105},
+        {{&CodePathCounterKeyEnum_names[4413], 59}, 121107},
+        {{&CodePathCounterKeyEnum_names[4472], 57}, 121106},
+        {{&CodePathCounterKeyEnum_names[4529], 47}, 121104},
+        {{&CodePathCounterKeyEnum_names[4576], 45}, 121115},
+        {{&CodePathCounterKeyEnum_names[4621], 61}, 121116},
+        {{&CodePathCounterKeyEnum_names[4682], 67}, 121117},
+        {{&CodePathCounterKeyEnum_names[4749], 46}, 121113},
+        {{&CodePathCounterKeyEnum_names[4795], 54}, 121114},
+        {{&CodePathCounterKeyEnum_names[4849], 43}, 120401},
+        {{&CodePathCounterKeyEnum_names[4892], 32}, 120400},
+        {{&CodePathCounterKeyEnum_names[4924], 52}, 120402},
+        {{&CodePathCounterKeyEnum_names[4976], 32}, 120009},
+        {{&CodePathCounterKeyEnum_names[5008], 31}, 120008},
+        {{&CodePathCounterKeyEnum_names[5039], 27}, 120007},
+        {{&CodePathCounterKeyEnum_names[5066], 26}, 120006},
+        {{&CodePathCounterKeyEnum_names[5092], 30}, 120003},
+        {{&CodePathCounterKeyEnum_names[5122], 29}, 120002},
+        {{&CodePathCounterKeyEnum_names[5151], 27}, 120001},
+        {{&CodePathCounterKeyEnum_names[5178], 26}, 120000},
+        {{&CodePathCounterKeyEnum_names[5204], 32}, 120005},
+        {{&CodePathCounterKeyEnum_names[5236], 31}, 120004},
+        {{&CodePathCounterKeyEnum_names[5267], 32}, 120107},
+        {{&CodePathCounterKeyEnum_names[5299], 32}, 120105},
+        {{&CodePathCounterKeyEnum_names[5331], 31}, 120108},
+        {{&CodePathCounterKeyEnum_names[5362], 32}, 120109},
+        {{&CodePathCounterKeyEnum_names[5394], 31}, 120106},
+        {{&CodePathCounterKeyEnum_names[5425], 34}, 120102},
+        {{&CodePathCounterKeyEnum_names[5459], 34}, 120100},
+        {{&CodePathCounterKeyEnum_names[5493], 33}, 120103},
+        {{&CodePathCounterKeyEnum_names[5526], 34}, 120104},
+        {{&CodePathCounterKeyEnum_names[5560], 33}, 120101},
+        {{&CodePathCounterKeyEnum_names[5593], 26}, 120200},
+        {{&CodePathCounterKeyEnum_names[5619], 28}, 120202},
+        {{&CodePathCounterKeyEnum_names[5647], 39}, 120206},
+        {{&CodePathCounterKeyEnum_names[5686], 38}, 120205},
+        {{&CodePathCounterKeyEnum_names[5724], 30}, 120201},
+        {{&CodePathCounterKeyEnum_names[5754], 41}, 120204},
+        {{&CodePathCounterKeyEnum_names[5795], 40}, 120203},
+        {{&CodePathCounterKeyEnum_names[5835], 47}, 120254},
+        {{&CodePathCounterKeyEnum_names[5882], 58}, 120261},
+        {{&CodePathCounterKeyEnum_names[5940], 38}, 120252},
+        {{&CodePathCounterKeyEnum_names[5978], 49}, 120259},
+        {{&CodePathCounterKeyEnum_names[6027], 41}, 120253},
+        {{&CodePathCounterKeyEnum_names[6068], 52}, 120260},
+        {{&CodePathCounterKeyEnum_names[6120], 39}, 120251},
+        {{&CodePathCounterKeyEnum_names[6159], 50}, 120258},
+        {{&CodePathCounterKeyEnum_names[6209], 43}, 120250},
+        {{&CodePathCounterKeyEnum_names[6252], 54}, 120257},
+        {{&CodePathCounterKeyEnum_names[6306], 49}, 120256},
+        {{&CodePathCounterKeyEnum_names[6355], 60}, 120263},
+        {{&CodePathCounterKeyEnum_names[6415], 40}, 120255},
+        {{&CodePathCounterKeyEnum_names[6455], 51}, 120262},
+        {{&CodePathCounterKeyEnum_names[6506], 25}, 120300},
+        {{&CodePathCounterKeyEnum_names[6531], 27}, 120302},
+        {{&CodePathCounterKeyEnum_names[6558], 34}, 120307},
+        {{&CodePathCounterKeyEnum_names[6592], 45}, 120309},
+        {{&CodePathCounterKeyEnum_names[6637], 44}, 120308},
+        {{&CodePathCounterKeyEnum_names[6681], 38}, 120306},
+        {{&CodePathCounterKeyEnum_names[6719], 37}, 120305},
+        {{&CodePathCounterKeyEnum_names[6756], 29}, 120301},
+        {{&CodePathCounterKeyEnum_names[6785], 40}, 120304},
+        {{&CodePathCounterKeyEnum_names[6825], 39}, 120303},
+        {{&CodePathCounterKeyEnum_names[6864], 29}, 101001},
+        {{&CodePathCounterKeyEnum_names[6893], 29}, 101000},
+        {{&CodePathCounterKeyEnum_names[6922], 18}, 101006},
+        {{&CodePathCounterKeyEnum_names[6940], 22}, 101005},
+        {{&CodePathCounterKeyEnum_names[6962], 34}, 101007},
+        {{&CodePathCounterKeyEnum_names[6996], 24}, 101008},
+        {{&CodePathCounterKeyEnum_names[7020], 23}, 101003},
+        {{&CodePathCounterKeyEnum_names[7043], 28}, 101002},
+        {{&CodePathCounterKeyEnum_names[7071], 24}, 101004},
+        {{&CodePathCounterKeyEnum_names[7095], 16}, 121001},
+        {{&CodePathCounterKeyEnum_names[7111], 15}, 121000},
+        {{&CodePathCounterKeyEnum_names[7126], 24}, 100106},
+        {{&CodePathCounterKeyEnum_names[7150], 27}, 100107},
+        {{&CodePathCounterKeyEnum_names[7177], 13}, 100108},
+        {{&CodePathCounterKeyEnum_names[7190], 11}, 100101},
+        {{&CodePathCounterKeyEnum_names[7201], 22}, 100112},
+        {{&CodePathCounterKeyEnum_names[7223], 34}, 100110},
+        {{&CodePathCounterKeyEnum_names[7257], 34}, 100109},
+        {{&CodePathCounterKeyEnum_names[7291], 20}, 100111},
+        {{&CodePathCounterKeyEnum_names[7311], 28}, 100103},
+        {{&CodePathCounterKeyEnum_names[7339], 24}, 100102},
+        {{&CodePathCounterKeyEnum_names[7363], 13}, 100104},
+        {{&CodePathCounterKeyEnum_names[7376], 11}, 100100},
+        {{&CodePathCounterKeyEnum_names[7387], 20}, 100105},
 };
 
 static const int CodePathCounterKeyEnum_entries_by_number[] = {
-  81, // 0 -> KEY_UNKNOWN
-  93, // 100000 -> L2CAP_SUCCESS
-  84, // 100001 -> L2CAP_CONNECT_CONFIRM_NEG
-  89, // 100002 -> L2CAP_NO_COMPATIBLE_CHANNEL_AT_CSM_CLOSED
-  91, // 100003 -> L2CAP_SECURITY_NEG_AT_CSM_CLOSED
-  95, // 100004 -> L2CAP_TIMEOUT_AT_CSM_CLOSED
-  87, // 100005 -> L2CAP_CREDIT_BASED_CONNECT_RSP_NEG
-  85, // 100006 -> L2CAP_CONNECT_RSP_NEG
-  88, // 100007 -> L2CAP_INFO_NO_COMPATIBLE_CHANNEL_AT_RSP
-  82, // 100008 -> L2CAP_CONFIG_REQ_FAILURE
-  83, // 100009 -> L2CAP_CONFIG_RSP_NEG
-  90, // 100010 -> L2CAP_NO_COMPATIBLE_CHANNEL_AT_W4_SEC
-  92, // 100011 -> L2CAP_SECURITY_NEG_AT_W4_SEC
-  94, // 100012 -> L2CAP_TIMEOUT_AT_CONNECT_RSP
-  86, // 100013 -> L2CAP_CONN_OTHER_ERROR_AT_CONNECT_RSP
-  216, // 100100 -> SDP_SUCCESS
-  208, // 100101 -> SDP_FAILURE
-  214, // 100102 -> SDP_SENDING_DELAYED_UUID
-  213, // 100103 -> SDP_NOT_SENDING_DELAYED_UUID
-  215, // 100104 -> SDP_SENT_UUID
-  217, // 100105 -> SDP_UUIDS_EQUAL_SKIP
-  205, // 100106 -> SDP_ADD_UUID_WITH_INTENT
-  206, // 100107 -> SDP_ADD_UUID_WITH_NO_INTENT
-  207, // 100108 -> SDP_DROP_UUID
-  211, // 100109 -> SDP_FETCH_UUID_SKIP_ALREADY_CACHED
-  210, // 100110 -> SDP_FETCH_UUID_SKIP_ALREADY_BONDED
-  212, // 100111 -> SDP_INVOKE_SDP_CYCLE
-  209, // 100112 -> SDP_FETCH_UUID_REQUEST
-  195, // 101000 -> RFCOMM_CONNECTION_SUCCESS_IND
-  194, // 101001 -> RFCOMM_CONNECTION_SUCCESS_CNF
-  201, // 101002 -> RFCOMM_PORT_START_CNF_FAILED
-  200, // 101003 -> RFCOMM_PORT_START_CLOSE
-  202, // 101004 -> RFCOMM_PORT_START_FAILED
-  197, // 101005 -> RFCOMM_PORT_NEG_FAILED
-  196, // 101006 -> RFCOMM_PORT_CLOSED
-  198, // 101007 -> RFCOMM_PORT_PEER_CONNECTION_FAILED
-  199, // 101008 -> RFCOMM_PORT_PEER_TIMEOUT
-  20, // 101101 -> HFP_COLLISON_AT_AG_OPEN
-  21, // 101102 -> HFP_COLLISON_AT_CONNECTING
-  22, // 101103 -> HFP_SELF_INITIATED_AG_FAILED
-  23, // 101104 -> HFP_SLC_SETUP_FAILED
-  6, // 102000 -> A2DP_CONNECTION_SUCCESS
-  1, // 102001 -> A2DP_CONNECTION_ACL_DISCONNECTED
-  5, // 102002 -> A2DP_CONNECTION_REJECT_EVT
-  4, // 102003 -> A2DP_CONNECTION_FAILURE
-  8, // 102004 -> A2DP_CONNECTION_UNKNOWN_EVENT
-  0, // 102005 -> A2DP_ALREADY_CONNECTING
-  9, // 102006 -> A2DP_OFFLOAD_START_REQ_FAILURE
-  2, // 102007 -> A2DP_CONNECTION_CLOSE
-  3, // 102008 -> A2DP_CONNECTION_DISCONNECTED
-  7, // 102009 -> A2DP_CONNECTION_TIMEOUT
-  80, // 103001 -> HID_PLUG_FAILURE
-  50, // 103002 -> HIDD_REGISTER_DESCRIPTOR_MALFORMED
-  43, // 103003 -> HIDD_ERR_NOT_REGISTERED_AT_INITIATE
-  49, // 103004 -> HIDD_ERR_NO_RESOURCES
-  48, // 103005 -> HIDD_ERR_NO_CONNECTION_AT_SEND_DATA
-  47, // 103006 -> HIDD_ERR_NO_CONNECTION_AT_DISCONNECT
-  33, // 103007 -> HIDD_ERR_INVALID_PARAM
-  26, // 103008 -> HIDD_ERR_CONGESTED_AT_DATA_WRITE
-  27, // 103009 -> HIDD_ERR_CONGESTED_AT_FLAG_CHECK
-  28, // 103010 -> HIDD_ERR_CONN_IN_PROCESS
-  24, // 103011 -> HIDD_ERR_ALREADY_CONN
-  31, // 103012 -> HIDD_ERR_DISCONNECTING
-  38, // 103013 -> HIDD_ERR_L2CAP_NOT_STARTED_INCOMING
-  36, // 103014 -> HIDD_ERR_L2CAP_FAILED_INITIATE
-  35, // 103015 -> HIDD_ERR_L2CAP_FAILED_CONTROL
-  37, // 103016 -> HIDD_ERR_L2CAP_FAILED_INTERRUPT
-  32, // 103017 -> HIDD_ERR_HOST_CALLBACK_NULL
-  34, // 103018 -> HIDD_ERR_INVALID_PARAM_SEND_REPORT
-  29, // 103019 -> HIDD_ERR_DEVICE_NOT_IN_USE_AT_CONNECT
-  30, // 103020 -> HIDD_ERR_DEVICE_NOT_IN_USE_AT_DISCONNECT
-  39, // 103021 -> HIDD_ERR_NOT_REGISTERED_AT_CONNECT
-  41, // 103022 -> HIDD_ERR_NOT_REGISTERED_AT_DISCONNECT
-  42, // 103023 -> HIDD_ERR_NOT_REGISTERED_AT_GET_DEVICE
-  40, // 103024 -> HIDD_ERR_NOT_REGISTERED_AT_DEREGISTER
-  46, // 103025 -> HIDD_ERR_NOT_REGISTERED_DUE_TO_DESCRIPTOR_LENGTH
-  45, // 103026 -> HIDD_ERR_NOT_REGISTERED_DUE_TO_BUFFER_ALLOCATION
-  44, // 103027 -> HIDD_ERR_NOT_REGISTERED_AT_SDP
-  25, // 103028 -> HIDD_ERR_ALREADY_REGISTERED
-  60, // 103101 -> HIDH_ERR_ALREADY_REGISTERED
-  78, // 103102 -> HIDH_ERR_NO_RESOURCES_SDP
-  77, // 103103 -> HIDH_ERR_NO_RESOURCES_ADD_DEVICE
-  76, // 103104 -> HIDH_ERR_NO_CONNECTION_AT_SEND_DATA
-  75, // 103105 -> HIDH_ERR_NO_CONNECTION_AT_HOST_WRITE_DEV
-  74, // 103106 -> HIDH_ERR_NO_CONNECTION_AT_HOST_CLOSE_DEV
-  70, // 103107 -> HIDH_ERR_INVALID_PARAM_AT_SEND_DATA
-  67, // 103108 -> HIDH_ERR_INVALID_PARAM_AT_HOST_REGISTER
-  68, // 103109 -> HIDH_ERR_INVALID_PARAM_AT_HOST_REMOVE_DEV
-  66, // 103110 -> HIDH_ERR_INVALID_PARAM_AT_HOST_OPEN_DEV
-  65, // 103111 -> HIDH_ERR_INVALID_PARAM_AT_HOST_CLOSE_DEV
-  69, // 103112 -> HIDH_ERR_INVALID_PARAM_AT_HOST_WRITE_DEV
-  63, // 103113 -> HIDH_ERR_CONGESTED_AT_SEND_DATA
-  62, // 103114 -> HIDH_ERR_CONGESTED_AT_FLAG_CHECK
-  64, // 103115 -> HIDH_ERR_CONN_IN_PROCESS
-  59, // 103116 -> HIDH_ERR_ALREADY_CONN
-  71, // 103117 -> HIDH_ERR_L2CAP_FAILED_AT_INITIATE
-  72, // 103118 -> HIDH_ERR_L2CAP_FAILED_AT_REGISTER_CONTROL
-  73, // 103119 -> HIDH_ERR_L2CAP_FAILED_AT_REGISTER_INTERRUPT
-  61, // 103120 -> HIDH_ERR_AUTH_FAILED
-  79, // 103121 -> HIDH_ERR_SDP_BUSY
-  54, // 103122 -> HIDH_COUNT_MAX_ADDED_DEVICE_LIMIT_REACHED
-  57, // 103123 -> HIDH_COUNT_VIRTUAL_UNPLUG_REQUESTED_BY_REMOTE_DEVICE
-  52, // 103124 -> HIDH_COUNT_CONNECT_REQ_WHEN_MAX_DEVICE_LIMIT_REACHED
-  58, // 103125 -> HIDH_COUNT_WRONG_REPORT_TYPE
-  53, // 103126 -> HIDH_COUNT_INCOMING_CONNECTION_REJECTED
-  51, // 103127 -> HIDH_COUNT_CONNECTION_POLICY_DISABLED
-  55, // 103128 -> HIDH_COUNT_SUPPORT_BOTH_HID_AND_HOGP
-  56, // 103129 -> HIDH_COUNT_SUPPORT_ONLY_HID_OR_HOGP
-  150, // 120000 -> LE_SCAN_COUNT_TOTAL_ENABLE
-  149, // 120001 -> LE_SCAN_COUNT_TOTAL_DISABLE
-  148, // 120002 -> LE_SCAN_COUNT_FILTERED_ENABLE
-  147, // 120003 -> LE_SCAN_COUNT_FILTERED_DISABLE
-  152, // 120004 -> LE_SCAN_COUNT_UNFILTERED_ENABLE
-  151, // 120005 -> LE_SCAN_COUNT_UNFILTERED_DISABLE
-  146, // 120006 -> LE_SCAN_COUNT_BATCH_ENABLE
-  145, // 120007 -> LE_SCAN_COUNT_BATCH_DISABLE
-  144, // 120008 -> LE_SCAN_COUNT_AUTO_BATCH_ENABLE
-  143, // 120009 -> LE_SCAN_COUNT_AUTO_BATCH_DISABLE
-  159, // 120100 -> LE_SCAN_DURATION_COUNT_REGULAR_10S
-  162, // 120101 -> LE_SCAN_DURATION_COUNT_REGULAR_1M
-  158, // 120102 -> LE_SCAN_DURATION_COUNT_REGULAR_10M
-  160, // 120103 -> LE_SCAN_DURATION_COUNT_REGULAR_1H
-  161, // 120104 -> LE_SCAN_DURATION_COUNT_REGULAR_1HP
-  154, // 120105 -> LE_SCAN_DURATION_COUNT_BATCH_10S
-  157, // 120106 -> LE_SCAN_DURATION_COUNT_BATCH_1M
-  153, // 120107 -> LE_SCAN_DURATION_COUNT_BATCH_10M
-  155, // 120108 -> LE_SCAN_DURATION_COUNT_BATCH_1H
-  156, // 120109 -> LE_SCAN_DURATION_COUNT_BATCH_1HP
-  163, // 120200 -> LE_SCAN_RADIO_DURATION_ALL
-  167, // 120201 -> LE_SCAN_RADIO_DURATION_REGULAR
-  164, // 120202 -> LE_SCAN_RADIO_DURATION_BATCH
-  169, // 120203 -> LE_SCAN_RADIO_DURATION_REGULAR_SCREEN_ON
-  168, // 120204 -> LE_SCAN_RADIO_DURATION_REGULAR_SCREEN_OFF
-  166, // 120205 -> LE_SCAN_RADIO_DURATION_BATCH_SCREEN_ON
-  165, // 120206 -> LE_SCAN_RADIO_DURATION_BATCH_SCREEN_OFF
-  178, // 120250 -> LE_SCAN_RADIO_SCAN_MODE_OPPORTUNISTIC_COUNT
-  176, // 120251 -> LE_SCAN_RADIO_SCAN_MODE_LOW_POWER_COUNT
-  172, // 120252 -> LE_SCAN_RADIO_SCAN_MODE_BALANCED_COUNT
-  174, // 120253 -> LE_SCAN_RADIO_SCAN_MODE_LOW_LATENCY_COUNT
-  170, // 120254 -> LE_SCAN_RADIO_SCAN_MODE_AMBIENT_DISCOVERY_COUNT
-  182, // 120255 -> LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_COUNT
-  180, // 120256 -> LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_BALANCED_COUNT
-  179, // 120257 -> LE_SCAN_RADIO_SCAN_MODE_OPPORTUNISTIC_COUNT_SCREEN_OFF
-  177, // 120258 -> LE_SCAN_RADIO_SCAN_MODE_LOW_POWER_COUNT_SCREEN_OFF
-  173, // 120259 -> LE_SCAN_RADIO_SCAN_MODE_BALANCED_COUNT_SCREEN_OFF
-  175, // 120260 -> LE_SCAN_RADIO_SCAN_MODE_LOW_LATENCY_COUNT_SCREEN_OFF
-  171, // 120261 -> LE_SCAN_RADIO_SCAN_MODE_AMBIENT_DISCOVERY_COUNT_SCREEN_OFF
-  183, // 120262 -> LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_COUNT_SCREEN_OFF
-  181, // 120263 -> LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_BALANCED_COUNT_SCREEN_OFF
-  184, // 120300 -> LE_SCAN_RESULTS_COUNT_ALL
-  191, // 120301 -> LE_SCAN_RESULTS_COUNT_REGULAR
-  185, // 120302 -> LE_SCAN_RESULTS_COUNT_BATCH
-  193, // 120303 -> LE_SCAN_RESULTS_COUNT_REGULAR_SCREEN_ON
-  192, // 120304 -> LE_SCAN_RESULTS_COUNT_REGULAR_SCREEN_OFF
-  190, // 120305 -> LE_SCAN_RESULTS_COUNT_BATCH_SCREEN_ON
-  189, // 120306 -> LE_SCAN_RESULTS_COUNT_BATCH_SCREEN_OFF
-  186, // 120307 -> LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE
-  188, // 120308 -> LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE_SCREEN_ON
-  187, // 120309 -> LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE_SCREEN_OFF
-  141, // 120400 -> LE_SCAN_ABUSE_COUNT_SCAN_TIMEOUT
-  140, // 120401 -> LE_SCAN_ABUSE_COUNT_HW_FILTER_NOT_AVAILABLE
-  142, // 120402 -> LE_SCAN_ABUSE_COUNT_TRACKING_HW_FILTER_NOT_AVAILABLE
-  99, // 120500 -> LE_ADV_COUNT_ENABLE
-  98, // 120501 -> LE_ADV_COUNT_DISABLE
-  97, // 120502 -> LE_ADV_COUNT_CONNECTABLE_ENABLE
-  96, // 120503 -> LE_ADV_COUNT_CONNECTABLE_DISABLE
-  101, // 120504 -> LE_ADV_COUNT_PERIODIC_ENABLE
-  100, // 120505 -> LE_ADV_COUNT_PERIODIC_DISABLE
-  121, // 120600 -> LE_ADV_INSTANCE_COUNT_5
-  118, // 120601 -> LE_ADV_INSTANCE_COUNT_10
-  119, // 120602 -> LE_ADV_INSTANCE_COUNT_15
-  120, // 120603 -> LE_ADV_INSTANCE_COUNT_15P
-  113, // 120700 -> LE_ADV_DURATION_COUNT_TOTAL_1M
-  114, // 120701 -> LE_ADV_DURATION_COUNT_TOTAL_30M
-  112, // 120702 -> LE_ADV_DURATION_COUNT_TOTAL_1H
-  115, // 120703 -> LE_ADV_DURATION_COUNT_TOTAL_3H
-  116, // 120704 -> LE_ADV_DURATION_COUNT_TOTAL_3HP
-  103, // 120705 -> LE_ADV_DURATION_COUNT_CONNECTABLE_1M
-  104, // 120706 -> LE_ADV_DURATION_COUNT_CONNECTABLE_30M
-  102, // 120707 -> LE_ADV_DURATION_COUNT_CONNECTABLE_1H
-  105, // 120708 -> LE_ADV_DURATION_COUNT_CONNECTABLE_3H
-  106, // 120709 -> LE_ADV_DURATION_COUNT_CONNECTABLE_3HP
-  108, // 120710 -> LE_ADV_DURATION_COUNT_PERIODIC_1M
-  109, // 120711 -> LE_ADV_DURATION_COUNT_PERIODIC_30M
-  107, // 120712 -> LE_ADV_DURATION_COUNT_PERIODIC_1H
-  110, // 120713 -> LE_ADV_DURATION_COUNT_PERIODIC_3H
-  111, // 120714 -> LE_ADV_DURATION_COUNT_PERIODIC_3HP
-  117, // 120800 -> LE_ADV_ERROR_ON_START_COUNT
-  13, // 120900 -> GATT_CLIENT_CONNECT_IS_DIRECT
-  10, // 120901 -> GATT_CLIENT_CONNECT_IS_AUTOCONNECT
-  14, // 120902 -> GATT_CLIENT_CONNECT_IS_DIRECT_IN_FOREGROUND
-  15, // 120903 -> GATT_CLIENT_CONNECT_IS_DIRECT_NOT_IN_FOREGROUND
-  11, // 120904 -> GATT_CLIENT_CONNECT_IS_AUTOCONNECT_IN_FOREGROUND
-  12, // 120905 -> GATT_CLIENT_CONNECT_IS_AUTOCONNECT_NOT_IN_FOREGROUND
-  18, // 120906 -> GATT_SERVER_CONNECT_IS_DIRECT_IN_FOREGROUND
-  19, // 120907 -> GATT_SERVER_CONNECT_IS_DIRECT_NOT_IN_FOREGROUND
-  16, // 120908 -> GATT_SERVER_CONNECT_IS_AUTOCONNECT_IN_FOREGROUND
-  17, // 120909 -> GATT_SERVER_CONNECT_IS_AUTOCONNECT_NOT_IN_FOREGROUND
-  204, // 121000 -> SCREEN_ON_EVENT
-  203, // 121001 -> SCREEN_OFF_EVENT
-  125, // 121100 -> LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_GOOD
-  122, // 121101 -> LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD
-  124, // 121102 -> LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_DB
-  123, // 121103 -> LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_CSIS
-  134, // 121104 -> LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_GOOD
-  131, // 121105 -> LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD
-  133, // 121106 -> LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_DB
-  132, // 121107 -> LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_CSIS
-  129, // 121108 -> LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_GOOD
-  130, // 121109 -> LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_TRENDING_BAD
-  126, // 121110 -> LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD
-  127, // 121111 -> LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_CIS_FAILED
-  128, // 121112 -> LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_SIGNALING_FAILED
-  138, // 121113 -> LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_GOOD
-  139, // 121114 -> LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_TRENDING_BAD
-  135, // 121115 -> LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD
-  136, // 121116 -> LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_CIS_FAILED
-  137, // 121117 -> LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_SIGNALING_FAILED
+    10,  // 0 -> COUNTER_KEY_UNKNOWN
+    93,  // 100000 -> L2CAP_SUCCESS
+    84,  // 100001 -> L2CAP_CONNECT_CONFIRM_NEG
+    89,  // 100002 -> L2CAP_NO_COMPATIBLE_CHANNEL_AT_CSM_CLOSED
+    91,  // 100003 -> L2CAP_SECURITY_NEG_AT_CSM_CLOSED
+    95,  // 100004 -> L2CAP_TIMEOUT_AT_CSM_CLOSED
+    87,  // 100005 -> L2CAP_CREDIT_BASED_CONNECT_RSP_NEG
+    85,  // 100006 -> L2CAP_CONNECT_RSP_NEG
+    88,  // 100007 -> L2CAP_INFO_NO_COMPATIBLE_CHANNEL_AT_RSP
+    82,  // 100008 -> L2CAP_CONFIG_REQ_FAILURE
+    83,  // 100009 -> L2CAP_CONFIG_RSP_NEG
+    90,  // 100010 -> L2CAP_NO_COMPATIBLE_CHANNEL_AT_W4_SEC
+    92,  // 100011 -> L2CAP_SECURITY_NEG_AT_W4_SEC
+    94,  // 100012 -> L2CAP_TIMEOUT_AT_CONNECT_RSP
+    86,  // 100013 -> L2CAP_CONN_OTHER_ERROR_AT_CONNECT_RSP
+    216,  // 100100 -> SDP_SUCCESS
+    208,  // 100101 -> SDP_FAILURE
+    214,  // 100102 -> SDP_SENDING_DELAYED_UUID
+    213,  // 100103 -> SDP_NOT_SENDING_DELAYED_UUID
+    215,  // 100104 -> SDP_SENT_UUID
+    217,  // 100105 -> SDP_UUIDS_EQUAL_SKIP
+    205,  // 100106 -> SDP_ADD_UUID_WITH_INTENT
+    206,  // 100107 -> SDP_ADD_UUID_WITH_NO_INTENT
+    207,  // 100108 -> SDP_DROP_UUID
+    211,  // 100109 -> SDP_FETCH_UUID_SKIP_ALREADY_CACHED
+    210,  // 100110 -> SDP_FETCH_UUID_SKIP_ALREADY_BONDED
+    212,  // 100111 -> SDP_INVOKE_SDP_CYCLE
+    209,  // 100112 -> SDP_FETCH_UUID_REQUEST
+    195,  // 101000 -> RFCOMM_CONNECTION_SUCCESS_IND
+    194,  // 101001 -> RFCOMM_CONNECTION_SUCCESS_CNF
+    201,  // 101002 -> RFCOMM_PORT_START_CNF_FAILED
+    200,  // 101003 -> RFCOMM_PORT_START_CLOSE
+    202,  // 101004 -> RFCOMM_PORT_START_FAILED
+    197,  // 101005 -> RFCOMM_PORT_NEG_FAILED
+    196,  // 101006 -> RFCOMM_PORT_CLOSED
+    198,  // 101007 -> RFCOMM_PORT_PEER_CONNECTION_FAILED
+    199,  // 101008 -> RFCOMM_PORT_PEER_TIMEOUT
+    21,  // 101101 -> HFP_COLLISON_AT_AG_OPEN
+    22,  // 101102 -> HFP_COLLISON_AT_CONNECTING
+    23,  // 101103 -> HFP_SELF_INITIATED_AG_FAILED
+    24,  // 101104 -> HFP_SLC_SETUP_FAILED
+    6,  // 102000 -> A2DP_CONNECTION_SUCCESS
+    1,  // 102001 -> A2DP_CONNECTION_ACL_DISCONNECTED
+    5,  // 102002 -> A2DP_CONNECTION_REJECT_EVT
+    4,  // 102003 -> A2DP_CONNECTION_FAILURE
+    8,  // 102004 -> A2DP_CONNECTION_UNKNOWN_EVENT
+    0,  // 102005 -> A2DP_ALREADY_CONNECTING
+    9,  // 102006 -> A2DP_OFFLOAD_START_REQ_FAILURE
+    2,  // 102007 -> A2DP_CONNECTION_CLOSE
+    3,  // 102008 -> A2DP_CONNECTION_DISCONNECTED
+    7,  // 102009 -> A2DP_CONNECTION_TIMEOUT
+    81,  // 103001 -> HID_PLUG_FAILURE
+    51,  // 103002 -> HIDD_REGISTER_DESCRIPTOR_MALFORMED
+    44,  // 103003 -> HIDD_ERR_NOT_REGISTERED_AT_INITIATE
+    50,  // 103004 -> HIDD_ERR_NO_RESOURCES
+    49,  // 103005 -> HIDD_ERR_NO_CONNECTION_AT_SEND_DATA
+    48,  // 103006 -> HIDD_ERR_NO_CONNECTION_AT_DISCONNECT
+    34,  // 103007 -> HIDD_ERR_INVALID_PARAM
+    27,  // 103008 -> HIDD_ERR_CONGESTED_AT_DATA_WRITE
+    28,  // 103009 -> HIDD_ERR_CONGESTED_AT_FLAG_CHECK
+    29,  // 103010 -> HIDD_ERR_CONN_IN_PROCESS
+    25,  // 103011 -> HIDD_ERR_ALREADY_CONN
+    32,  // 103012 -> HIDD_ERR_DISCONNECTING
+    39,  // 103013 -> HIDD_ERR_L2CAP_NOT_STARTED_INCOMING
+    37,  // 103014 -> HIDD_ERR_L2CAP_FAILED_INITIATE
+    36,  // 103015 -> HIDD_ERR_L2CAP_FAILED_CONTROL
+    38,  // 103016 -> HIDD_ERR_L2CAP_FAILED_INTERRUPT
+    33,  // 103017 -> HIDD_ERR_HOST_CALLBACK_NULL
+    35,  // 103018 -> HIDD_ERR_INVALID_PARAM_SEND_REPORT
+    30,  // 103019 -> HIDD_ERR_DEVICE_NOT_IN_USE_AT_CONNECT
+    31,  // 103020 -> HIDD_ERR_DEVICE_NOT_IN_USE_AT_DISCONNECT
+    40,  // 103021 -> HIDD_ERR_NOT_REGISTERED_AT_CONNECT
+    42,  // 103022 -> HIDD_ERR_NOT_REGISTERED_AT_DISCONNECT
+    43,  // 103023 -> HIDD_ERR_NOT_REGISTERED_AT_GET_DEVICE
+    41,  // 103024 -> HIDD_ERR_NOT_REGISTERED_AT_DEREGISTER
+    47,  // 103025 -> HIDD_ERR_NOT_REGISTERED_DUE_TO_DESCRIPTOR_LENGTH
+    46,  // 103026 -> HIDD_ERR_NOT_REGISTERED_DUE_TO_BUFFER_ALLOCATION
+    45,  // 103027 -> HIDD_ERR_NOT_REGISTERED_AT_SDP
+    26,  // 103028 -> HIDD_ERR_ALREADY_REGISTERED
+    61,  // 103101 -> HIDH_ERR_ALREADY_REGISTERED
+    79,  // 103102 -> HIDH_ERR_NO_RESOURCES_SDP
+    78,  // 103103 -> HIDH_ERR_NO_RESOURCES_ADD_DEVICE
+    77,  // 103104 -> HIDH_ERR_NO_CONNECTION_AT_SEND_DATA
+    76,  // 103105 -> HIDH_ERR_NO_CONNECTION_AT_HOST_WRITE_DEV
+    75,  // 103106 -> HIDH_ERR_NO_CONNECTION_AT_HOST_CLOSE_DEV
+    71,  // 103107 -> HIDH_ERR_INVALID_PARAM_AT_SEND_DATA
+    68,  // 103108 -> HIDH_ERR_INVALID_PARAM_AT_HOST_REGISTER
+    69,  // 103109 -> HIDH_ERR_INVALID_PARAM_AT_HOST_REMOVE_DEV
+    67,  // 103110 -> HIDH_ERR_INVALID_PARAM_AT_HOST_OPEN_DEV
+    66,  // 103111 -> HIDH_ERR_INVALID_PARAM_AT_HOST_CLOSE_DEV
+    70,  // 103112 -> HIDH_ERR_INVALID_PARAM_AT_HOST_WRITE_DEV
+    64,  // 103113 -> HIDH_ERR_CONGESTED_AT_SEND_DATA
+    63,  // 103114 -> HIDH_ERR_CONGESTED_AT_FLAG_CHECK
+    65,  // 103115 -> HIDH_ERR_CONN_IN_PROCESS
+    60,  // 103116 -> HIDH_ERR_ALREADY_CONN
+    72,  // 103117 -> HIDH_ERR_L2CAP_FAILED_AT_INITIATE
+    73,  // 103118 -> HIDH_ERR_L2CAP_FAILED_AT_REGISTER_CONTROL
+    74,  // 103119 -> HIDH_ERR_L2CAP_FAILED_AT_REGISTER_INTERRUPT
+    62,  // 103120 -> HIDH_ERR_AUTH_FAILED
+    80,  // 103121 -> HIDH_ERR_SDP_BUSY
+    55,  // 103122 -> HIDH_COUNT_MAX_ADDED_DEVICE_LIMIT_REACHED
+    58,  // 103123 -> HIDH_COUNT_VIRTUAL_UNPLUG_REQUESTED_BY_REMOTE_DEVICE
+    53,  // 103124 -> HIDH_COUNT_CONNECT_REQ_WHEN_MAX_DEVICE_LIMIT_REACHED
+    59,  // 103125 -> HIDH_COUNT_WRONG_REPORT_TYPE
+    54,  // 103126 -> HIDH_COUNT_INCOMING_CONNECTION_REJECTED
+    52,  // 103127 -> HIDH_COUNT_CONNECTION_POLICY_DISABLED
+    56,  // 103128 -> HIDH_COUNT_SUPPORT_BOTH_HID_AND_HOGP
+    57,  // 103129 -> HIDH_COUNT_SUPPORT_ONLY_HID_OR_HOGP
+    150,  // 120000 -> LE_SCAN_COUNT_TOTAL_ENABLE
+    149,  // 120001 -> LE_SCAN_COUNT_TOTAL_DISABLE
+    148,  // 120002 -> LE_SCAN_COUNT_FILTERED_ENABLE
+    147,  // 120003 -> LE_SCAN_COUNT_FILTERED_DISABLE
+    152,  // 120004 -> LE_SCAN_COUNT_UNFILTERED_ENABLE
+    151,  // 120005 -> LE_SCAN_COUNT_UNFILTERED_DISABLE
+    146,  // 120006 -> LE_SCAN_COUNT_BATCH_ENABLE
+    145,  // 120007 -> LE_SCAN_COUNT_BATCH_DISABLE
+    144,  // 120008 -> LE_SCAN_COUNT_AUTO_BATCH_ENABLE
+    143,  // 120009 -> LE_SCAN_COUNT_AUTO_BATCH_DISABLE
+    159,  // 120100 -> LE_SCAN_DURATION_COUNT_REGULAR_10S
+    162,  // 120101 -> LE_SCAN_DURATION_COUNT_REGULAR_1M
+    158,  // 120102 -> LE_SCAN_DURATION_COUNT_REGULAR_10M
+    160,  // 120103 -> LE_SCAN_DURATION_COUNT_REGULAR_1H
+    161,  // 120104 -> LE_SCAN_DURATION_COUNT_REGULAR_1HP
+    154,  // 120105 -> LE_SCAN_DURATION_COUNT_BATCH_10S
+    157,  // 120106 -> LE_SCAN_DURATION_COUNT_BATCH_1M
+    153,  // 120107 -> LE_SCAN_DURATION_COUNT_BATCH_10M
+    155,  // 120108 -> LE_SCAN_DURATION_COUNT_BATCH_1H
+    156,  // 120109 -> LE_SCAN_DURATION_COUNT_BATCH_1HP
+    163,  // 120200 -> LE_SCAN_RADIO_DURATION_ALL
+    167,  // 120201 -> LE_SCAN_RADIO_DURATION_REGULAR
+    164,  // 120202 -> LE_SCAN_RADIO_DURATION_BATCH
+    169,  // 120203 -> LE_SCAN_RADIO_DURATION_REGULAR_SCREEN_ON
+    168,  // 120204 -> LE_SCAN_RADIO_DURATION_REGULAR_SCREEN_OFF
+    166,  // 120205 -> LE_SCAN_RADIO_DURATION_BATCH_SCREEN_ON
+    165,  // 120206 -> LE_SCAN_RADIO_DURATION_BATCH_SCREEN_OFF
+    178,  // 120250 -> LE_SCAN_RADIO_SCAN_MODE_OPPORTUNISTIC_COUNT
+    176,  // 120251 -> LE_SCAN_RADIO_SCAN_MODE_LOW_POWER_COUNT
+    172,  // 120252 -> LE_SCAN_RADIO_SCAN_MODE_BALANCED_COUNT
+    174,  // 120253 -> LE_SCAN_RADIO_SCAN_MODE_LOW_LATENCY_COUNT
+    170,  // 120254 -> LE_SCAN_RADIO_SCAN_MODE_AMBIENT_DISCOVERY_COUNT
+    182,  // 120255 -> LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_COUNT
+    180,  // 120256 -> LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_BALANCED_COUNT
+    179,  // 120257 -> LE_SCAN_RADIO_SCAN_MODE_OPPORTUNISTIC_COUNT_SCREEN_OFF
+    177,  // 120258 -> LE_SCAN_RADIO_SCAN_MODE_LOW_POWER_COUNT_SCREEN_OFF
+    173,  // 120259 -> LE_SCAN_RADIO_SCAN_MODE_BALANCED_COUNT_SCREEN_OFF
+    175,  // 120260 -> LE_SCAN_RADIO_SCAN_MODE_LOW_LATENCY_COUNT_SCREEN_OFF
+    171,  // 120261 -> LE_SCAN_RADIO_SCAN_MODE_AMBIENT_DISCOVERY_COUNT_SCREEN_OFF
+    183,  // 120262 -> LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_COUNT_SCREEN_OFF
+    181,  // 120263 -> LE_SCAN_RADIO_SCAN_MODE_SCREEN_OFF_BALANCED_COUNT_SCREEN_OFF
+    184,  // 120300 -> LE_SCAN_RESULTS_COUNT_ALL
+    191,  // 120301 -> LE_SCAN_RESULTS_COUNT_REGULAR
+    185,  // 120302 -> LE_SCAN_RESULTS_COUNT_BATCH
+    193,  // 120303 -> LE_SCAN_RESULTS_COUNT_REGULAR_SCREEN_ON
+    192,  // 120304 -> LE_SCAN_RESULTS_COUNT_REGULAR_SCREEN_OFF
+    190,  // 120305 -> LE_SCAN_RESULTS_COUNT_BATCH_SCREEN_ON
+    189,  // 120306 -> LE_SCAN_RESULTS_COUNT_BATCH_SCREEN_OFF
+    186,  // 120307 -> LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE
+    188,  // 120308 -> LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE_SCREEN_ON
+    187,  // 120309 -> LE_SCAN_RESULTS_COUNT_BATCH_BUNDLE_SCREEN_OFF
+    141,  // 120400 -> LE_SCAN_ABUSE_COUNT_SCAN_TIMEOUT
+    140,  // 120401 -> LE_SCAN_ABUSE_COUNT_HW_FILTER_NOT_AVAILABLE
+    142,  // 120402 -> LE_SCAN_ABUSE_COUNT_TRACKING_HW_FILTER_NOT_AVAILABLE
+    99,  // 120500 -> LE_ADV_COUNT_ENABLE
+    98,  // 120501 -> LE_ADV_COUNT_DISABLE
+    97,  // 120502 -> LE_ADV_COUNT_CONNECTABLE_ENABLE
+    96,  // 120503 -> LE_ADV_COUNT_CONNECTABLE_DISABLE
+    101,  // 120504 -> LE_ADV_COUNT_PERIODIC_ENABLE
+    100,  // 120505 -> LE_ADV_COUNT_PERIODIC_DISABLE
+    121,  // 120600 -> LE_ADV_INSTANCE_COUNT_5
+    118,  // 120601 -> LE_ADV_INSTANCE_COUNT_10
+    119,  // 120602 -> LE_ADV_INSTANCE_COUNT_15
+    120,  // 120603 -> LE_ADV_INSTANCE_COUNT_15P
+    113,  // 120700 -> LE_ADV_DURATION_COUNT_TOTAL_1M
+    114,  // 120701 -> LE_ADV_DURATION_COUNT_TOTAL_30M
+    112,  // 120702 -> LE_ADV_DURATION_COUNT_TOTAL_1H
+    115,  // 120703 -> LE_ADV_DURATION_COUNT_TOTAL_3H
+    116,  // 120704 -> LE_ADV_DURATION_COUNT_TOTAL_3HP
+    103,  // 120705 -> LE_ADV_DURATION_COUNT_CONNECTABLE_1M
+    104,  // 120706 -> LE_ADV_DURATION_COUNT_CONNECTABLE_30M
+    102,  // 120707 -> LE_ADV_DURATION_COUNT_CONNECTABLE_1H
+    105,  // 120708 -> LE_ADV_DURATION_COUNT_CONNECTABLE_3H
+    106,  // 120709 -> LE_ADV_DURATION_COUNT_CONNECTABLE_3HP
+    108,  // 120710 -> LE_ADV_DURATION_COUNT_PERIODIC_1M
+    109,  // 120711 -> LE_ADV_DURATION_COUNT_PERIODIC_30M
+    107,  // 120712 -> LE_ADV_DURATION_COUNT_PERIODIC_1H
+    110,  // 120713 -> LE_ADV_DURATION_COUNT_PERIODIC_3H
+    111,  // 120714 -> LE_ADV_DURATION_COUNT_PERIODIC_3HP
+    117,  // 120800 -> LE_ADV_ERROR_ON_START_COUNT
+    14,  // 120900 -> GATT_CLIENT_CONNECT_IS_DIRECT
+    11,  // 120901 -> GATT_CLIENT_CONNECT_IS_AUTOCONNECT
+    15,  // 120902 -> GATT_CLIENT_CONNECT_IS_DIRECT_IN_FOREGROUND
+    16,  // 120903 -> GATT_CLIENT_CONNECT_IS_DIRECT_NOT_IN_FOREGROUND
+    12,  // 120904 -> GATT_CLIENT_CONNECT_IS_AUTOCONNECT_IN_FOREGROUND
+    13,  // 120905 -> GATT_CLIENT_CONNECT_IS_AUTOCONNECT_NOT_IN_FOREGROUND
+    19,  // 120906 -> GATT_SERVER_CONNECT_IS_DIRECT_IN_FOREGROUND
+    20,  // 120907 -> GATT_SERVER_CONNECT_IS_DIRECT_NOT_IN_FOREGROUND
+    17,  // 120908 -> GATT_SERVER_CONNECT_IS_AUTOCONNECT_IN_FOREGROUND
+    18,  // 120909 -> GATT_SERVER_CONNECT_IS_AUTOCONNECT_NOT_IN_FOREGROUND
+    204,  // 121000 -> SCREEN_ON_EVENT
+    203,  // 121001 -> SCREEN_OFF_EVENT
+    125,  // 121100 -> LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_GOOD
+    122,  // 121101 -> LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD
+    124,  // 121102 -> LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_DB
+    123,  // 121103 -> LE_AUDIO_ALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_CSIS
+    134,  // 121104 -> LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_GOOD
+    131,  // 121105 -> LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD
+    133,  // 121106 -> LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_DB
+    132,  // 121107 -> LE_AUDIO_NONALLOWLIST_DEVICE_HEALTH_STATUS_BAD_INVALID_CSIS
+    129,  // 121108 -> LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_GOOD
+    130,  // 121109 -> LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_TRENDING_BAD
+    126,  // 121110 -> LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD
+    127,  // 121111 -> LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_CIS_FAILED
+    128,  // 121112 -> LE_AUDIO_ALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_SIGNALING_FAILED
+    138,  // 121113 -> LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_GOOD
+    139,  // 121114 -> LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_TRENDING_BAD
+    135,  // 121115 -> LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD
+    136,  // 121116 -> LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_CIS_FAILED
+    137,  // 121117 -> LE_AUDIO_NONALLOWLIST_GROUP_HEALTH_STATUS_BAD_ONCE_SIGNALING_FAILED
 };
 
-const std::string& CodePathCounterKeyEnum_Name(
-    CodePathCounterKeyEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          CodePathCounterKeyEnum_entries,
-          CodePathCounterKeyEnum_entries_by_number,
+const std::string& CodePathCounterKeyEnum_Name(CodePathCounterKeyEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          CodePathCounterKeyEnum_entries, CodePathCounterKeyEnum_entries_by_number,
           218, CodePathCounterKeyEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      CodePathCounterKeyEnum_entries,
-      CodePathCounterKeyEnum_entries_by_number,
-      218, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     CodePathCounterKeyEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      CodePathCounterKeyEnum_entries, CodePathCounterKeyEnum_entries_by_number, 218,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : CodePathCounterKeyEnum_strings[idx].get();
 }
-bool CodePathCounterKeyEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CodePathCounterKeyEnum* value) {
+
+bool CodePathCounterKeyEnum_Parse(absl::string_view name, CodePathCounterKeyEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       CodePathCounterKeyEnum_entries, 218, name, &int_value);
   if (success) {
     *value = static_cast<CodePathCounterKeyEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t AddressTypeEnum_internal_data_[] = {
+    131072u, 65536u, 65535u, };
 bool AddressTypeEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 65535:
-      return true;
-    default:
-      return false;
-  }
+  return ::_pbi::ValidateEnum(value, AddressTypeEnum_internal_data_);
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    AddressTypeEnum_strings[3] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> AddressTypeEnum_strings[3] = {};
+static const char AddressTypeEnum_names[] = {
+    "ADDRESS_TYPE_PUBLIC"
+    "ADDRESS_TYPE_RANDOM"
+    "ADDRESS_TYPE_UNKNOWN"
+};
 
-static const char AddressTypeEnum_names[] =
-  "ADDRESS_TYPE_PUBLIC"
-  "ADDRESS_TYPE_RANDOM"
-  "ADDRESS_TYPE_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry AddressTypeEnum_entries[] = {
-  { {AddressTypeEnum_names + 0, 19}, 0 },
-  { {AddressTypeEnum_names + 19, 19}, 1 },
-  { {AddressTypeEnum_names + 38, 20}, 65535 },
+static const ::google::protobuf::internal::EnumEntry AddressTypeEnum_entries[] =
+    {
+        {{&AddressTypeEnum_names[0], 19}, 0},
+        {{&AddressTypeEnum_names[19], 19}, 1},
+        {{&AddressTypeEnum_names[38], 20}, 65535},
 };
 
 static const int AddressTypeEnum_entries_by_number[] = {
-  0, // 0 -> ADDRESS_TYPE_PUBLIC
-  1, // 1 -> ADDRESS_TYPE_RANDOM
-  2, // 65535 -> ADDRESS_TYPE_UNKNOWN
+    0,  // 0 -> ADDRESS_TYPE_PUBLIC
+    1,  // 1 -> ADDRESS_TYPE_RANDOM
+    2,  // 65535 -> ADDRESS_TYPE_UNKNOWN
 };
 
-const std::string& AddressTypeEnum_Name(
-    AddressTypeEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          AddressTypeEnum_entries,
-          AddressTypeEnum_entries_by_number,
+const std::string& AddressTypeEnum_Name(AddressTypeEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          AddressTypeEnum_entries, AddressTypeEnum_entries_by_number,
           3, AddressTypeEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      AddressTypeEnum_entries,
-      AddressTypeEnum_entries_by_number,
-      3, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     AddressTypeEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      AddressTypeEnum_entries, AddressTypeEnum_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : AddressTypeEnum_strings[idx].get();
 }
-bool AddressTypeEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, AddressTypeEnum* value) {
+
+bool AddressTypeEnum_Parse(absl::string_view name, AddressTypeEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       AddressTypeEnum_entries, 3, name, &int_value);
   if (success) {
     *value = static_cast<AddressTypeEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t MajorClassEnum_internal_data_[] = {
+    65536u, 655360u, 1792u, 1024u, 2304u, 512u, 1536u, 2048u, 7936u, 256u, 768u, 1280u, };
 bool MajorClassEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 256:
-    case 512:
-    case 768:
-    case 1024:
-    case 1280:
-    case 1536:
-    case 1792:
-    case 2048:
-    case 2304:
-    case 7936:
-      return true;
-    default:
-      return false;
-  }
+  return ::_pbi::ValidateEnum(value, MajorClassEnum_internal_data_);
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    MajorClassEnum_strings[11] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> MajorClassEnum_strings[11] = {};
+static const char MajorClassEnum_names[] = {
+    "MAJOR_CLASS_AUDIO_VIDEO"
+    "MAJOR_CLASS_COMPUTER"
+    "MAJOR_CLASS_HEALTH"
+    "MAJOR_CLASS_IMAGING"
+    "MAJOR_CLASS_MISC"
+    "MAJOR_CLASS_NETWORKING"
+    "MAJOR_CLASS_PERIPHERAL"
+    "MAJOR_CLASS_PHONE"
+    "MAJOR_CLASS_TOY"
+    "MAJOR_CLASS_UNCATEGORIZED"
+    "MAJOR_CLASS_WEARABLE"
+};
 
-static const char MajorClassEnum_names[] =
-  "MAJOR_CLASS_AUDIO_VIDEO"
-  "MAJOR_CLASS_COMPUTER"
-  "MAJOR_CLASS_HEALTH"
-  "MAJOR_CLASS_IMAGING"
-  "MAJOR_CLASS_MISC"
-  "MAJOR_CLASS_NETWORKING"
-  "MAJOR_CLASS_PERIPHERAL"
-  "MAJOR_CLASS_PHONE"
-  "MAJOR_CLASS_TOY"
-  "MAJOR_CLASS_UNCATEGORIZED"
-  "MAJOR_CLASS_WEARABLE";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry MajorClassEnum_entries[] = {
-  { {MajorClassEnum_names + 0, 23}, 1024 },
-  { {MajorClassEnum_names + 23, 20}, 256 },
-  { {MajorClassEnum_names + 43, 18}, 2304 },
-  { {MajorClassEnum_names + 61, 19}, 1536 },
-  { {MajorClassEnum_names + 80, 16}, 0 },
-  { {MajorClassEnum_names + 96, 22}, 768 },
-  { {MajorClassEnum_names + 118, 22}, 1280 },
-  { {MajorClassEnum_names + 140, 17}, 512 },
-  { {MajorClassEnum_names + 157, 15}, 2048 },
-  { {MajorClassEnum_names + 172, 25}, 7936 },
-  { {MajorClassEnum_names + 197, 20}, 1792 },
+static const ::google::protobuf::internal::EnumEntry MajorClassEnum_entries[] =
+    {
+        {{&MajorClassEnum_names[0], 23}, 1024},
+        {{&MajorClassEnum_names[23], 20}, 256},
+        {{&MajorClassEnum_names[43], 18}, 2304},
+        {{&MajorClassEnum_names[61], 19}, 1536},
+        {{&MajorClassEnum_names[80], 16}, 0},
+        {{&MajorClassEnum_names[96], 22}, 768},
+        {{&MajorClassEnum_names[118], 22}, 1280},
+        {{&MajorClassEnum_names[140], 17}, 512},
+        {{&MajorClassEnum_names[157], 15}, 2048},
+        {{&MajorClassEnum_names[172], 25}, 7936},
+        {{&MajorClassEnum_names[197], 20}, 1792},
 };
 
 static const int MajorClassEnum_entries_by_number[] = {
-  4, // 0 -> MAJOR_CLASS_MISC
-  1, // 256 -> MAJOR_CLASS_COMPUTER
-  7, // 512 -> MAJOR_CLASS_PHONE
-  5, // 768 -> MAJOR_CLASS_NETWORKING
-  0, // 1024 -> MAJOR_CLASS_AUDIO_VIDEO
-  6, // 1280 -> MAJOR_CLASS_PERIPHERAL
-  3, // 1536 -> MAJOR_CLASS_IMAGING
-  10, // 1792 -> MAJOR_CLASS_WEARABLE
-  8, // 2048 -> MAJOR_CLASS_TOY
-  2, // 2304 -> MAJOR_CLASS_HEALTH
-  9, // 7936 -> MAJOR_CLASS_UNCATEGORIZED
+    4,  // 0 -> MAJOR_CLASS_MISC
+    1,  // 256 -> MAJOR_CLASS_COMPUTER
+    7,  // 512 -> MAJOR_CLASS_PHONE
+    5,  // 768 -> MAJOR_CLASS_NETWORKING
+    0,  // 1024 -> MAJOR_CLASS_AUDIO_VIDEO
+    6,  // 1280 -> MAJOR_CLASS_PERIPHERAL
+    3,  // 1536 -> MAJOR_CLASS_IMAGING
+    10,  // 1792 -> MAJOR_CLASS_WEARABLE
+    8,  // 2048 -> MAJOR_CLASS_TOY
+    2,  // 2304 -> MAJOR_CLASS_HEALTH
+    9,  // 7936 -> MAJOR_CLASS_UNCATEGORIZED
 };
 
-const std::string& MajorClassEnum_Name(
-    MajorClassEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          MajorClassEnum_entries,
-          MajorClassEnum_entries_by_number,
+const std::string& MajorClassEnum_Name(MajorClassEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          MajorClassEnum_entries, MajorClassEnum_entries_by_number,
           11, MajorClassEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      MajorClassEnum_entries,
-      MajorClassEnum_entries_by_number,
-      11, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     MajorClassEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      MajorClassEnum_entries, MajorClassEnum_entries_by_number, 11,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : MajorClassEnum_strings[idx].get();
 }
-bool MajorClassEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, MajorClassEnum* value) {
+
+bool MajorClassEnum_Parse(absl::string_view name, MajorClassEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       MajorClassEnum_entries, 11, name, &int_value);
   if (success) {
     *value = static_cast<MajorClassEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t ProfileConnectionResult_internal_data_[] = {
+    196608u, 0u, };
 bool ProfileConnectionResult_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 2;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    ProfileConnectionResult_strings[3] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> ProfileConnectionResult_strings[3] = {};
+static const char ProfileConnectionResult_names[] = {
+    "RESULT_FAILURE"
+    "RESULT_SUCCESS"
+    "RESULT_UNKNOWN"
+};
 
-static const char ProfileConnectionResult_names[] =
-  "RESULT_FAILURE"
-  "RESULT_SUCCESS"
-  "RESULT_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry ProfileConnectionResult_entries[] = {
-  { {ProfileConnectionResult_names + 0, 14}, 2 },
-  { {ProfileConnectionResult_names + 14, 14}, 1 },
-  { {ProfileConnectionResult_names + 28, 14}, 0 },
+static const ::google::protobuf::internal::EnumEntry ProfileConnectionResult_entries[] =
+    {
+        {{&ProfileConnectionResult_names[0], 14}, 2},
+        {{&ProfileConnectionResult_names[14], 14}, 1},
+        {{&ProfileConnectionResult_names[28], 14}, 0},
 };
 
 static const int ProfileConnectionResult_entries_by_number[] = {
-  2, // 0 -> RESULT_UNKNOWN
-  1, // 1 -> RESULT_SUCCESS
-  0, // 2 -> RESULT_FAILURE
+    2,  // 0 -> RESULT_UNKNOWN
+    1,  // 1 -> RESULT_SUCCESS
+    0,  // 2 -> RESULT_FAILURE
 };
 
-const std::string& ProfileConnectionResult_Name(
-    ProfileConnectionResult value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          ProfileConnectionResult_entries,
-          ProfileConnectionResult_entries_by_number,
+const std::string& ProfileConnectionResult_Name(ProfileConnectionResult value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          ProfileConnectionResult_entries, ProfileConnectionResult_entries_by_number,
           3, ProfileConnectionResult_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      ProfileConnectionResult_entries,
-      ProfileConnectionResult_entries_by_number,
-      3, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     ProfileConnectionResult_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      ProfileConnectionResult_entries, ProfileConnectionResult_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : ProfileConnectionResult_strings[idx].get();
 }
-bool ProfileConnectionResult_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ProfileConnectionResult* value) {
+
+bool ProfileConnectionResult_Parse(absl::string_view name, ProfileConnectionResult* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       ProfileConnectionResult_entries, 3, name, &int_value);
   if (success) {
     *value = static_cast<ProfileConnectionResult>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t ProfileConnectionReason_internal_data_[] = {
+    327680u, 0u, };
 bool ProfileConnectionReason_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 4;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    ProfileConnectionReason_strings[5] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> ProfileConnectionReason_strings[5] = {};
+static const char ProfileConnectionReason_names[] = {
+    "REASON_INCOMING_CONN_REJECTED"
+    "REASON_NATIVE_LAYER_REJECTED"
+    "REASON_SUCCESS"
+    "REASON_UNEXPECTED_STATE"
+    "REASON_UNKNOWN"
+};
 
-static const char ProfileConnectionReason_names[] =
-  "REASON_INCOMING_CONN_REJECTED"
-  "REASON_NATIVE_LAYER_REJECTED"
-  "REASON_SUCCESS"
-  "REASON_UNEXPECTED_STATE"
-  "REASON_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry ProfileConnectionReason_entries[] = {
-  { {ProfileConnectionReason_names + 0, 29}, 4 },
-  { {ProfileConnectionReason_names + 29, 28}, 3 },
-  { {ProfileConnectionReason_names + 57, 14}, 1 },
-  { {ProfileConnectionReason_names + 71, 23}, 2 },
-  { {ProfileConnectionReason_names + 94, 14}, 0 },
+static const ::google::protobuf::internal::EnumEntry ProfileConnectionReason_entries[] =
+    {
+        {{&ProfileConnectionReason_names[0], 29}, 4},
+        {{&ProfileConnectionReason_names[29], 28}, 3},
+        {{&ProfileConnectionReason_names[57], 14}, 1},
+        {{&ProfileConnectionReason_names[71], 23}, 2},
+        {{&ProfileConnectionReason_names[94], 14}, 0},
 };
 
 static const int ProfileConnectionReason_entries_by_number[] = {
-  4, // 0 -> REASON_UNKNOWN
-  2, // 1 -> REASON_SUCCESS
-  3, // 2 -> REASON_UNEXPECTED_STATE
-  1, // 3 -> REASON_NATIVE_LAYER_REJECTED
-  0, // 4 -> REASON_INCOMING_CONN_REJECTED
+    4,  // 0 -> REASON_UNKNOWN
+    2,  // 1 -> REASON_SUCCESS
+    3,  // 2 -> REASON_UNEXPECTED_STATE
+    1,  // 3 -> REASON_NATIVE_LAYER_REJECTED
+    0,  // 4 -> REASON_INCOMING_CONN_REJECTED
 };
 
-const std::string& ProfileConnectionReason_Name(
-    ProfileConnectionReason value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          ProfileConnectionReason_entries,
-          ProfileConnectionReason_entries_by_number,
+const std::string& ProfileConnectionReason_Name(ProfileConnectionReason value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          ProfileConnectionReason_entries, ProfileConnectionReason_entries_by_number,
           5, ProfileConnectionReason_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      ProfileConnectionReason_entries,
-      ProfileConnectionReason_entries_by_number,
-      5, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     ProfileConnectionReason_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      ProfileConnectionReason_entries, ProfileConnectionReason_entries_by_number, 5,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : ProfileConnectionReason_strings[idx].get();
 }
-bool ProfileConnectionReason_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ProfileConnectionReason* value) {
+
+bool ProfileConnectionReason_Parse(absl::string_view name, ProfileConnectionReason* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       ProfileConnectionReason_entries, 5, name, &int_value);
   if (success) {
     *value = static_cast<ProfileConnectionReason>(int_value);
   }
   return success;
 }
-bool ContentProfileFileName_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 14:
-    case 15:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-    case 20:
-    case 21:
-    case 10001:
-    case 10002:
-    case 10003:
-    case 10004:
-    case 10005:
-    case 10006:
-    case 10007:
-    case 10008:
-    case 10009:
-    case 10010:
-    case 10011:
-    case 10012:
-    case 10013:
-    case 10014:
-    case 10015:
-    case 20001:
-    case 20002:
-    case 20003:
-    case 20004:
-    case 20005:
-    case 20006:
-    case 20007:
-    case 20008:
-    case 20009:
-    case 20010:
-    case 20011:
-      return true;
-    default:
-      return false;
-  }
+PROTOBUF_CONSTINIT const uint32_t LeConnectionResult_internal_data_[] = {
+    196608u, 0u, };
+bool LeConnectionResult_IsValid(int value) {
+  return 0 <= value && value <= 2;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    LeConnectionResult_strings[3] = {};
+
+static const char LeConnectionResult_names[] = {
+    "LE_CONNECTION_RESULT_FAILURE"
+    "LE_CONNECTION_RESULT_SUCCESS"
+    "LE_CONNECTION_RESULT_UNKNOWN"
+};
+
+static const ::google::protobuf::internal::EnumEntry LeConnectionResult_entries[] =
+    {
+        {{&LeConnectionResult_names[0], 28}, 2},
+        {{&LeConnectionResult_names[28], 28}, 1},
+        {{&LeConnectionResult_names[56], 28}, 0},
+};
+
+static const int LeConnectionResult_entries_by_number[] = {
+    2,  // 0 -> LE_CONNECTION_RESULT_UNKNOWN
+    1,  // 1 -> LE_CONNECTION_RESULT_SUCCESS
+    0,  // 2 -> LE_CONNECTION_RESULT_FAILURE
+};
+
+const std::string& LeConnectionResult_Name(LeConnectionResult value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          LeConnectionResult_entries, LeConnectionResult_entries_by_number,
+          3, LeConnectionResult_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      LeConnectionResult_entries, LeConnectionResult_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : LeConnectionResult_strings[idx].get();
 }
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> ContentProfileFileName_strings[48] = {};
+bool LeConnectionResult_Parse(absl::string_view name, LeConnectionResult* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      LeConnectionResult_entries, 3, name, &int_value);
+  if (success) {
+    *value = static_cast<LeConnectionResult>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t ContentProfileFileName_internal_data_[] = {
+    1441792u, 1703936u, 20001u, 10008u, 20008u, 10004u, 10012u, 20005u, 20010u, 10002u, 10006u, 10010u, 10014u, 20003u, 20007u, 20009u, 20011u, 10001u, 10003u, 10005u, 10007u, 10009u, 10011u, 10013u, 10015u, 20002u, 20004u, 20006u, };
+bool ContentProfileFileName_IsValid(int value) {
+  return ::_pbi::ValidateEnum(value, ContentProfileFileName_internal_data_);
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    ContentProfileFileName_strings[48] = {};
 
-static const char ContentProfileFileName_names[] =
-  "BLUETOOTH_FILE_NAME_UNKNOWN"
-  "BLUETOOTH_MAP_ACCOUNT_LOADER"
-  "BLUETOOTH_MAP_APP_OBSERVER"
-  "BLUETOOTH_MAP_APP_PARAMS"
-  "BLUETOOTH_MAP_BMESSAGE"
-  "BLUETOOTH_MAP_BMESSAGE_EMAIL"
-  "BLUETOOTH_MAP_BMESSAGE_MIME"
-  "BLUETOOTH_MAP_CONTENT"
-  "BLUETOOTH_MAP_CONTENT_OBSERVER"
-  "BLUETOOTH_MAP_CONVO_CONTACT_ELEMENT"
-  "BLUETOOTH_MAP_CONVO_LISTING"
-  "BLUETOOTH_MAP_CONVO_LISTING_ELEMENT"
-  "BLUETOOTH_MAP_FOLDER_ELEMENT"
-  "BLUETOOTH_MAP_MAS_INSTANCE"
-  "BLUETOOTH_MAP_MESSAGE_LISTING"
-  "BLUETOOTH_MAP_OBEX_SERVER"
-  "BLUETOOTH_MAP_SERVICE"
-  "BLUETOOTH_MAP_SMS_PDU"
-  "BLUETOOTH_MAP_UTILS"
-  "BLUETOOTH_MMS_FILE_PROVIDER"
-  "BLUETOOTH_MNS_OBEX_CLIENT"
-  "BLUETOOTH_OPP_CONSTANTS"
-  "BLUETOOTH_OPP_INCOMING_FILE_CONFIRM_ACTIVITY"
-  "BLUETOOTH_OPP_LAUNCHER_ACTIVITY"
-  "BLUETOOTH_OPP_MANAGER"
-  "BLUETOOTH_OPP_OBEX_CLIENT_SESSION"
-  "BLUETOOTH_OPP_OBEX_SERVER_SESSION"
-  "BLUETOOTH_OPP_PROVIDER"
-  "BLUETOOTH_OPP_RECEIVER"
-  "BLUETOOTH_OPP_RECEIVE_FILE_INFO"
-  "BLUETOOTH_OPP_SEND_FILE_INFO"
-  "BLUETOOTH_OPP_SERVICE"
-  "BLUETOOTH_OPP_TRANSFER"
-  "BLUETOOTH_OPP_TRANSFER_ACTIVITY"
-  "BLUETOOTH_OPP_TRANSFER_HISTORY"
-  "BLUETOOTH_OPP_UTILITY"
-  "BLUETOOTH_PBAP_ACTIVITY"
-  "BLUETOOTH_PBAP_AUTHENTICATOR"
-  "BLUETOOTH_PBAP_CALL_LOG_COMPOSER"
-  "BLUETOOTH_PBAP_CONFIG"
-  "BLUETOOTH_PBAP_HANDLER_FOR_STRING_BUFFER"
-  "BLUETOOTH_PBAP_OBEX_SERVER"
-  "BLUETOOTH_PBAP_SERVICE"
-  "BLUETOOTH_PBAP_SIM_VCARD_MANAGER"
-  "BLUETOOTH_PBAP_STATE_MACHINE"
-  "BLUETOOTH_PBAP_UTILS"
-  "BLUETOOTH_PBAP_VCARD_MANAGER"
-  "BLUETOOTH_SMS_MMS_CONTACTS";
+static const char ContentProfileFileName_names[] = {
+    "BLUETOOTH_FILE_NAME_UNKNOWN"
+    "BLUETOOTH_MAP_ACCOUNT_LOADER"
+    "BLUETOOTH_MAP_APP_OBSERVER"
+    "BLUETOOTH_MAP_APP_PARAMS"
+    "BLUETOOTH_MAP_BMESSAGE"
+    "BLUETOOTH_MAP_BMESSAGE_EMAIL"
+    "BLUETOOTH_MAP_BMESSAGE_MIME"
+    "BLUETOOTH_MAP_CONTENT"
+    "BLUETOOTH_MAP_CONTENT_OBSERVER"
+    "BLUETOOTH_MAP_CONVO_CONTACT_ELEMENT"
+    "BLUETOOTH_MAP_CONVO_LISTING"
+    "BLUETOOTH_MAP_CONVO_LISTING_ELEMENT"
+    "BLUETOOTH_MAP_FOLDER_ELEMENT"
+    "BLUETOOTH_MAP_MAS_INSTANCE"
+    "BLUETOOTH_MAP_MESSAGE_LISTING"
+    "BLUETOOTH_MAP_OBEX_SERVER"
+    "BLUETOOTH_MAP_SERVICE"
+    "BLUETOOTH_MAP_SMS_PDU"
+    "BLUETOOTH_MAP_UTILS"
+    "BLUETOOTH_MMS_FILE_PROVIDER"
+    "BLUETOOTH_MNS_OBEX_CLIENT"
+    "BLUETOOTH_OPP_CONSTANTS"
+    "BLUETOOTH_OPP_INCOMING_FILE_CONFIRM_ACTIVITY"
+    "BLUETOOTH_OPP_LAUNCHER_ACTIVITY"
+    "BLUETOOTH_OPP_MANAGER"
+    "BLUETOOTH_OPP_OBEX_CLIENT_SESSION"
+    "BLUETOOTH_OPP_OBEX_SERVER_SESSION"
+    "BLUETOOTH_OPP_PROVIDER"
+    "BLUETOOTH_OPP_RECEIVER"
+    "BLUETOOTH_OPP_RECEIVE_FILE_INFO"
+    "BLUETOOTH_OPP_SEND_FILE_INFO"
+    "BLUETOOTH_OPP_SERVICE"
+    "BLUETOOTH_OPP_TRANSFER"
+    "BLUETOOTH_OPP_TRANSFER_ACTIVITY"
+    "BLUETOOTH_OPP_TRANSFER_HISTORY"
+    "BLUETOOTH_OPP_UTILITY"
+    "BLUETOOTH_PBAP_ACTIVITY"
+    "BLUETOOTH_PBAP_AUTHENTICATOR"
+    "BLUETOOTH_PBAP_CALL_LOG_COMPOSER"
+    "BLUETOOTH_PBAP_CONFIG"
+    "BLUETOOTH_PBAP_HANDLER_FOR_STRING_BUFFER"
+    "BLUETOOTH_PBAP_OBEX_SERVER"
+    "BLUETOOTH_PBAP_SERVICE"
+    "BLUETOOTH_PBAP_SIM_VCARD_MANAGER"
+    "BLUETOOTH_PBAP_STATE_MACHINE"
+    "BLUETOOTH_PBAP_UTILS"
+    "BLUETOOTH_PBAP_VCARD_MANAGER"
+    "BLUETOOTH_SMS_MMS_CONTACTS"
+};
 
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry ContentProfileFileName_entries[] = {
-  { {ContentProfileFileName_names + 0, 27}, 0 },
-  { {ContentProfileFileName_names + 27, 28}, 1 },
-  { {ContentProfileFileName_names + 55, 26}, 2 },
-  { {ContentProfileFileName_names + 81, 24}, 3 },
-  { {ContentProfileFileName_names + 105, 22}, 4 },
-  { {ContentProfileFileName_names + 127, 28}, 5 },
-  { {ContentProfileFileName_names + 155, 27}, 6 },
-  { {ContentProfileFileName_names + 182, 21}, 7 },
-  { {ContentProfileFileName_names + 203, 30}, 8 },
-  { {ContentProfileFileName_names + 233, 35}, 9 },
-  { {ContentProfileFileName_names + 268, 27}, 10 },
-  { {ContentProfileFileName_names + 295, 35}, 11 },
-  { {ContentProfileFileName_names + 330, 28}, 12 },
-  { {ContentProfileFileName_names + 358, 26}, 13 },
-  { {ContentProfileFileName_names + 384, 29}, 14 },
-  { {ContentProfileFileName_names + 413, 25}, 15 },
-  { {ContentProfileFileName_names + 438, 21}, 16 },
-  { {ContentProfileFileName_names + 459, 21}, 17 },
-  { {ContentProfileFileName_names + 480, 19}, 18 },
-  { {ContentProfileFileName_names + 499, 27}, 21 },
-  { {ContentProfileFileName_names + 526, 25}, 19 },
-  { {ContentProfileFileName_names + 551, 23}, 10015 },
-  { {ContentProfileFileName_names + 574, 44}, 10009 },
-  { {ContentProfileFileName_names + 618, 31}, 10005 },
-  { {ContentProfileFileName_names + 649, 21}, 10001 },
-  { {ContentProfileFileName_names + 670, 33}, 10003 },
-  { {ContentProfileFileName_names + 703, 33}, 10010 },
-  { {ContentProfileFileName_names + 736, 22}, 10013 },
-  { {ContentProfileFileName_names + 758, 22}, 10006 },
-  { {ContentProfileFileName_names + 780, 31}, 10011 },
-  { {ContentProfileFileName_names + 811, 28}, 10008 },
-  { {ContentProfileFileName_names + 839, 21}, 10014 },
-  { {ContentProfileFileName_names + 860, 22}, 10007 },
-  { {ContentProfileFileName_names + 882, 31}, 10012 },
-  { {ContentProfileFileName_names + 913, 30}, 10002 },
-  { {ContentProfileFileName_names + 943, 21}, 10004 },
-  { {ContentProfileFileName_names + 964, 23}, 20001 },
-  { {ContentProfileFileName_names + 987, 28}, 20002 },
-  { {ContentProfileFileName_names + 1015, 32}, 20003 },
-  { {ContentProfileFileName_names + 1047, 21}, 20004 },
-  { {ContentProfileFileName_names + 1068, 40}, 20010 },
-  { {ContentProfileFileName_names + 1108, 26}, 20005 },
-  { {ContentProfileFileName_names + 1134, 22}, 20006 },
-  { {ContentProfileFileName_names + 1156, 32}, 20007 },
-  { {ContentProfileFileName_names + 1188, 28}, 20011 },
-  { {ContentProfileFileName_names + 1216, 20}, 20008 },
-  { {ContentProfileFileName_names + 1236, 28}, 20009 },
-  { {ContentProfileFileName_names + 1264, 26}, 20 },
+static const ::google::protobuf::internal::EnumEntry ContentProfileFileName_entries[] =
+    {
+        {{&ContentProfileFileName_names[0], 27}, 0},
+        {{&ContentProfileFileName_names[27], 28}, 1},
+        {{&ContentProfileFileName_names[55], 26}, 2},
+        {{&ContentProfileFileName_names[81], 24}, 3},
+        {{&ContentProfileFileName_names[105], 22}, 4},
+        {{&ContentProfileFileName_names[127], 28}, 5},
+        {{&ContentProfileFileName_names[155], 27}, 6},
+        {{&ContentProfileFileName_names[182], 21}, 7},
+        {{&ContentProfileFileName_names[203], 30}, 8},
+        {{&ContentProfileFileName_names[233], 35}, 9},
+        {{&ContentProfileFileName_names[268], 27}, 10},
+        {{&ContentProfileFileName_names[295], 35}, 11},
+        {{&ContentProfileFileName_names[330], 28}, 12},
+        {{&ContentProfileFileName_names[358], 26}, 13},
+        {{&ContentProfileFileName_names[384], 29}, 14},
+        {{&ContentProfileFileName_names[413], 25}, 15},
+        {{&ContentProfileFileName_names[438], 21}, 16},
+        {{&ContentProfileFileName_names[459], 21}, 17},
+        {{&ContentProfileFileName_names[480], 19}, 18},
+        {{&ContentProfileFileName_names[499], 27}, 21},
+        {{&ContentProfileFileName_names[526], 25}, 19},
+        {{&ContentProfileFileName_names[551], 23}, 10015},
+        {{&ContentProfileFileName_names[574], 44}, 10009},
+        {{&ContentProfileFileName_names[618], 31}, 10005},
+        {{&ContentProfileFileName_names[649], 21}, 10001},
+        {{&ContentProfileFileName_names[670], 33}, 10003},
+        {{&ContentProfileFileName_names[703], 33}, 10010},
+        {{&ContentProfileFileName_names[736], 22}, 10013},
+        {{&ContentProfileFileName_names[758], 22}, 10006},
+        {{&ContentProfileFileName_names[780], 31}, 10011},
+        {{&ContentProfileFileName_names[811], 28}, 10008},
+        {{&ContentProfileFileName_names[839], 21}, 10014},
+        {{&ContentProfileFileName_names[860], 22}, 10007},
+        {{&ContentProfileFileName_names[882], 31}, 10012},
+        {{&ContentProfileFileName_names[913], 30}, 10002},
+        {{&ContentProfileFileName_names[943], 21}, 10004},
+        {{&ContentProfileFileName_names[964], 23}, 20001},
+        {{&ContentProfileFileName_names[987], 28}, 20002},
+        {{&ContentProfileFileName_names[1015], 32}, 20003},
+        {{&ContentProfileFileName_names[1047], 21}, 20004},
+        {{&ContentProfileFileName_names[1068], 40}, 20010},
+        {{&ContentProfileFileName_names[1108], 26}, 20005},
+        {{&ContentProfileFileName_names[1134], 22}, 20006},
+        {{&ContentProfileFileName_names[1156], 32}, 20007},
+        {{&ContentProfileFileName_names[1188], 28}, 20011},
+        {{&ContentProfileFileName_names[1216], 20}, 20008},
+        {{&ContentProfileFileName_names[1236], 28}, 20009},
+        {{&ContentProfileFileName_names[1264], 26}, 20},
 };
 
 static const int ContentProfileFileName_entries_by_number[] = {
-  0, // 0 -> BLUETOOTH_FILE_NAME_UNKNOWN
-  1, // 1 -> BLUETOOTH_MAP_ACCOUNT_LOADER
-  2, // 2 -> BLUETOOTH_MAP_APP_OBSERVER
-  3, // 3 -> BLUETOOTH_MAP_APP_PARAMS
-  4, // 4 -> BLUETOOTH_MAP_BMESSAGE
-  5, // 5 -> BLUETOOTH_MAP_BMESSAGE_EMAIL
-  6, // 6 -> BLUETOOTH_MAP_BMESSAGE_MIME
-  7, // 7 -> BLUETOOTH_MAP_CONTENT
-  8, // 8 -> BLUETOOTH_MAP_CONTENT_OBSERVER
-  9, // 9 -> BLUETOOTH_MAP_CONVO_CONTACT_ELEMENT
-  10, // 10 -> BLUETOOTH_MAP_CONVO_LISTING
-  11, // 11 -> BLUETOOTH_MAP_CONVO_LISTING_ELEMENT
-  12, // 12 -> BLUETOOTH_MAP_FOLDER_ELEMENT
-  13, // 13 -> BLUETOOTH_MAP_MAS_INSTANCE
-  14, // 14 -> BLUETOOTH_MAP_MESSAGE_LISTING
-  15, // 15 -> BLUETOOTH_MAP_OBEX_SERVER
-  16, // 16 -> BLUETOOTH_MAP_SERVICE
-  17, // 17 -> BLUETOOTH_MAP_SMS_PDU
-  18, // 18 -> BLUETOOTH_MAP_UTILS
-  20, // 19 -> BLUETOOTH_MNS_OBEX_CLIENT
-  47, // 20 -> BLUETOOTH_SMS_MMS_CONTACTS
-  19, // 21 -> BLUETOOTH_MMS_FILE_PROVIDER
-  24, // 10001 -> BLUETOOTH_OPP_MANAGER
-  34, // 10002 -> BLUETOOTH_OPP_TRANSFER_HISTORY
-  25, // 10003 -> BLUETOOTH_OPP_OBEX_CLIENT_SESSION
-  35, // 10004 -> BLUETOOTH_OPP_UTILITY
-  23, // 10005 -> BLUETOOTH_OPP_LAUNCHER_ACTIVITY
-  28, // 10006 -> BLUETOOTH_OPP_RECEIVER
-  32, // 10007 -> BLUETOOTH_OPP_TRANSFER
-  30, // 10008 -> BLUETOOTH_OPP_SEND_FILE_INFO
-  22, // 10009 -> BLUETOOTH_OPP_INCOMING_FILE_CONFIRM_ACTIVITY
-  26, // 10010 -> BLUETOOTH_OPP_OBEX_SERVER_SESSION
-  29, // 10011 -> BLUETOOTH_OPP_RECEIVE_FILE_INFO
-  33, // 10012 -> BLUETOOTH_OPP_TRANSFER_ACTIVITY
-  27, // 10013 -> BLUETOOTH_OPP_PROVIDER
-  31, // 10014 -> BLUETOOTH_OPP_SERVICE
-  21, // 10015 -> BLUETOOTH_OPP_CONSTANTS
-  36, // 20001 -> BLUETOOTH_PBAP_ACTIVITY
-  37, // 20002 -> BLUETOOTH_PBAP_AUTHENTICATOR
-  38, // 20003 -> BLUETOOTH_PBAP_CALL_LOG_COMPOSER
-  39, // 20004 -> BLUETOOTH_PBAP_CONFIG
-  41, // 20005 -> BLUETOOTH_PBAP_OBEX_SERVER
-  42, // 20006 -> BLUETOOTH_PBAP_SERVICE
-  43, // 20007 -> BLUETOOTH_PBAP_SIM_VCARD_MANAGER
-  45, // 20008 -> BLUETOOTH_PBAP_UTILS
-  46, // 20009 -> BLUETOOTH_PBAP_VCARD_MANAGER
-  40, // 20010 -> BLUETOOTH_PBAP_HANDLER_FOR_STRING_BUFFER
-  44, // 20011 -> BLUETOOTH_PBAP_STATE_MACHINE
+    0,  // 0 -> BLUETOOTH_FILE_NAME_UNKNOWN
+    1,  // 1 -> BLUETOOTH_MAP_ACCOUNT_LOADER
+    2,  // 2 -> BLUETOOTH_MAP_APP_OBSERVER
+    3,  // 3 -> BLUETOOTH_MAP_APP_PARAMS
+    4,  // 4 -> BLUETOOTH_MAP_BMESSAGE
+    5,  // 5 -> BLUETOOTH_MAP_BMESSAGE_EMAIL
+    6,  // 6 -> BLUETOOTH_MAP_BMESSAGE_MIME
+    7,  // 7 -> BLUETOOTH_MAP_CONTENT
+    8,  // 8 -> BLUETOOTH_MAP_CONTENT_OBSERVER
+    9,  // 9 -> BLUETOOTH_MAP_CONVO_CONTACT_ELEMENT
+    10,  // 10 -> BLUETOOTH_MAP_CONVO_LISTING
+    11,  // 11 -> BLUETOOTH_MAP_CONVO_LISTING_ELEMENT
+    12,  // 12 -> BLUETOOTH_MAP_FOLDER_ELEMENT
+    13,  // 13 -> BLUETOOTH_MAP_MAS_INSTANCE
+    14,  // 14 -> BLUETOOTH_MAP_MESSAGE_LISTING
+    15,  // 15 -> BLUETOOTH_MAP_OBEX_SERVER
+    16,  // 16 -> BLUETOOTH_MAP_SERVICE
+    17,  // 17 -> BLUETOOTH_MAP_SMS_PDU
+    18,  // 18 -> BLUETOOTH_MAP_UTILS
+    20,  // 19 -> BLUETOOTH_MNS_OBEX_CLIENT
+    47,  // 20 -> BLUETOOTH_SMS_MMS_CONTACTS
+    19,  // 21 -> BLUETOOTH_MMS_FILE_PROVIDER
+    24,  // 10001 -> BLUETOOTH_OPP_MANAGER
+    34,  // 10002 -> BLUETOOTH_OPP_TRANSFER_HISTORY
+    25,  // 10003 -> BLUETOOTH_OPP_OBEX_CLIENT_SESSION
+    35,  // 10004 -> BLUETOOTH_OPP_UTILITY
+    23,  // 10005 -> BLUETOOTH_OPP_LAUNCHER_ACTIVITY
+    28,  // 10006 -> BLUETOOTH_OPP_RECEIVER
+    32,  // 10007 -> BLUETOOTH_OPP_TRANSFER
+    30,  // 10008 -> BLUETOOTH_OPP_SEND_FILE_INFO
+    22,  // 10009 -> BLUETOOTH_OPP_INCOMING_FILE_CONFIRM_ACTIVITY
+    26,  // 10010 -> BLUETOOTH_OPP_OBEX_SERVER_SESSION
+    29,  // 10011 -> BLUETOOTH_OPP_RECEIVE_FILE_INFO
+    33,  // 10012 -> BLUETOOTH_OPP_TRANSFER_ACTIVITY
+    27,  // 10013 -> BLUETOOTH_OPP_PROVIDER
+    31,  // 10014 -> BLUETOOTH_OPP_SERVICE
+    21,  // 10015 -> BLUETOOTH_OPP_CONSTANTS
+    36,  // 20001 -> BLUETOOTH_PBAP_ACTIVITY
+    37,  // 20002 -> BLUETOOTH_PBAP_AUTHENTICATOR
+    38,  // 20003 -> BLUETOOTH_PBAP_CALL_LOG_COMPOSER
+    39,  // 20004 -> BLUETOOTH_PBAP_CONFIG
+    41,  // 20005 -> BLUETOOTH_PBAP_OBEX_SERVER
+    42,  // 20006 -> BLUETOOTH_PBAP_SERVICE
+    43,  // 20007 -> BLUETOOTH_PBAP_SIM_VCARD_MANAGER
+    45,  // 20008 -> BLUETOOTH_PBAP_UTILS
+    46,  // 20009 -> BLUETOOTH_PBAP_VCARD_MANAGER
+    40,  // 20010 -> BLUETOOTH_PBAP_HANDLER_FOR_STRING_BUFFER
+    44,  // 20011 -> BLUETOOTH_PBAP_STATE_MACHINE
 };
 
-const std::string& ContentProfileFileName_Name(
-    ContentProfileFileName value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          ContentProfileFileName_entries,
-          ContentProfileFileName_entries_by_number,
+const std::string& ContentProfileFileName_Name(ContentProfileFileName value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          ContentProfileFileName_entries, ContentProfileFileName_entries_by_number,
           48, ContentProfileFileName_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      ContentProfileFileName_entries,
-      ContentProfileFileName_entries_by_number,
-      48, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     ContentProfileFileName_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      ContentProfileFileName_entries, ContentProfileFileName_entries_by_number, 48,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : ContentProfileFileName_strings[idx].get();
 }
-bool ContentProfileFileName_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ContentProfileFileName* value) {
+
+bool ContentProfileFileName_Parse(absl::string_view name, ContentProfileFileName* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       ContentProfileFileName_entries, 48, name, &int_value);
   if (success) {
     *value = static_cast<ContentProfileFileName>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t EventType_internal_data_[] = {
+    3604480u, 131648u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 3758096384u, 159u, 4261412864u, 7u, 2u, 801u, 800u, };
+bool EventType_IsValid(int value) {
+  return ::_pbi::ValidateEnum(value, EventType_internal_data_);
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    EventType_strings[77] = {};
 
+static const char EventType_names[] = {
+    "A2DP_BTIF_AV_STATE_CHANGE_EVT"
+    "A2DP_PROFILE_ERROR_STATE_CHANGE"
+    "A2DP_PROFILE_STATE_CHANGE"
+    "ACL_CONNECTION_INITIATOR"
+    "ACL_CONNECTION_RESPONDER"
+    "ACL_DISCONNECTION_INITIATOR"
+    "ACL_DISCONNECTION_RESPONDER"
+    "AUTHENTICATION_COMPLETE"
+    "AUTHENTICATION_COMPLETE_FAIL"
+    "AUTHENTICATION_REQUEST"
+    "AVDTP_ABORT_RESPONSE_SEND_EVT"
+    "AVDTP_CLOSE_RESPONSE_SEND_EVT"
+    "AVDTP_DISC_FAIL_EVT"
+    "AVDTP_GETCAP_FAIL_EVT"
+    "AVDTP_L2CAP_CONNECTION_REQUEST_RECEIVED"
+    "AVDTP_L2CAP_CONNECTION_REQUEST_SENT"
+    "AVDTP_L2CAP_CONNECTION_RESPONSE_RECEIVED"
+    "AVDTP_L2CAP_CONNECTION_RESPONSE_SENT"
+    "AVDTP_L2CAP_DISCONNECTION_REQUEST_RECEIVED"
+    "AVDTP_L2CAP_DISCONNECTION_REQUEST_SENT"
+    "AVDTP_L2CAP_DISCONNECTION_RESPONSE_RECEIVED"
+    "AVDTP_L2CAP_DISCONNECTION_RESPONSE_SENT"
+    "AVDTP_ON_L2CAP_ERROR"
+    "AVDTP_OPEN_FAIL_EVT"
+    "AVDTP_OPEN_REJECT_EVT"
+    "AVDTP_SET_CONFIG_REJECT_EVT"
+    "AVDTP_SIGNALING_TIMEOUT"
+    "AVDTP_START_REJECT_EVT"
+    "AVDTP_SUSPEND_REJECT_EVT"
+    "BOND"
+    "BONDING"
+    "BOND_RETRY"
+    "EVENT_TYPE_UNKNOWN"
+    "GATT_CONNECT_JAVA"
+    "GATT_CONNECT_NATIVE"
+    "GATT_DISCONNECT_JAVA"
+    "GATT_DISCONNECT_NATIVE"
+    "HFP_AG_VERSION"
+    "HFP_HF_FEATURES"
+    "HFP_HF_VERSION"
+    "HFP_SESSION"
+    "INITIATOR_CONNECTION"
+    "IO_CAPABILITY_REQUEST"
+    "LE_ACL_CONNECTION_INITIATOR"
+    "LE_ACL_CONNECTION_RESPONDER"
+    "LE_ACL_DISCONNECTION_INITIATOR"
+    "LE_ACL_DISCONNECTION_RESPONDER"
+    "LE_CONNECTION_REJECTED"
+    "LE_DEVICE_IN_ACCEPT_LIST"
+    "PROFILE_CONNECTION"
+    "PROFILE_CONNECTION_A2DP"
+    "PROFILE_CONNECTION_A2DP_SINK"
+    "PROFILE_CONNECTION_BATTERY"
+    "PROFILE_CONNECTION_CSIP_SET_COORDINATOR"
+    "PROFILE_CONNECTION_HAP_CLIENT"
+    "PROFILE_CONNECTION_HEADSET"
+    "PROFILE_CONNECTION_HEADSET_CLIENT"
+    "PROFILE_CONNECTION_HEARING_AID"
+    "PROFILE_CONNECTION_HID_HOST"
+    "PROFILE_CONNECTION_LE_AUDIO"
+    "PROFILE_CONNECTION_LE_AUDIO_BROADCAST_ASSISTANT"
+    "PROFILE_CONNECTION_MAP_CLIENT"
+    "PROFILE_CONNECTION_PAN"
+    "PROFILE_CONNECTION_PBAP_CLIENT"
+    "PROFILE_CONNECTION_VOLUME_CONTROL"
+    "REMOTE_NAME_REQUEST"
+    "SCO_CODEC"
+    "SCO_SESSION"
+    "SERVICE_DISCOVERY"
+    "SMP_PAIRING_INCOMING"
+    "SMP_PAIRING_OUTGOING"
+    "TRANSITION"
+    "TRANSPORT"
+    "TRANSPORT_MATCH"
+    "USER_CONF_NEGATIVE_REPLY"
+    "USER_CONF_POSITIVE_REPLY"
+    "USER_CONF_REQUEST"
+};
+
+static const ::google::protobuf::internal::EnumEntry EventType_entries[] =
+    {
+        {{&EventType_names[0], 29}, 600},
+        {{&EventType_names[29], 31}, 801},
+        {{&EventType_names[60], 25}, 800},
+        {{&EventType_names[85], 24}, 2},
+        {{&EventType_names[109], 24}, 1},
+        {{&EventType_names[133], 27}, 12},
+        {{&EventType_names[160], 27}, 13},
+        {{&EventType_names[187], 23}, 9},
+        {{&EventType_names[210], 28}, 14},
+        {{&EventType_names[238], 22}, 4},
+        {{&EventType_names[260], 29}, 568},
+        {{&EventType_names[289], 29}, 569},
+        {{&EventType_names[318], 19}, 560},
+        {{&EventType_names[337], 21}, 561},
+        {{&EventType_names[358], 39}, 501},
+        {{&EventType_names[397], 35}, 500},
+        {{&EventType_names[432], 40}, 503},
+        {{&EventType_names[472], 36}, 502},
+        {{&EventType_names[508], 42}, 505},
+        {{&EventType_names[550], 38}, 504},
+        {{&EventType_names[588], 43}, 507},
+        {{&EventType_names[631], 39}, 506},
+        {{&EventType_names[670], 20}, 510},
+        {{&EventType_names[690], 19}, 562},
+        {{&EventType_names[709], 21}, 563},
+        {{&EventType_names[730], 27}, 564},
+        {{&EventType_names[757], 23}, 567},
+        {{&EventType_names[780], 22}, 565},
+        {{&EventType_names[802], 24}, 566},
+        {{&EventType_names[826], 4}, 17},
+        {{&EventType_names[830], 7}, 15},
+        {{&EventType_names[837], 10}, 34},
+        {{&EventType_names[847], 18}, 0},
+        {{&EventType_names[865], 17}, 41},
+        {{&EventType_names[882], 19}, 42},
+        {{&EventType_names[901], 20}, 44},
+        {{&EventType_names[921], 22}, 45},
+        {{&EventType_names[943], 14}, 48},
+        {{&EventType_names[957], 15}, 50},
+        {{&EventType_names[972], 14}, 49},
+        {{&EventType_names[986], 11}, 47},
+        {{&EventType_names[997], 20}, 16},
+        {{&EventType_names[1017], 21}, 5},
+        {{&EventType_names[1038], 27}, 37},
+        {{&EventType_names[1065], 27}, 38},
+        {{&EventType_names[1092], 30}, 39},
+        {{&EventType_names[1122], 30}, 40},
+        {{&EventType_names[1152], 22}, 54},
+        {{&EventType_names[1174], 24}, 43},
+        {{&EventType_names[1198], 18}, 3},
+        {{&EventType_names[1216], 23}, 18},
+        {{&EventType_names[1239], 28}, 19},
+        {{&EventType_names[1267], 26}, 32},
+        {{&EventType_names[1293], 39}, 29},
+        {{&EventType_names[1332], 29}, 27},
+        {{&EventType_names[1361], 26}, 20},
+        {{&EventType_names[1387], 33}, 21},
+        {{&EventType_names[1420], 30}, 26},
+        {{&EventType_names[1450], 27}, 23},
+        {{&EventType_names[1477], 27}, 30},
+        {{&EventType_names[1504], 47}, 31},
+        {{&EventType_names[1551], 29}, 22},
+        {{&EventType_names[1580], 22}, 24},
+        {{&EventType_names[1602], 30}, 25},
+        {{&EventType_names[1632], 33}, 28},
+        {{&EventType_names[1665], 19}, 11},
+        {{&EventType_names[1684], 9}, 52},
+        {{&EventType_names[1693], 11}, 51},
+        {{&EventType_names[1704], 17}, 10},
+        {{&EventType_names[1721], 20}, 36},
+        {{&EventType_names[1741], 20}, 35},
+        {{&EventType_names[1761], 10}, 53},
+        {{&EventType_names[1771], 9}, 33},
+        {{&EventType_names[1780], 15}, 46},
+        {{&EventType_names[1795], 24}, 8},
+        {{&EventType_names[1819], 24}, 7},
+        {{&EventType_names[1843], 17}, 6},
+};
+
+static const int EventType_entries_by_number[] = {
+    32,  // 0 -> EVENT_TYPE_UNKNOWN
+    4,  // 1 -> ACL_CONNECTION_RESPONDER
+    3,  // 2 -> ACL_CONNECTION_INITIATOR
+    49,  // 3 -> PROFILE_CONNECTION
+    9,  // 4 -> AUTHENTICATION_REQUEST
+    42,  // 5 -> IO_CAPABILITY_REQUEST
+    76,  // 6 -> USER_CONF_REQUEST
+    75,  // 7 -> USER_CONF_POSITIVE_REPLY
+    74,  // 8 -> USER_CONF_NEGATIVE_REPLY
+    7,  // 9 -> AUTHENTICATION_COMPLETE
+    68,  // 10 -> SERVICE_DISCOVERY
+    65,  // 11 -> REMOTE_NAME_REQUEST
+    5,  // 12 -> ACL_DISCONNECTION_INITIATOR
+    6,  // 13 -> ACL_DISCONNECTION_RESPONDER
+    8,  // 14 -> AUTHENTICATION_COMPLETE_FAIL
+    30,  // 15 -> BONDING
+    41,  // 16 -> INITIATOR_CONNECTION
+    29,  // 17 -> BOND
+    50,  // 18 -> PROFILE_CONNECTION_A2DP
+    51,  // 19 -> PROFILE_CONNECTION_A2DP_SINK
+    55,  // 20 -> PROFILE_CONNECTION_HEADSET
+    56,  // 21 -> PROFILE_CONNECTION_HEADSET_CLIENT
+    61,  // 22 -> PROFILE_CONNECTION_MAP_CLIENT
+    58,  // 23 -> PROFILE_CONNECTION_HID_HOST
+    62,  // 24 -> PROFILE_CONNECTION_PAN
+    63,  // 25 -> PROFILE_CONNECTION_PBAP_CLIENT
+    57,  // 26 -> PROFILE_CONNECTION_HEARING_AID
+    54,  // 27 -> PROFILE_CONNECTION_HAP_CLIENT
+    64,  // 28 -> PROFILE_CONNECTION_VOLUME_CONTROL
+    53,  // 29 -> PROFILE_CONNECTION_CSIP_SET_COORDINATOR
+    59,  // 30 -> PROFILE_CONNECTION_LE_AUDIO
+    60,  // 31 -> PROFILE_CONNECTION_LE_AUDIO_BROADCAST_ASSISTANT
+    52,  // 32 -> PROFILE_CONNECTION_BATTERY
+    72,  // 33 -> TRANSPORT
+    31,  // 34 -> BOND_RETRY
+    70,  // 35 -> SMP_PAIRING_OUTGOING
+    69,  // 36 -> SMP_PAIRING_INCOMING
+    43,  // 37 -> LE_ACL_CONNECTION_INITIATOR
+    44,  // 38 -> LE_ACL_CONNECTION_RESPONDER
+    45,  // 39 -> LE_ACL_DISCONNECTION_INITIATOR
+    46,  // 40 -> LE_ACL_DISCONNECTION_RESPONDER
+    33,  // 41 -> GATT_CONNECT_JAVA
+    34,  // 42 -> GATT_CONNECT_NATIVE
+    48,  // 43 -> LE_DEVICE_IN_ACCEPT_LIST
+    35,  // 44 -> GATT_DISCONNECT_JAVA
+    36,  // 45 -> GATT_DISCONNECT_NATIVE
+    73,  // 46 -> TRANSPORT_MATCH
+    40,  // 47 -> HFP_SESSION
+    37,  // 48 -> HFP_AG_VERSION
+    39,  // 49 -> HFP_HF_VERSION
+    38,  // 50 -> HFP_HF_FEATURES
+    67,  // 51 -> SCO_SESSION
+    66,  // 52 -> SCO_CODEC
+    71,  // 53 -> TRANSITION
+    47,  // 54 -> LE_CONNECTION_REJECTED
+    15,  // 500 -> AVDTP_L2CAP_CONNECTION_REQUEST_SENT
+    14,  // 501 -> AVDTP_L2CAP_CONNECTION_REQUEST_RECEIVED
+    17,  // 502 -> AVDTP_L2CAP_CONNECTION_RESPONSE_SENT
+    16,  // 503 -> AVDTP_L2CAP_CONNECTION_RESPONSE_RECEIVED
+    19,  // 504 -> AVDTP_L2CAP_DISCONNECTION_REQUEST_SENT
+    18,  // 505 -> AVDTP_L2CAP_DISCONNECTION_REQUEST_RECEIVED
+    21,  // 506 -> AVDTP_L2CAP_DISCONNECTION_RESPONSE_SENT
+    20,  // 507 -> AVDTP_L2CAP_DISCONNECTION_RESPONSE_RECEIVED
+    22,  // 510 -> AVDTP_ON_L2CAP_ERROR
+    12,  // 560 -> AVDTP_DISC_FAIL_EVT
+    13,  // 561 -> AVDTP_GETCAP_FAIL_EVT
+    23,  // 562 -> AVDTP_OPEN_FAIL_EVT
+    24,  // 563 -> AVDTP_OPEN_REJECT_EVT
+    25,  // 564 -> AVDTP_SET_CONFIG_REJECT_EVT
+    27,  // 565 -> AVDTP_START_REJECT_EVT
+    28,  // 566 -> AVDTP_SUSPEND_REJECT_EVT
+    26,  // 567 -> AVDTP_SIGNALING_TIMEOUT
+    10,  // 568 -> AVDTP_ABORT_RESPONSE_SEND_EVT
+    11,  // 569 -> AVDTP_CLOSE_RESPONSE_SEND_EVT
+    0,  // 600 -> A2DP_BTIF_AV_STATE_CHANGE_EVT
+    2,  // 800 -> A2DP_PROFILE_STATE_CHANGE
+    1,  // 801 -> A2DP_PROFILE_ERROR_STATE_CHANGE
+};
+
+const std::string& EventType_Name(EventType value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          EventType_entries, EventType_entries_by_number,
+          77, EventType_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      EventType_entries, EventType_entries_by_number, 77,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : EventType_strings[idx].get();
+}
+
+bool EventType_Parse(absl::string_view name, EventType* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      EventType_entries, 77, name, &int_value);
+  if (success) {
+    *value = static_cast<EventType>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t State_internal_data_[] = {
+    11337728u, 66432u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 67108736u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 402653184u, 3639264u, 58720256u, 2014u, };
+bool State_IsValid(int value) {
+  return ::_pbi::ValidateEnum(value, State_internal_data_);
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    State_strings[210] = {};
+
+static const char State_names[] = {
+    "A2DP_EVENT_STATUS_FAILURE"
+    "A2DP_EVENT_STATUS_SUCCESS"
+    "A2DP_STATE_CONNECTED"
+    "A2DP_STATE_CONNECTING"
+    "A2DP_STATE_DISCONNECTED"
+    "A2DP_STATE_DISCONNECTING"
+    "A2DP_STATE_NOT_PLAYING"
+    "A2DP_STATE_PLAYING"
+    "ACTION_KEY_MISSING_TO_BOND_NONE"
+    "ACTION_KEY_MISSING_TO_ENCRYPTION_CHANGE"
+    "ADVERTISING_TIMEOUT"
+    "ALREADY_CONNECTED"
+    "ATTEMPT_IN_PROGRESS"
+    "AUDIO_PORT_START_STREAM"
+    "AUDIO_PORT_SUSPEND_STREAM"
+    "AUDIO_PROVIDER_STREAM_STARTED"
+    "AUTH_FAILURE"
+    "AVDTP_STATUS_UNKNOWN_ERROR"
+    "AVDT_STATUS_ERR_CONNECT"
+    "AVDT_STATUS_ERR_TIMEOUT"
+    "BOND_BONDED_TO_ACTION_KEY_MISSING"
+    "BR_PAIRING_IN_PROGRESS"
+    "BTA_AV_STATUS_FAIL"
+    "BTA_AV_STATUS_FAIL_GET_CAP"
+    "BTA_AV_STATUS_FAIL_RESOURCES"
+    "BTA_AV_STATUS_FAIL_ROLE"
+    "BTA_AV_STATUS_FAIL_SDP"
+    "BTA_AV_STATUS_FAIL_STREAM"
+    "BTA_AV_STATUS_SUCCESS"
+    "BUSY_PAIRING"
+    "CANCELLED_BY_LOCAL_HOST"
+    "CHANNEL_ASSESSMENT_NOT_SUPPORTED"
+    "CLASSIC"
+    "COARSE_CLOCK_ADJUSTMENT_REJECTED"
+    "CODEC_APTX_SWB_SETTINGS_Q0_MASK"
+    "CODEC_APTX_SWB_SETTINGS_Q1_MASK"
+    "CODEC_APTX_SWB_SETTINGS_Q2_MASK"
+    "CODEC_APTX_SWB_SETTINGS_Q3_MASK"
+    "CODEC_CVSD"
+    "CODEC_LC3"
+    "CODEC_MSBC"
+    "CODEC_UNKNOWN"
+    "COMMAND_DISALLOWED"
+    "CONFIRM_VALUE_ERROR"
+    "CONNECTION_ACCEPT_TIMEOUT"
+    "CONNECTION_EXISTS"
+    "CONNECTION_FAILED_ESTABLISHMENT"
+    "CONNECTION_LIMIT_EXCEEDED"
+    "CONNECTION_REJECTED_NO_SUITABLE_CHANNEL_FOUND"
+    "CONNECTION_REJECTED_SECURITY_REASONS"
+    "CONNECTION_REJECTED_UNACCEPTABLE_BD_ADDR"
+    "CONNECTION_TERMINATED_BY_LOCAL_HOST"
+    "CONNECTION_TERMINATED_DUE_TO_MIC_FAILURE"
+    "CONNECTION_TIMEOUT"
+    "CONN_CAUSE_LOCAL_HOST"
+    "CONTROLLER_BUSY"
+    "CROSS_TRANSPORT_NOT_ALLOWED"
+    "DHKEY_CHK_FAIL"
+    "DIFFERENT_TRANSACTION_COLLISION"
+    "DIFF_TRANSACTION_COLLISION"
+    "DIRECT_CONNECT"
+    "ENCRYPTION_FAIL"
+    "ENCRYPTION_MODE_NOT_ACCEPTABLE"
+    "ENC_KEY_SIZE"
+    "END"
+    "EXTENDED_INQUIRY_RESPONSE_TOO_LARGE"
+    "FAIL"
+    "HARDWARE_FAILURE"
+    "HFP_ACL_CONNECT_FAIL"
+    "HFP_CONNECTED"
+    "HFP_CONNECT_FAIL"
+    "HFP_CONNECT_REJECT_FAIL"
+    "HFP_RFCOMM_AG_OPEN_FAIL"
+    "HFP_RFCOMM_CHANNEL_FAIL"
+    "HFP_RFCOMM_COLLISION_FAIL"
+    "HFP_SLC_FAIL_CONNECTION"
+    "HOST_BUSY_PAIRING"
+    "HOST_REJECT_DEVICE"
+    "HOST_REJECT_RESOURCES"
+    "HOST_REJECT_SECURITY"
+    "HW_FAILURE"
+    "ILLEGAL_COMMAND"
+    "ILLEGAL_PARAMETER_FMT"
+    "INDIRECT_CONNECT"
+    "INSTANT_PASSED"
+    "INSUFFICIENT_SECURITY"
+    "INTERNAL_ERROR"
+    "INVALID_CMD"
+    "INVALID_HCI_COMMAND_PARAMETERS"
+    "INVALID_LMP_OR_LL_PARAMETERS"
+    "INVALID_PARAMETERS"
+    "KEY_MISSING"
+    "L2CAP_CONN_STATUS_ACL_CONNECTION_FAILED"
+    "L2CAP_CONN_STATUS_CLIENT_SECURITY_CLEARANCE_FAILED"
+    "L2CAP_CONN_STATUS_INSUFFICIENT_AUTHENTICATION"
+    "L2CAP_CONN_STATUS_INSUFFICIENT_AUTHORIZATION"
+    "L2CAP_CONN_STATUS_INSUFFICIENT_ENCRYP"
+    "L2CAP_CONN_STATUS_INSUFFICIENT_ENCRYP_KEY_SIZE"
+    "L2CAP_CONN_STATUS_INVALID_PARAMETERS"
+    "L2CAP_CONN_STATUS_INVALID_SOURCE_CID"
+    "L2CAP_CONN_STATUS_NO_LINK"
+    "L2CAP_CONN_STATUS_NO_PSM"
+    "L2CAP_CONN_STATUS_NO_RESOURCES"
+    "L2CAP_CONN_STATUS_OK"
+    "L2CAP_CONN_STATUS_OTHER_ERROR"
+    "L2CAP_CONN_STATUS_PENDING"
+    "L2CAP_CONN_STATUS_SECURITY_BLOCK"
+    "L2CAP_CONN_STATUS_SOURCE_CID_ALREADY_ALLOCATED"
+    "L2CAP_CONN_STATUS_TIMEOUT"
+    "L2CAP_CONN_STATUS_UNACCEPTABLE_PARAMETERS"
+    "L2CAP_CONN_STATUS_UNKNOWN_ERROR"
+    "LE"
+    "LIMIT_REACHED"
+    "LINK_KEY_CANNOT_BE_CHANGED"
+    "LINK_LAYER_COLLISION"
+    "LMP_ERR_TRANS_COLLISION"
+    "LMP_PDU_NOT_ALLOWED"
+    "LOCAL_DEVICE_TERMINATED_CONNECTION"
+    "MAX_ERR"
+    "MAX_NUMBER_OF_CONNECTIONS"
+    "MAX_NUM_OF_SCOS"
+    "MEMORY_CAPACITY_EXCEEDED"
+    "MEMORY_EXCEEDED"
+    "MEMORY_FULL"
+    "NO_CONNECTION"
+    "NUMERIC_COMPARISON_FAIL"
+    "OOB_FAIL"
+    "OPERATION_CANCELLED_BY_HOST"
+    "PACKET_TOO_LONG"
+    "PAGE_TIMEOUT"
+    "PAIRING_NOT_ALLOWED"
+    "PAIRING_WITH_UNIT_KEY_NOT_SUPPORTED"
+    "PARAMETER_OUT_OF_MANDATORY_RANGE"
+    "PASSKEY_ENTRY_FAIL"
+    "PEER_USER"
+    "QOS_REJECTED"
+    "QOS_UNACCEPTABLE_PARAMETERS"
+    "REMOTE_DEVICE_TERMINATED_CONNECTION_LOW_RESOURCES"
+    "REMOTE_DEVICE_TERMINATED_CONNECTION_POWER_OFF"
+    "REMOTE_LOW_RESOURCE"
+    "REMOTE_POWER_OFF"
+    "REMOTE_USER_TERMINATED_CONNECTION"
+    "REPEATED_ATTEMPTS"
+    "REQUESTED_QOS_NOT_SUPPORTED"
+    "RESERVED_SLOT_VIOLATION"
+    "RESOURCES_EXCEEDED"
+    "RESPONSE_TIMEOUT"
+    "RFCOMM_CONNECTION_FAILED"
+    "ROLE_CHANGE_NOT_ALLOWED"
+    "ROLE_SWITCH_FAILED"
+    "ROLE_SWITCH_PENDING"
+    "SCO_AIR_MODE_REJECTED"
+    "SCO_AUDIO_CONNECTED"
+    "SCO_CONNECT_AUDIO_START"
+    "SCO_DISCONNECT_AUDIO_END"
+    "SCO_INTERVAL_REJECTED"
+    "SCO_LINK_CREATED"
+    "SCO_LINK_LOSS"
+    "SCO_LINK_REMOVED"
+    "SCO_OFFSET_REJECTED"
+    "SCO_TELECOM_INITIATED_END"
+    "SCO_TELECOM_INITIATED_START"
+    "SCO_VIRTUAL_VOICE_INITIATED_END"
+    "SCO_VIRTUAL_VOICE_INITIATED_START"
+    "SCO_VOICE_RECOGNITION_HEADSET_END"
+    "SCO_VOICE_RECOGNITION_HEADSET_START"
+    "SCO_VOICE_RECOGNITION_HEADSET_TIMEOUT"
+    "SCO_VOICE_RECOGNITION_INITIATED_END"
+    "SCO_VOICE_RECOGNITION_INITIATED_START"
+    "SDP_DISCOVERY_FAILED"
+    "SECURE_SIMPLE_PAIRING_NOT_SUPPORTED_BY_HOST"
+    "SIRK_DEVICE_INVALID"
+    "START"
+    "START_LOCAL_INITIATED"
+    "START_REMOTE_INITIATED"
+    "STATE_BONDED"
+    "STATE_NONE"
+    "STATE_UNKNOWN"
+    "SUCCESS"
+    "SYNCHRONOUS_CONNECTION_LIMIT_EXCEEDED"
+    "TIMEOUT"
+    "TRANSACTION_COLLISION"
+    "TRANSACTION_RESPONSE_TIMEOUT"
+    "TYPE0_SUBMAP_NOT_DEFINED"
+    "UNACCEPTABLE_CONNECTION_PARAMETERS"
+    "UNACCEPT_CONN_INTERVAL"
+    "UNDEFINED"
+    "UNIT_KEY_USED"
+    "UNKNOWN_ADVERTISING_IDENTIFIER"
+    "UNKNOWN_HCI_COMMAND"
+    "UNKNOWN_IO_CAP"
+    "UNKNOWN_LMP_PDU"
+    "UNSPECIFIED"
+    "UNSPECIFIED_ERROR"
+    "UNSUPPORTED_FEATURE_OR_PARAMETER_VALUE"
+    "UNSUPPORTED_LMP_OR_LL_PARAMETER"
+    "UNSUPPORTED_REMOTE_OR_LMP_FEATURE"
+    "UNSUPPORTED_REM_FEATURE"
+    "USER_CANCELLATION"
+    "VERSION_1_0"
+    "VERSION_1_1"
+    "VERSION_1_2"
+    "VERSION_1_3"
+    "VERSION_1_4"
+    "VERSION_1_5"
+    "VERSION_1_6"
+    "VERSION_1_7"
+    "VERSION_1_8"
+    "VERSION_1_9"
+    "VERSION_UNKNOWN"
+};
+
+static const ::google::protobuf::internal::EnumEntry State_entries[] =
+    {
+        {{&State_names[0], 25}, 1001},
+        {{&State_names[25], 25}, 1000},
+        {{&State_names[50], 20}, 1012},
+        {{&State_names[70], 21}, 1011},
+        {{&State_names[91], 23}, 1010},
+        {{&State_names[114], 24}, 1013},
+        {{&State_names[138], 22}, 1015},
+        {{&State_names[160], 18}, 1014},
+        {{&State_names[178], 31}, 135},
+        {{&State_names[209], 39}, 134},
+        {{&State_names[248], 19}, 63},
+        {{&State_names[267], 17}, 5},
+        {{&State_names[284], 19}, 155},
+        {{&State_names[303], 23}, 168},
+        {{&State_names[326], 25}, 169},
+        {{&State_names[351], 29}, 170},
+        {{&State_names[380], 12}, 14},
+        {{&State_names[392], 26}, 1062},
+        {{&State_names[418], 23}, 1060},
+        {{&State_names[441], 23}, 1061},
+        {{&State_names[464], 33}, 133},
+        {{&State_names[497], 22}, 81},
+        {{&State_names[519], 18}, 1021},
+        {{&State_names[537], 26}, 1026},
+        {{&State_names[563], 28}, 2014},
+        {{&State_names[591], 23}, 1025},
+        {{&State_names[614], 22}, 1022},
+        {{&State_names[636], 25}, 1023},
+        {{&State_names[661], 21}, 1020},
+        {{&State_names[682], 12}, 10},
+        {{&State_names[694], 23}, 130},
+        {{&State_names[717], 32}, 51},
+        {{&State_names[749], 7}, 23},
+        {{&State_names[756], 32}, 66},
+        {{&State_names[788], 31}, 161},
+        {{&State_names[819], 31}, 162},
+        {{&State_names[850], 31}, 163},
+        {{&State_names[881], 31}, 164},
+        {{&State_names[912], 10}, 156},
+        {{&State_names[922], 9}, 158},
+        {{&State_names[931], 10}, 157},
+        {{&State_names[941], 13}, 159},
+        {{&State_names[954], 18}, 115},
+        {{&State_names[972], 19}, 75},
+        {{&State_names[991], 25}, 19},
+        {{&State_names[1016], 17}, 114},
+        {{&State_names[1033], 31}, 65},
+        {{&State_names[1064], 25}, 27},
+        {{&State_names[1089], 45}, 60},
+        {{&State_names[1134], 36}, 29},
+        {{&State_names[1170], 40}, 30},
+        {{&State_names[1210], 35}, 72},
+        {{&State_names[1245], 40}, 64},
+        {{&State_names[1285], 18}, 18},
+        {{&State_names[1303], 21}, 122},
+        {{&State_names[1324], 15}, 61},
+        {{&State_names[1339], 27}, 82},
+        {{&State_names[1366], 14}, 79},
+        {{&State_names[1380], 31}, 48},
+        {{&State_names[1411], 26}, 128},
+        {{&State_names[1437], 14}, 89},
+        {{&State_names[1451], 15}, 85},
+        {{&State_names[1466], 30}, 43},
+        {{&State_names[1496], 12}, 76},
+        {{&State_names[1508], 3}, 2},
+        {{&State_names[1511], 35}, 57},
+        {{&State_names[1546], 4}, 4},
+        {{&State_names[1550], 16}, 25},
+        {{&State_names[1566], 20}, 154},
+        {{&State_names[1586], 13}, 91},
+        {{&State_names[1599], 16}, 96},
+        {{&State_names[1615], 23}, 153},
+        {{&State_names[1638], 23}, 95},
+        {{&State_names[1661], 23}, 93},
+        {{&State_names[1684], 25}, 94},
+        {{&State_names[1709], 23}, 92},
+        {{&State_names[1732], 17}, 59},
+        {{&State_names[1749], 18}, 123},
+        {{&State_names[1767], 21}, 116},
+        {{&State_names[1788], 20}, 117},
+        {{&State_names[1808], 10}, 110},
+        {{&State_names[1818], 15}, 108},
+        {{&State_names[1833], 21}, 118},
+        {{&State_names[1854], 16}, 90},
+        {{&State_names[1870], 14}, 46},
+        {{&State_names[1884], 21}, 52},
+        {{&State_names[1905], 14}, 83},
+        {{&State_names[1919], 11}, 77},
+        {{&State_names[1930], 30}, 32},
+        {{&State_names[1960], 28}, 37},
+        {{&State_names[1988], 18}, 78},
+        {{&State_names[2006], 11}, 8},
+        {{&State_names[2017], 39}, 507},
+        {{&State_names[2056], 50}, 508},
+        {{&State_names[2106], 45}, 510},
+        {{&State_names[2151], 44}, 511},
+        {{&State_names[2195], 37}, 513},
+        {{&State_names[2232], 46}, 512},
+        {{&State_names[2278], 36}, 517},
+        {{&State_names[2314], 36}, 514},
+        {{&State_names[2350], 25}, 509},
+        {{&State_names[2375], 24}, 502},
+        {{&State_names[2399], 30}, 504},
+        {{&State_names[2429], 20}, 500},
+        {{&State_names[2449], 29}, 506},
+        {{&State_names[2478], 25}, 501},
+        {{&State_names[2503], 32}, 503},
+        {{&State_names[2535], 46}, 515},
+        {{&State_names[2581], 25}, 505},
+        {{&State_names[2606], 41}, 516},
+        {{&State_names[2647], 31}, 518},
+        {{&State_names[2678], 2}, 24},
+        {{&State_names[2680], 13}, 69},
+        {{&State_names[2693], 26}, 44},
+        {{&State_names[2719], 20}, 41},
+        {{&State_names[2739], 23}, 129},
+        {{&State_names[2762], 19}, 42},
+        {{&State_names[2781], 34}, 15},
+        {{&State_names[2815], 7}, 131},
+        {{&State_names[2822], 25}, 112},
+        {{&State_names[2847], 15}, 113},
+        {{&State_names[2862], 24}, 26},
+        {{&State_names[2886], 15}, 9},
+        {{&State_names[2901], 11}, 111},
+        {{&State_names[2912], 13}, 109},
+        {{&State_names[2925], 23}, 80},
+        {{&State_names[2948], 8}, 74},
+        {{&State_names[2956], 27}, 70},
+        {{&State_names[2983], 15}, 71},
+        {{&State_names[2998], 12}, 17},
+        {{&State_names[3010], 19}, 12},
+        {{&State_names[3029], 35}, 47},
+        {{&State_names[3064], 32}, 53},
+        {{&State_names[3096], 18}, 73},
+        {{&State_names[3114], 9}, 119},
+        {{&State_names[3123], 12}, 50},
+        {{&State_names[3135], 27}, 49},
+        {{&State_names[3162], 49}, 137},
+        {{&State_names[3211], 45}, 138},
+        {{&State_names[3256], 19}, 120},
+        {{&State_names[3275], 16}, 121},
+        {{&State_names[3291], 33}, 7},
+        {{&State_names[3324], 17}, 11},
+        {{&State_names[3341], 27}, 45},
+        {{&State_names[3368], 23}, 55},
+        {{&State_names[3391], 18}, 13},
+        {{&State_names[3409], 16}, 86},
+        {{&State_names[3425], 24}, 172},
+        {{&State_names[3449], 23}, 40},
+        {{&State_names[3472], 18}, 56},
+        {{&State_names[3490], 19}, 54},
+        {{&State_names[3509], 21}, 36},
+        {{&State_names[3530], 19}, 102},
+        {{&State_names[3549], 23}, 100},
+        {{&State_names[3572], 24}, 107},
+        {{&State_names[3596], 21}, 35},
+        {{&State_names[3617], 16}, 101},
+        {{&State_names[3633], 13}, 160},
+        {{&State_names[3646], 16}, 103},
+        {{&State_names[3662], 19}, 34},
+        {{&State_names[3681], 25}, 104},
+        {{&State_names[3706], 27}, 97},
+        {{&State_names[3733], 31}, 105},
+        {{&State_names[3764], 33}, 98},
+        {{&State_names[3797], 33}, 166},
+        {{&State_names[3830], 35}, 165},
+        {{&State_names[3865], 37}, 167},
+        {{&State_names[3902], 35}, 106},
+        {{&State_names[3937], 37}, 99},
+        {{&State_names[3974], 20}, 171},
+        {{&State_names[3994], 43}, 58},
+        {{&State_names[4037], 19}, 87},
+        {{&State_names[4056], 5}, 1},
+        {{&State_names[4061], 21}, 151},
+        {{&State_names[4082], 22}, 152},
+        {{&State_names[4104], 12}, 22},
+        {{&State_names[4116], 10}, 21},
+        {{&State_names[4126], 13}, 0},
+        {{&State_names[4139], 7}, 3},
+        {{&State_names[4146], 37}, 28},
+        {{&State_names[4183], 7}, 6},
+        {{&State_names[4190], 21}, 16},
+        {{&State_names[4211], 28}, 20},
+        {{&State_names[4239], 24}, 67},
+        {{&State_names[4263], 34}, 62},
+        {{&State_names[4297], 22}, 126},
+        {{&State_names[4319], 9}, 132},
+        {{&State_names[4328], 13}, 127},
+        {{&State_names[4341], 30}, 68},
+        {{&State_names[4371], 19}, 136},
+        {{&State_names[4390], 14}, 84},
+        {{&State_names[4404], 15}, 139},
+        {{&State_names[4419], 11}, 125},
+        {{&State_names[4430], 17}, 38},
+        {{&State_names[4447], 38}, 31},
+        {{&State_names[4485], 31}, 39},
+        {{&State_names[4516], 33}, 33},
+        {{&State_names[4549], 23}, 124},
+        {{&State_names[4572], 17}, 88},
+        {{&State_names[4589], 11}, 140},
+        {{&State_names[4600], 11}, 141},
+        {{&State_names[4611], 11}, 142},
+        {{&State_names[4622], 11}, 143},
+        {{&State_names[4633], 11}, 144},
+        {{&State_names[4644], 11}, 145},
+        {{&State_names[4655], 11}, 146},
+        {{&State_names[4666], 11}, 147},
+        {{&State_names[4677], 11}, 148},
+        {{&State_names[4688], 11}, 149},
+        {{&State_names[4699], 15}, 150},
+};
+
+static const int State_entries_by_number[] = {
+    177,  // 0 -> STATE_UNKNOWN
+    172,  // 1 -> START
+    64,  // 2 -> END
+    178,  // 3 -> SUCCESS
+    66,  // 4 -> FAIL
+    11,  // 5 -> ALREADY_CONNECTED
+    180,  // 6 -> TIMEOUT
+    141,  // 7 -> REMOTE_USER_TERMINATED_CONNECTION
+    91,  // 8 -> KEY_MISSING
+    122,  // 9 -> MEMORY_EXCEEDED
+    29,  // 10 -> BUSY_PAIRING
+    142,  // 11 -> REPEATED_ATTEMPTS
+    130,  // 12 -> PAIRING_NOT_ALLOWED
+    145,  // 13 -> RESOURCES_EXCEEDED
+    16,  // 14 -> AUTH_FAILURE
+    117,  // 15 -> LOCAL_DEVICE_TERMINATED_CONNECTION
+    181,  // 16 -> TRANSACTION_COLLISION
+    129,  // 17 -> PAGE_TIMEOUT
+    53,  // 18 -> CONNECTION_TIMEOUT
+    44,  // 19 -> CONNECTION_ACCEPT_TIMEOUT
+    182,  // 20 -> TRANSACTION_RESPONSE_TIMEOUT
+    176,  // 21 -> STATE_NONE
+    175,  // 22 -> STATE_BONDED
+    32,  // 23 -> CLASSIC
+    111,  // 24 -> LE
+    67,  // 25 -> HARDWARE_FAILURE
+    121,  // 26 -> MEMORY_CAPACITY_EXCEEDED
+    47,  // 27 -> CONNECTION_LIMIT_EXCEEDED
+    179,  // 28 -> SYNCHRONOUS_CONNECTION_LIMIT_EXCEEDED
+    49,  // 29 -> CONNECTION_REJECTED_SECURITY_REASONS
+    50,  // 30 -> CONNECTION_REJECTED_UNACCEPTABLE_BD_ADDR
+    194,  // 31 -> UNSUPPORTED_FEATURE_OR_PARAMETER_VALUE
+    88,  // 32 -> INVALID_HCI_COMMAND_PARAMETERS
+    196,  // 33 -> UNSUPPORTED_REMOTE_OR_LMP_FEATURE
+    159,  // 34 -> SCO_OFFSET_REJECTED
+    155,  // 35 -> SCO_INTERVAL_REJECTED
+    151,  // 36 -> SCO_AIR_MODE_REJECTED
+    89,  // 37 -> INVALID_LMP_OR_LL_PARAMETERS
+    193,  // 38 -> UNSPECIFIED_ERROR
+    195,  // 39 -> UNSUPPORTED_LMP_OR_LL_PARAMETER
+    148,  // 40 -> ROLE_CHANGE_NOT_ALLOWED
+    114,  // 41 -> LINK_LAYER_COLLISION
+    116,  // 42 -> LMP_PDU_NOT_ALLOWED
+    62,  // 43 -> ENCRYPTION_MODE_NOT_ACCEPTABLE
+    113,  // 44 -> LINK_KEY_CANNOT_BE_CHANGED
+    143,  // 45 -> REQUESTED_QOS_NOT_SUPPORTED
+    84,  // 46 -> INSTANT_PASSED
+    131,  // 47 -> PAIRING_WITH_UNIT_KEY_NOT_SUPPORTED
+    58,  // 48 -> DIFFERENT_TRANSACTION_COLLISION
+    136,  // 49 -> QOS_UNACCEPTABLE_PARAMETERS
+    135,  // 50 -> QOS_REJECTED
+    31,  // 51 -> CHANNEL_ASSESSMENT_NOT_SUPPORTED
+    85,  // 52 -> INSUFFICIENT_SECURITY
+    132,  // 53 -> PARAMETER_OUT_OF_MANDATORY_RANGE
+    150,  // 54 -> ROLE_SWITCH_PENDING
+    144,  // 55 -> RESERVED_SLOT_VIOLATION
+    149,  // 56 -> ROLE_SWITCH_FAILED
+    65,  // 57 -> EXTENDED_INQUIRY_RESPONSE_TOO_LARGE
+    170,  // 58 -> SECURE_SIMPLE_PAIRING_NOT_SUPPORTED_BY_HOST
+    76,  // 59 -> HOST_BUSY_PAIRING
+    48,  // 60 -> CONNECTION_REJECTED_NO_SUITABLE_CHANNEL_FOUND
+    55,  // 61 -> CONTROLLER_BUSY
+    184,  // 62 -> UNACCEPTABLE_CONNECTION_PARAMETERS
+    10,  // 63 -> ADVERTISING_TIMEOUT
+    52,  // 64 -> CONNECTION_TERMINATED_DUE_TO_MIC_FAILURE
+    46,  // 65 -> CONNECTION_FAILED_ESTABLISHMENT
+    33,  // 66 -> COARSE_CLOCK_ADJUSTMENT_REJECTED
+    183,  // 67 -> TYPE0_SUBMAP_NOT_DEFINED
+    188,  // 68 -> UNKNOWN_ADVERTISING_IDENTIFIER
+    112,  // 69 -> LIMIT_REACHED
+    127,  // 70 -> OPERATION_CANCELLED_BY_HOST
+    128,  // 71 -> PACKET_TOO_LONG
+    51,  // 72 -> CONNECTION_TERMINATED_BY_LOCAL_HOST
+    133,  // 73 -> PASSKEY_ENTRY_FAIL
+    126,  // 74 -> OOB_FAIL
+    43,  // 75 -> CONFIRM_VALUE_ERROR
+    63,  // 76 -> ENC_KEY_SIZE
+    87,  // 77 -> INVALID_CMD
+    90,  // 78 -> INVALID_PARAMETERS
+    57,  // 79 -> DHKEY_CHK_FAIL
+    125,  // 80 -> NUMERIC_COMPARISON_FAIL
+    21,  // 81 -> BR_PAIRING_IN_PROGRESS
+    56,  // 82 -> CROSS_TRANSPORT_NOT_ALLOWED
+    86,  // 83 -> INTERNAL_ERROR
+    190,  // 84 -> UNKNOWN_IO_CAP
+    61,  // 85 -> ENCRYPTION_FAIL
+    146,  // 86 -> RESPONSE_TIMEOUT
+    171,  // 87 -> SIRK_DEVICE_INVALID
+    198,  // 88 -> USER_CANCELLATION
+    60,  // 89 -> DIRECT_CONNECT
+    83,  // 90 -> INDIRECT_CONNECT
+    69,  // 91 -> HFP_CONNECTED
+    75,  // 92 -> HFP_SLC_FAIL_CONNECTION
+    73,  // 93 -> HFP_RFCOMM_CHANNEL_FAIL
+    74,  // 94 -> HFP_RFCOMM_COLLISION_FAIL
+    72,  // 95 -> HFP_RFCOMM_AG_OPEN_FAIL
+    70,  // 96 -> HFP_CONNECT_FAIL
+    161,  // 97 -> SCO_TELECOM_INITIATED_START
+    163,  // 98 -> SCO_VIRTUAL_VOICE_INITIATED_START
+    168,  // 99 -> SCO_VOICE_RECOGNITION_INITIATED_START
+    153,  // 100 -> SCO_CONNECT_AUDIO_START
+    156,  // 101 -> SCO_LINK_CREATED
+    152,  // 102 -> SCO_AUDIO_CONNECTED
+    158,  // 103 -> SCO_LINK_REMOVED
+    160,  // 104 -> SCO_TELECOM_INITIATED_END
+    162,  // 105 -> SCO_VIRTUAL_VOICE_INITIATED_END
+    167,  // 106 -> SCO_VOICE_RECOGNITION_INITIATED_END
+    154,  // 107 -> SCO_DISCONNECT_AUDIO_END
+    81,  // 108 -> ILLEGAL_COMMAND
+    124,  // 109 -> NO_CONNECTION
+    80,  // 110 -> HW_FAILURE
+    123,  // 111 -> MEMORY_FULL
+    119,  // 112 -> MAX_NUMBER_OF_CONNECTIONS
+    120,  // 113 -> MAX_NUM_OF_SCOS
+    45,  // 114 -> CONNECTION_EXISTS
+    42,  // 115 -> COMMAND_DISALLOWED
+    78,  // 116 -> HOST_REJECT_RESOURCES
+    79,  // 117 -> HOST_REJECT_SECURITY
+    82,  // 118 -> ILLEGAL_PARAMETER_FMT
+    134,  // 119 -> PEER_USER
+    139,  // 120 -> REMOTE_LOW_RESOURCE
+    140,  // 121 -> REMOTE_POWER_OFF
+    54,  // 122 -> CONN_CAUSE_LOCAL_HOST
+    77,  // 123 -> HOST_REJECT_DEVICE
+    197,  // 124 -> UNSUPPORTED_REM_FEATURE
+    192,  // 125 -> UNSPECIFIED
+    185,  // 126 -> UNACCEPT_CONN_INTERVAL
+    187,  // 127 -> UNIT_KEY_USED
+    59,  // 128 -> DIFF_TRANSACTION_COLLISION
+    115,  // 129 -> LMP_ERR_TRANS_COLLISION
+    30,  // 130 -> CANCELLED_BY_LOCAL_HOST
+    118,  // 131 -> MAX_ERR
+    186,  // 132 -> UNDEFINED
+    20,  // 133 -> BOND_BONDED_TO_ACTION_KEY_MISSING
+    9,  // 134 -> ACTION_KEY_MISSING_TO_ENCRYPTION_CHANGE
+    8,  // 135 -> ACTION_KEY_MISSING_TO_BOND_NONE
+    189,  // 136 -> UNKNOWN_HCI_COMMAND
+    137,  // 137 -> REMOTE_DEVICE_TERMINATED_CONNECTION_LOW_RESOURCES
+    138,  // 138 -> REMOTE_DEVICE_TERMINATED_CONNECTION_POWER_OFF
+    191,  // 139 -> UNKNOWN_LMP_PDU
+    199,  // 140 -> VERSION_1_0
+    200,  // 141 -> VERSION_1_1
+    201,  // 142 -> VERSION_1_2
+    202,  // 143 -> VERSION_1_3
+    203,  // 144 -> VERSION_1_4
+    204,  // 145 -> VERSION_1_5
+    205,  // 146 -> VERSION_1_6
+    206,  // 147 -> VERSION_1_7
+    207,  // 148 -> VERSION_1_8
+    208,  // 149 -> VERSION_1_9
+    209,  // 150 -> VERSION_UNKNOWN
+    173,  // 151 -> START_LOCAL_INITIATED
+    174,  // 152 -> START_REMOTE_INITIATED
+    71,  // 153 -> HFP_CONNECT_REJECT_FAIL
+    68,  // 154 -> HFP_ACL_CONNECT_FAIL
+    12,  // 155 -> ATTEMPT_IN_PROGRESS
+    38,  // 156 -> CODEC_CVSD
+    40,  // 157 -> CODEC_MSBC
+    39,  // 158 -> CODEC_LC3
+    41,  // 159 -> CODEC_UNKNOWN
+    157,  // 160 -> SCO_LINK_LOSS
+    34,  // 161 -> CODEC_APTX_SWB_SETTINGS_Q0_MASK
+    35,  // 162 -> CODEC_APTX_SWB_SETTINGS_Q1_MASK
+    36,  // 163 -> CODEC_APTX_SWB_SETTINGS_Q2_MASK
+    37,  // 164 -> CODEC_APTX_SWB_SETTINGS_Q3_MASK
+    165,  // 165 -> SCO_VOICE_RECOGNITION_HEADSET_START
+    164,  // 166 -> SCO_VOICE_RECOGNITION_HEADSET_END
+    166,  // 167 -> SCO_VOICE_RECOGNITION_HEADSET_TIMEOUT
+    13,  // 168 -> AUDIO_PORT_START_STREAM
+    14,  // 169 -> AUDIO_PORT_SUSPEND_STREAM
+    15,  // 170 -> AUDIO_PROVIDER_STREAM_STARTED
+    169,  // 171 -> SDP_DISCOVERY_FAILED
+    147,  // 172 -> RFCOMM_CONNECTION_FAILED
+    103,  // 500 -> L2CAP_CONN_STATUS_OK
+    105,  // 501 -> L2CAP_CONN_STATUS_PENDING
+    101,  // 502 -> L2CAP_CONN_STATUS_NO_PSM
+    106,  // 503 -> L2CAP_CONN_STATUS_SECURITY_BLOCK
+    102,  // 504 -> L2CAP_CONN_STATUS_NO_RESOURCES
+    108,  // 505 -> L2CAP_CONN_STATUS_TIMEOUT
+    104,  // 506 -> L2CAP_CONN_STATUS_OTHER_ERROR
+    92,  // 507 -> L2CAP_CONN_STATUS_ACL_CONNECTION_FAILED
+    93,  // 508 -> L2CAP_CONN_STATUS_CLIENT_SECURITY_CLEARANCE_FAILED
+    100,  // 509 -> L2CAP_CONN_STATUS_NO_LINK
+    94,  // 510 -> L2CAP_CONN_STATUS_INSUFFICIENT_AUTHENTICATION
+    95,  // 511 -> L2CAP_CONN_STATUS_INSUFFICIENT_AUTHORIZATION
+    97,  // 512 -> L2CAP_CONN_STATUS_INSUFFICIENT_ENCRYP_KEY_SIZE
+    96,  // 513 -> L2CAP_CONN_STATUS_INSUFFICIENT_ENCRYP
+    99,  // 514 -> L2CAP_CONN_STATUS_INVALID_SOURCE_CID
+    107,  // 515 -> L2CAP_CONN_STATUS_SOURCE_CID_ALREADY_ALLOCATED
+    109,  // 516 -> L2CAP_CONN_STATUS_UNACCEPTABLE_PARAMETERS
+    98,  // 517 -> L2CAP_CONN_STATUS_INVALID_PARAMETERS
+    110,  // 518 -> L2CAP_CONN_STATUS_UNKNOWN_ERROR
+    1,  // 1000 -> A2DP_EVENT_STATUS_SUCCESS
+    0,  // 1001 -> A2DP_EVENT_STATUS_FAILURE
+    4,  // 1010 -> A2DP_STATE_DISCONNECTED
+    3,  // 1011 -> A2DP_STATE_CONNECTING
+    2,  // 1012 -> A2DP_STATE_CONNECTED
+    5,  // 1013 -> A2DP_STATE_DISCONNECTING
+    7,  // 1014 -> A2DP_STATE_PLAYING
+    6,  // 1015 -> A2DP_STATE_NOT_PLAYING
+    28,  // 1020 -> BTA_AV_STATUS_SUCCESS
+    22,  // 1021 -> BTA_AV_STATUS_FAIL
+    26,  // 1022 -> BTA_AV_STATUS_FAIL_SDP
+    27,  // 1023 -> BTA_AV_STATUS_FAIL_STREAM
+    25,  // 1025 -> BTA_AV_STATUS_FAIL_ROLE
+    23,  // 1026 -> BTA_AV_STATUS_FAIL_GET_CAP
+    18,  // 1060 -> AVDT_STATUS_ERR_CONNECT
+    19,  // 1061 -> AVDT_STATUS_ERR_TIMEOUT
+    17,  // 1062 -> AVDTP_STATUS_UNKNOWN_ERROR
+    24,  // 2014 -> BTA_AV_STATUS_FAIL_RESOURCES
+};
+
+const std::string& State_Name(State value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          State_entries, State_entries_by_number,
+          210, State_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      State_entries, State_entries_by_number, 210,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : State_strings[idx].get();
+}
+
+bool State_Parse(absl::string_view name, State* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      State_entries, 210, name, &int_value);
+  if (success) {
+    *value = static_cast<State>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t RemoteDeviceTypeMetadata_internal_data_[] = {
+    524288u, 0u, };
+bool RemoteDeviceTypeMetadata_IsValid(int value) {
+  return 0 <= value && value <= 7;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    RemoteDeviceTypeMetadata_strings[8] = {};
+
+static const char RemoteDeviceTypeMetadata_names[] = {
+    "CARKIT"
+    "DEFAULT"
+    "HEADSET"
+    "NOT_AVAILABLE"
+    "SPEAKER"
+    "STYLUS"
+    "UNTETHERED_HEADSET"
+    "WATCH"
+};
+
+static const ::google::protobuf::internal::EnumEntry RemoteDeviceTypeMetadata_entries[] =
+    {
+        {{&RemoteDeviceTypeMetadata_names[0], 6}, 5},
+        {{&RemoteDeviceTypeMetadata_names[6], 7}, 6},
+        {{&RemoteDeviceTypeMetadata_names[13], 7}, 4},
+        {{&RemoteDeviceTypeMetadata_names[20], 13}, 7},
+        {{&RemoteDeviceTypeMetadata_names[33], 7}, 3},
+        {{&RemoteDeviceTypeMetadata_names[40], 6}, 2},
+        {{&RemoteDeviceTypeMetadata_names[46], 18}, 1},
+        {{&RemoteDeviceTypeMetadata_names[64], 5}, 0},
+};
+
+static const int RemoteDeviceTypeMetadata_entries_by_number[] = {
+    7,  // 0 -> WATCH
+    6,  // 1 -> UNTETHERED_HEADSET
+    5,  // 2 -> STYLUS
+    4,  // 3 -> SPEAKER
+    2,  // 4 -> HEADSET
+    0,  // 5 -> CARKIT
+    1,  // 6 -> DEFAULT
+    3,  // 7 -> NOT_AVAILABLE
+};
+
+const std::string& RemoteDeviceTypeMetadata_Name(RemoteDeviceTypeMetadata value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          RemoteDeviceTypeMetadata_entries, RemoteDeviceTypeMetadata_entries_by_number,
+          8, RemoteDeviceTypeMetadata_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      RemoteDeviceTypeMetadata_entries, RemoteDeviceTypeMetadata_entries_by_number, 8,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : RemoteDeviceTypeMetadata_strings[idx].get();
+}
+
+bool RemoteDeviceTypeMetadata_Parse(absl::string_view name, RemoteDeviceTypeMetadata* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      RemoteDeviceTypeMetadata_entries, 8, name, &int_value);
+  if (success) {
+    *value = static_cast<RemoteDeviceTypeMetadata>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BroadcastAudioQualityType_internal_data_[] = {
+    196608u, 0u, };
+bool BroadcastAudioQualityType_IsValid(int value) {
+  return 0 <= value && value <= 2;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BroadcastAudioQualityType_strings[3] = {};
+
+static const char BroadcastAudioQualityType_names[] = {
+    "QUALITY_HIGH"
+    "QUALITY_STANDARD"
+    "QUALITY_UNKNOWN"
+};
+
+static const ::google::protobuf::internal::EnumEntry BroadcastAudioQualityType_entries[] =
+    {
+        {{&BroadcastAudioQualityType_names[0], 12}, 2},
+        {{&BroadcastAudioQualityType_names[12], 16}, 1},
+        {{&BroadcastAudioQualityType_names[28], 15}, 0},
+};
+
+static const int BroadcastAudioQualityType_entries_by_number[] = {
+    2,  // 0 -> QUALITY_UNKNOWN
+    1,  // 1 -> QUALITY_STANDARD
+    0,  // 2 -> QUALITY_HIGH
+};
+
+const std::string& BroadcastAudioQualityType_Name(BroadcastAudioQualityType value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BroadcastAudioQualityType_entries, BroadcastAudioQualityType_entries_by_number,
+          3, BroadcastAudioQualityType_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BroadcastAudioQualityType_entries, BroadcastAudioQualityType_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BroadcastAudioQualityType_strings[idx].get();
+}
+
+bool BroadcastAudioQualityType_Parse(absl::string_view name, BroadcastAudioQualityType* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BroadcastAudioQualityType_entries, 3, name, &int_value);
+  if (success) {
+    *value = static_cast<BroadcastAudioQualityType>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BroadcastSessionSetupStatus_internal_data_[] = {
+    393216u, 0u, };
+bool BroadcastSessionSetupStatus_IsValid(int value) {
+  return 0 <= value && value <= 5;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BroadcastSessionSetupStatus_strings[6] = {};
+
+static const char BroadcastSessionSetupStatus_names[] = {
+    "SETUP_STATUS_CREATED"
+    "SETUP_STATUS_CREATE_FAILED"
+    "SETUP_STATUS_REQUESTED"
+    "SETUP_STATUS_STREAMING"
+    "SETUP_STATUS_STREAMING_FAILED"
+    "SETUP_STATUS_UNKNOWN"
+};
+
+static const ::google::protobuf::internal::EnumEntry BroadcastSessionSetupStatus_entries[] =
+    {
+        {{&BroadcastSessionSetupStatus_names[0], 20}, 2},
+        {{&BroadcastSessionSetupStatus_names[20], 26}, 4},
+        {{&BroadcastSessionSetupStatus_names[46], 22}, 1},
+        {{&BroadcastSessionSetupStatus_names[68], 22}, 3},
+        {{&BroadcastSessionSetupStatus_names[90], 29}, 5},
+        {{&BroadcastSessionSetupStatus_names[119], 20}, 0},
+};
+
+static const int BroadcastSessionSetupStatus_entries_by_number[] = {
+    5,  // 0 -> SETUP_STATUS_UNKNOWN
+    2,  // 1 -> SETUP_STATUS_REQUESTED
+    0,  // 2 -> SETUP_STATUS_CREATED
+    3,  // 3 -> SETUP_STATUS_STREAMING
+    1,  // 4 -> SETUP_STATUS_CREATE_FAILED
+    4,  // 5 -> SETUP_STATUS_STREAMING_FAILED
+};
+
+const std::string& BroadcastSessionSetupStatus_Name(BroadcastSessionSetupStatus value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BroadcastSessionSetupStatus_entries, BroadcastSessionSetupStatus_entries_by_number,
+          6, BroadcastSessionSetupStatus_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BroadcastSessionSetupStatus_entries, BroadcastSessionSetupStatus_entries_by_number, 6,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BroadcastSessionSetupStatus_strings[idx].get();
+}
+
+bool BroadcastSessionSetupStatus_Parse(absl::string_view name, BroadcastSessionSetupStatus* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BroadcastSessionSetupStatus_entries, 6, name, &int_value);
+  if (success) {
+    *value = static_cast<BroadcastSessionSetupStatus>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BroadcastSyncStatus_internal_data_[] = {
+    524288u, 0u, };
+bool BroadcastSyncStatus_IsValid(int value) {
+  return 0 <= value && value <= 7;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BroadcastSyncStatus_strings[8] = {};
+
+static const char BroadcastSyncStatus_names[] = {
+    "SYNC_STATUS_AUDIO_SYNC_FAILED"
+    "SYNC_STATUS_AUDIO_SYNC_SUCCESS"
+    "SYNC_STATUS_BIG_DECRYPT_FAILED"
+    "SYNC_STATUS_PA_SYNC_FAILED"
+    "SYNC_STATUS_PA_SYNC_NO_PAST"
+    "SYNC_STATUS_PA_SYNC_SUCCESS"
+    "SYNC_STATUS_SYNC_REQUESTED"
+    "SYNC_STATUS_UNKNOWN"
+};
+
+static const ::google::protobuf::internal::EnumEntry BroadcastSyncStatus_entries[] =
+    {
+        {{&BroadcastSyncStatus_names[0], 29}, 7},
+        {{&BroadcastSyncStatus_names[29], 30}, 3},
+        {{&BroadcastSyncStatus_names[59], 30}, 6},
+        {{&BroadcastSyncStatus_names[89], 26}, 4},
+        {{&BroadcastSyncStatus_names[115], 27}, 5},
+        {{&BroadcastSyncStatus_names[142], 27}, 2},
+        {{&BroadcastSyncStatus_names[169], 26}, 1},
+        {{&BroadcastSyncStatus_names[195], 19}, 0},
+};
+
+static const int BroadcastSyncStatus_entries_by_number[] = {
+    7,  // 0 -> SYNC_STATUS_UNKNOWN
+    6,  // 1 -> SYNC_STATUS_SYNC_REQUESTED
+    5,  // 2 -> SYNC_STATUS_PA_SYNC_SUCCESS
+    1,  // 3 -> SYNC_STATUS_AUDIO_SYNC_SUCCESS
+    3,  // 4 -> SYNC_STATUS_PA_SYNC_FAILED
+    4,  // 5 -> SYNC_STATUS_PA_SYNC_NO_PAST
+    2,  // 6 -> SYNC_STATUS_BIG_DECRYPT_FAILED
+    0,  // 7 -> SYNC_STATUS_AUDIO_SYNC_FAILED
+};
+
+const std::string& BroadcastSyncStatus_Name(BroadcastSyncStatus value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BroadcastSyncStatus_entries, BroadcastSyncStatus_entries_by_number,
+          8, BroadcastSyncStatus_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BroadcastSyncStatus_entries, BroadcastSyncStatus_entries_by_number, 8,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BroadcastSyncStatus_strings[idx].get();
+}
+
+bool BroadcastSyncStatus_Parse(absl::string_view name, BroadcastSyncStatus* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BroadcastSyncStatus_entries, 8, name, &int_value);
+  if (success) {
+    *value = static_cast<BroadcastSyncStatus>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BtaStatus_internal_data_[] = {
+    262144u, 0u, };
+bool BtaStatus_IsValid(int value) {
+  return 0 <= value && value <= 3;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BtaStatus_strings[4] = {};
+
+static const char BtaStatus_names[] = {
+    "BTA_STATUS_BUSY"
+    "BTA_STATUS_FAILURE"
+    "BTA_STATUS_SUCCESS"
+    "BTA_STATUS_UNKNOWN"
+};
+
+static const ::google::protobuf::internal::EnumEntry BtaStatus_entries[] =
+    {
+        {{&BtaStatus_names[0], 15}, 3},
+        {{&BtaStatus_names[15], 18}, 2},
+        {{&BtaStatus_names[33], 18}, 1},
+        {{&BtaStatus_names[51], 18}, 0},
+};
+
+static const int BtaStatus_entries_by_number[] = {
+    3,  // 0 -> BTA_STATUS_UNKNOWN
+    2,  // 1 -> BTA_STATUS_SUCCESS
+    1,  // 2 -> BTA_STATUS_FAILURE
+    0,  // 3 -> BTA_STATUS_BUSY
+};
+
+const std::string& BtaStatus_Name(BtaStatus value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BtaStatus_entries, BtaStatus_entries_by_number,
+          4, BtaStatus_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BtaStatus_entries, BtaStatus_entries_by_number, 4,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BtaStatus_strings[idx].get();
+}
+
+bool BtaStatus_Parse(absl::string_view name, BtaStatus* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BtaStatus_entries, 4, name, &int_value);
+  if (success) {
+    *value = static_cast<BtaStatus>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t ChannelSoundingType_internal_data_[] = {
+    131072u, 0u, };
+bool ChannelSoundingType_IsValid(int value) {
+  return 0 <= value && value <= 1;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    ChannelSoundingType_strings[2] = {};
+
+static const char ChannelSoundingType_names[] = {
+    "CS_BT_CORE60"
+    "CS_UNSPECIFIED"
+};
+
+static const ::google::protobuf::internal::EnumEntry ChannelSoundingType_entries[] =
+    {
+        {{&ChannelSoundingType_names[0], 12}, 1},
+        {{&ChannelSoundingType_names[12], 14}, 0},
+};
+
+static const int ChannelSoundingType_entries_by_number[] = {
+    1,  // 0 -> CS_UNSPECIFIED
+    0,  // 1 -> CS_BT_CORE60
+};
+
+const std::string& ChannelSoundingType_Name(ChannelSoundingType value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          ChannelSoundingType_entries, ChannelSoundingType_entries_by_number,
+          2, ChannelSoundingType_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      ChannelSoundingType_entries, ChannelSoundingType_entries_by_number, 2,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : ChannelSoundingType_strings[idx].get();
+}
+
+bool ChannelSoundingType_Parse(absl::string_view name, ChannelSoundingType* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      ChannelSoundingType_entries, 2, name, &int_value);
+  if (success) {
+    *value = static_cast<ChannelSoundingType>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t ChannelSoundingStopReason_internal_data_[] = {
+    1507328u, 0u, };
+bool ChannelSoundingStopReason_IsValid(int value) {
+  return 0 <= value && value <= 22;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    ChannelSoundingStopReason_strings[23] = {};
+
+static const char ChannelSoundingStopReason_names[] = {
+    "REASON_B2B_CONFLICT"
+    "REASON_CONFIG_ID_RUN_OUT"
+    "REASON_CREATE_CONFIG_COMMAND_STATUS_ERROR"
+    "REASON_CREATE_CONFIG_COMPLETE_FAILED"
+    "REASON_HAL_OPEN_FAILED"
+    "REASON_LE_DISCONNECT"
+    "REASON_LOCAL_APP_REQUEST"
+    "REASON_LOCAL_CS_STACK_NOT_READY"
+    "REASON_PROCEDURE_ENABLE_COMMAND_STATUS_ERROR"
+    "REASON_PROCEDURE_ENABLE_COMPLETE_FAILED"
+    "REASON_RAS_FATAL_ERROR"
+    "REASON_RAS_REMOTE_NOT_SUPPORT"
+    "REASON_READ_REMOTE_CAP_COMMAND_STATUS_ERROR"
+    "REASON_READ_REMOTE_CAP_COMPLETE_FAILED"
+    "REASON_REMOTE_PROCEDURE_DATA_BROKEN"
+    "REASON_REMOTE_TIMEOUT"
+    "REASON_SECURITY_ENABLE_COMMAND_STATUS_ERROR"
+    "REASON_SECURITY_ENABLE_COMPLETE_FAILED"
+    "REASON_SECURITY_ENABLE_TIMEOUT"
+    "REASON_SET_DEFAULT_SETTINGS_COMPLETE_FAILED"
+    "REASON_SET_PROCEDURE_PARAMETERS_COMPLETE_FAILED"
+    "REASON_UNSPECIFIED"
+    "REASON_VENDOR_SPECIFIC_REPLY_FAILED"
+};
+
+static const ::google::protobuf::internal::EnumEntry ChannelSoundingStopReason_entries[] =
+    {
+        {{&ChannelSoundingStopReason_names[0], 19}, 7},
+        {{&ChannelSoundingStopReason_names[19], 24}, 3},
+        {{&ChannelSoundingStopReason_names[43], 41}, 20},
+        {{&ChannelSoundingStopReason_names[84], 36}, 13},
+        {{&ChannelSoundingStopReason_names[120], 22}, 2},
+        {{&ChannelSoundingStopReason_names[142], 20}, 5},
+        {{&ChannelSoundingStopReason_names[162], 24}, 1},
+        {{&ChannelSoundingStopReason_names[186], 31}, 4},
+        {{&ChannelSoundingStopReason_names[217], 44}, 9},
+        {{&ChannelSoundingStopReason_names[261], 39}, 16},
+        {{&ChannelSoundingStopReason_names[300], 22}, 22},
+        {{&ChannelSoundingStopReason_names[322], 29}, 21},
+        {{&ChannelSoundingStopReason_names[351], 43}, 18},
+        {{&ChannelSoundingStopReason_names[394], 38}, 10},
+        {{&ChannelSoundingStopReason_names[432], 35}, 17},
+        {{&ChannelSoundingStopReason_names[467], 21}, 8},
+        {{&ChannelSoundingStopReason_names[488], 43}, 19},
+        {{&ChannelSoundingStopReason_names[531], 38}, 12},
+        {{&ChannelSoundingStopReason_names[569], 30}, 14},
+        {{&ChannelSoundingStopReason_names[599], 43}, 11},
+        {{&ChannelSoundingStopReason_names[642], 47}, 15},
+        {{&ChannelSoundingStopReason_names[689], 18}, 0},
+        {{&ChannelSoundingStopReason_names[707], 35}, 6},
+};
+
+static const int ChannelSoundingStopReason_entries_by_number[] = {
+    21,  // 0 -> REASON_UNSPECIFIED
+    6,  // 1 -> REASON_LOCAL_APP_REQUEST
+    4,  // 2 -> REASON_HAL_OPEN_FAILED
+    1,  // 3 -> REASON_CONFIG_ID_RUN_OUT
+    7,  // 4 -> REASON_LOCAL_CS_STACK_NOT_READY
+    5,  // 5 -> REASON_LE_DISCONNECT
+    22,  // 6 -> REASON_VENDOR_SPECIFIC_REPLY_FAILED
+    0,  // 7 -> REASON_B2B_CONFLICT
+    15,  // 8 -> REASON_REMOTE_TIMEOUT
+    8,  // 9 -> REASON_PROCEDURE_ENABLE_COMMAND_STATUS_ERROR
+    13,  // 10 -> REASON_READ_REMOTE_CAP_COMPLETE_FAILED
+    19,  // 11 -> REASON_SET_DEFAULT_SETTINGS_COMPLETE_FAILED
+    17,  // 12 -> REASON_SECURITY_ENABLE_COMPLETE_FAILED
+    3,  // 13 -> REASON_CREATE_CONFIG_COMPLETE_FAILED
+    18,  // 14 -> REASON_SECURITY_ENABLE_TIMEOUT
+    20,  // 15 -> REASON_SET_PROCEDURE_PARAMETERS_COMPLETE_FAILED
+    9,  // 16 -> REASON_PROCEDURE_ENABLE_COMPLETE_FAILED
+    14,  // 17 -> REASON_REMOTE_PROCEDURE_DATA_BROKEN
+    12,  // 18 -> REASON_READ_REMOTE_CAP_COMMAND_STATUS_ERROR
+    16,  // 19 -> REASON_SECURITY_ENABLE_COMMAND_STATUS_ERROR
+    2,  // 20 -> REASON_CREATE_CONFIG_COMMAND_STATUS_ERROR
+    11,  // 21 -> REASON_RAS_REMOTE_NOT_SUPPORT
+    10,  // 22 -> REASON_RAS_FATAL_ERROR
+};
+
+const std::string& ChannelSoundingStopReason_Name(ChannelSoundingStopReason value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          ChannelSoundingStopReason_entries, ChannelSoundingStopReason_entries_by_number,
+          23, ChannelSoundingStopReason_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      ChannelSoundingStopReason_entries, ChannelSoundingStopReason_entries_by_number, 23,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : ChannelSoundingStopReason_strings[idx].get();
+}
+
+bool ChannelSoundingStopReason_Parse(absl::string_view name, ChannelSoundingStopReason* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      ChannelSoundingStopReason_entries, 23, name, &int_value);
+  if (success) {
+    *value = static_cast<ChannelSoundingStopReason>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t ChannelSoundingSecurityLevel_internal_data_[] = {
+    327680u, 0u, };
+bool ChannelSoundingSecurityLevel_IsValid(int value) {
+  return 0 <= value && value <= 4;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    ChannelSoundingSecurityLevel_strings[5] = {};
+
+static const char ChannelSoundingSecurityLevel_names[] = {
+    "LEVEL_FOUR"
+    "LEVEL_ONE"
+    "LEVEL_THREE"
+    "LEVEL_TWO"
+    "LEVEL_UNSPECIFIED"
+};
+
+static const ::google::protobuf::internal::EnumEntry ChannelSoundingSecurityLevel_entries[] =
+    {
+        {{&ChannelSoundingSecurityLevel_names[0], 10}, 4},
+        {{&ChannelSoundingSecurityLevel_names[10], 9}, 1},
+        {{&ChannelSoundingSecurityLevel_names[19], 11}, 3},
+        {{&ChannelSoundingSecurityLevel_names[30], 9}, 2},
+        {{&ChannelSoundingSecurityLevel_names[39], 17}, 0},
+};
+
+static const int ChannelSoundingSecurityLevel_entries_by_number[] = {
+    4,  // 0 -> LEVEL_UNSPECIFIED
+    1,  // 1 -> LEVEL_ONE
+    3,  // 2 -> LEVEL_TWO
+    2,  // 3 -> LEVEL_THREE
+    0,  // 4 -> LEVEL_FOUR
+};
+
+const std::string& ChannelSoundingSecurityLevel_Name(ChannelSoundingSecurityLevel value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          ChannelSoundingSecurityLevel_entries, ChannelSoundingSecurityLevel_entries_by_number,
+          5, ChannelSoundingSecurityLevel_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      ChannelSoundingSecurityLevel_entries, ChannelSoundingSecurityLevel_entries_by_number, 5,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : ChannelSoundingSecurityLevel_strings[idx].get();
+}
+
+bool ChannelSoundingSecurityLevel_Parse(absl::string_view name, ChannelSoundingSecurityLevel* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      ChannelSoundingSecurityLevel_entries, 5, name, &int_value);
+  if (success) {
+    *value = static_cast<ChannelSoundingSecurityLevel>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BluetoothPbapClientContactDownloadStatus_internal_data_[] = {
+    262144u, 0u, };
+bool BluetoothPbapClientContactDownloadStatus_IsValid(int value) {
+  return 0 <= value && value <= 3;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BluetoothPbapClientContactDownloadStatus_strings[4] = {};
+
+static const char BluetoothPbapClientContactDownloadStatus_names[] = {
+    "DOWNLOAD_STATUS_CANCELLED"
+    "DOWNLOAD_STATUS_COMPLETED"
+    "DOWNLOAD_STATUS_ERROR"
+    "DOWNLOAD_STATUS_UNSPECIFIED"
+};
+
+static const ::google::protobuf::internal::EnumEntry BluetoothPbapClientContactDownloadStatus_entries[] =
+    {
+        {{&BluetoothPbapClientContactDownloadStatus_names[0], 25}, 1},
+        {{&BluetoothPbapClientContactDownloadStatus_names[25], 25}, 2},
+        {{&BluetoothPbapClientContactDownloadStatus_names[50], 21}, 3},
+        {{&BluetoothPbapClientContactDownloadStatus_names[71], 27}, 0},
+};
+
+static const int BluetoothPbapClientContactDownloadStatus_entries_by_number[] = {
+    3,  // 0 -> DOWNLOAD_STATUS_UNSPECIFIED
+    0,  // 1 -> DOWNLOAD_STATUS_CANCELLED
+    1,  // 2 -> DOWNLOAD_STATUS_COMPLETED
+    2,  // 3 -> DOWNLOAD_STATUS_ERROR
+};
+
+const std::string& BluetoothPbapClientContactDownloadStatus_Name(BluetoothPbapClientContactDownloadStatus value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BluetoothPbapClientContactDownloadStatus_entries, BluetoothPbapClientContactDownloadStatus_entries_by_number,
+          4, BluetoothPbapClientContactDownloadStatus_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BluetoothPbapClientContactDownloadStatus_entries, BluetoothPbapClientContactDownloadStatus_entries_by_number, 4,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BluetoothPbapClientContactDownloadStatus_strings[idx].get();
+}
+
+bool BluetoothPbapClientContactDownloadStatus_Parse(absl::string_view name, BluetoothPbapClientContactDownloadStatus* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BluetoothPbapClientContactDownloadStatus_entries, 4, name, &int_value);
+  if (success) {
+    *value = static_cast<BluetoothPbapClientContactDownloadStatus>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BluetoothPbapClientPhonebookDownloadStatus_internal_data_[] = {
+    1114112u, 0u, };
+bool BluetoothPbapClientPhonebookDownloadStatus_IsValid(int value) {
+  return 0 <= value && value <= 16;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BluetoothPbapClientPhonebookDownloadStatus_strings[17] = {};
+
+static const char BluetoothPbapClientPhonebookDownloadStatus_names[] = {
+    "STATUS_CACHED"
+    "STATUS_ERROR"
+    "STATUS_ERROR_OBEX_HTTP_BAD_REQUEST"
+    "STATUS_ERROR_OBEX_HTTP_FORBIDDEN"
+    "STATUS_ERROR_OBEX_HTTP_INTERNAL_ERROR"
+    "STATUS_ERROR_OBEX_HTTP_NOT_ACCEPTABLE"
+    "STATUS_ERROR_OBEX_HTTP_NOT_FOUND"
+    "STATUS_ERROR_OBEX_HTTP_NOT_IMPLEMENTED"
+    "STATUS_ERROR_OBEX_HTTP_PRECON_FAILED"
+    "STATUS_ERROR_OBEX_HTTP_TIMEOUT"
+    "STATUS_ERROR_OBEX_HTTP_UNAUTHORIZED"
+    "STATUS_ERROR_OBEX_HTTP_UNAVAILABLE"
+    "STATUS_NOT_SUPPORTED"
+    "STATUS_SUCCESS"
+    "STATUS_SUCCESS_CACHE_INVALIDATED"
+    "STATUS_SUPPORTED_NOT_REQUESTED"
+    "STATUS_UNSPECIFIED"
+};
+
+static const ::google::protobuf::internal::EnumEntry BluetoothPbapClientPhonebookDownloadStatus_entries[] =
+    {
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[0], 13}, 5},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[13], 12}, 6},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[25], 34}, 7},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[59], 32}, 9},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[91], 37}, 14},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[128], 37}, 11},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[165], 32}, 10},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[197], 38}, 15},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[235], 36}, 13},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[271], 30}, 12},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[301], 35}, 8},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[336], 34}, 16},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[370], 20}, 3},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[390], 14}, 1},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[404], 32}, 2},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[436], 30}, 4},
+        {{&BluetoothPbapClientPhonebookDownloadStatus_names[466], 18}, 0},
+};
+
+static const int BluetoothPbapClientPhonebookDownloadStatus_entries_by_number[] = {
+    16,  // 0 -> STATUS_UNSPECIFIED
+    13,  // 1 -> STATUS_SUCCESS
+    14,  // 2 -> STATUS_SUCCESS_CACHE_INVALIDATED
+    12,  // 3 -> STATUS_NOT_SUPPORTED
+    15,  // 4 -> STATUS_SUPPORTED_NOT_REQUESTED
+    0,  // 5 -> STATUS_CACHED
+    1,  // 6 -> STATUS_ERROR
+    2,  // 7 -> STATUS_ERROR_OBEX_HTTP_BAD_REQUEST
+    10,  // 8 -> STATUS_ERROR_OBEX_HTTP_UNAUTHORIZED
+    3,  // 9 -> STATUS_ERROR_OBEX_HTTP_FORBIDDEN
+    6,  // 10 -> STATUS_ERROR_OBEX_HTTP_NOT_FOUND
+    5,  // 11 -> STATUS_ERROR_OBEX_HTTP_NOT_ACCEPTABLE
+    9,  // 12 -> STATUS_ERROR_OBEX_HTTP_TIMEOUT
+    8,  // 13 -> STATUS_ERROR_OBEX_HTTP_PRECON_FAILED
+    4,  // 14 -> STATUS_ERROR_OBEX_HTTP_INTERNAL_ERROR
+    7,  // 15 -> STATUS_ERROR_OBEX_HTTP_NOT_IMPLEMENTED
+    11,  // 16 -> STATUS_ERROR_OBEX_HTTP_UNAVAILABLE
+};
+
+const std::string& BluetoothPbapClientPhonebookDownloadStatus_Name(BluetoothPbapClientPhonebookDownloadStatus value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BluetoothPbapClientPhonebookDownloadStatus_entries, BluetoothPbapClientPhonebookDownloadStatus_entries_by_number,
+          17, BluetoothPbapClientPhonebookDownloadStatus_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BluetoothPbapClientPhonebookDownloadStatus_entries, BluetoothPbapClientPhonebookDownloadStatus_entries_by_number, 17,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BluetoothPbapClientPhonebookDownloadStatus_strings[idx].get();
+}
+
+bool BluetoothPbapClientPhonebookDownloadStatus_Parse(absl::string_view name, BluetoothPbapClientPhonebookDownloadStatus* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BluetoothPbapClientPhonebookDownloadStatus_entries, 17, name, &int_value);
+  if (success) {
+    *value = static_cast<BluetoothPbapClientPhonebookDownloadStatus>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BluetoothPbapClientPhonebookType_internal_data_[] = {
+    655360u, 0u, };
+bool BluetoothPbapClientPhonebookType_IsValid(int value) {
+  return 0 <= value && value <= 9;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BluetoothPbapClientPhonebookType_strings[10] = {};
+
+static const char BluetoothPbapClientPhonebookType_names[] = {
+    "PHONEBOOK_FAVORITES"
+    "PHONEBOOK_ICH"
+    "PHONEBOOK_LOCAL"
+    "PHONEBOOK_MCH"
+    "PHONEBOOK_OCH"
+    "PHONEBOOK_SIM"
+    "PHONEBOOK_SIM_ICH"
+    "PHONEBOOK_SIM_MCH"
+    "PHONEBOOK_SIM_OCH"
+    "PHONEBOOK_UNSPECIFIED"
+};
+
+static const ::google::protobuf::internal::EnumEntry BluetoothPbapClientPhonebookType_entries[] =
+    {
+        {{&BluetoothPbapClientPhonebookType_names[0], 19}, 2},
+        {{&BluetoothPbapClientPhonebookType_names[19], 13}, 4},
+        {{&BluetoothPbapClientPhonebookType_names[32], 15}, 1},
+        {{&BluetoothPbapClientPhonebookType_names[47], 13}, 3},
+        {{&BluetoothPbapClientPhonebookType_names[60], 13}, 5},
+        {{&BluetoothPbapClientPhonebookType_names[73], 13}, 6},
+        {{&BluetoothPbapClientPhonebookType_names[86], 17}, 8},
+        {{&BluetoothPbapClientPhonebookType_names[103], 17}, 7},
+        {{&BluetoothPbapClientPhonebookType_names[120], 17}, 9},
+        {{&BluetoothPbapClientPhonebookType_names[137], 21}, 0},
+};
+
+static const int BluetoothPbapClientPhonebookType_entries_by_number[] = {
+    9,  // 0 -> PHONEBOOK_UNSPECIFIED
+    2,  // 1 -> PHONEBOOK_LOCAL
+    0,  // 2 -> PHONEBOOK_FAVORITES
+    3,  // 3 -> PHONEBOOK_MCH
+    1,  // 4 -> PHONEBOOK_ICH
+    4,  // 5 -> PHONEBOOK_OCH
+    5,  // 6 -> PHONEBOOK_SIM
+    7,  // 7 -> PHONEBOOK_SIM_MCH
+    6,  // 8 -> PHONEBOOK_SIM_ICH
+    8,  // 9 -> PHONEBOOK_SIM_OCH
+};
+
+const std::string& BluetoothPbapClientPhonebookType_Name(BluetoothPbapClientPhonebookType value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BluetoothPbapClientPhonebookType_entries, BluetoothPbapClientPhonebookType_entries_by_number,
+          10, BluetoothPbapClientPhonebookType_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BluetoothPbapClientPhonebookType_entries, BluetoothPbapClientPhonebookType_entries_by_number, 10,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BluetoothPbapClientPhonebookType_strings[idx].get();
+}
+
+bool BluetoothPbapClientPhonebookType_Parse(absl::string_view name, BluetoothPbapClientPhonebookType* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BluetoothPbapClientPhonebookType_entries, 10, name, &int_value);
+  if (success) {
+    *value = static_cast<BluetoothPbapClientPhonebookType>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BluetoothOppSessionStatus_internal_data_[] = {
+    1179648u, 0u, };
+bool BluetoothOppSessionStatus_IsValid(int value) {
+  return 0 <= value && value <= 17;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BluetoothOppSessionStatus_strings[18] = {};
+
+static const char BluetoothOppSessionStatus_names[] = {
+    "OPP_SESSION_STATUS_BAD_REQUEST"
+    "OPP_SESSION_STATUS_CANCELED"
+    "OPP_SESSION_STATUS_CONNECTION_ERROR"
+    "OPP_SESSION_STATUS_ERROR_NO_SDCARD"
+    "OPP_SESSION_STATUS_ERROR_SDCARD_FULL"
+    "OPP_SESSION_STATUS_FILE_ERROR"
+    "OPP_SESSION_STATUS_LENGTH_REQUIRED"
+    "OPP_SESSION_STATUS_NOT_ACCEPTABLE"
+    "OPP_SESSION_STATUS_OBEX_DATA_ERROR"
+    "OPP_SESSION_STATUS_PENDING"
+    "OPP_SESSION_STATUS_PRECONDITION_FAILED"
+    "OPP_SESSION_STATUS_RUNNING"
+    "OPP_SESSION_STATUS_SUCCESS"
+    "OPP_SESSION_STATUS_UNHANDLED_OBEX_CODE"
+    "OPP_SESSION_STATUS_UNKNOWN_ERROR"
+    "OPP_SESSION_STATUS_UNSPECIFIED"
+    "OPP_SESSION_STATUS_UNSUPPORTED_TYPE"
+    "OPP_SESSION_STATUS_USER_STATUS_FORBIDDEN"
+};
+
+static const ::google::protobuf::internal::EnumEntry BluetoothOppSessionStatus_entries[] =
+    {
+        {{&BluetoothOppSessionStatus_names[0], 30}, 4},
+        {{&BluetoothOppSessionStatus_names[30], 27}, 9},
+        {{&BluetoothOppSessionStatus_names[57], 35}, 16},
+        {{&BluetoothOppSessionStatus_names[92], 34}, 12},
+        {{&BluetoothOppSessionStatus_names[126], 36}, 13},
+        {{&BluetoothOppSessionStatus_names[162], 29}, 11},
+        {{&BluetoothOppSessionStatus_names[191], 34}, 7},
+        {{&BluetoothOppSessionStatus_names[225], 33}, 6},
+        {{&BluetoothOppSessionStatus_names[258], 34}, 15},
+        {{&BluetoothOppSessionStatus_names[292], 26}, 1},
+        {{&BluetoothOppSessionStatus_names[318], 38}, 8},
+        {{&BluetoothOppSessionStatus_names[356], 26}, 2},
+        {{&BluetoothOppSessionStatus_names[382], 26}, 3},
+        {{&BluetoothOppSessionStatus_names[408], 38}, 14},
+        {{&BluetoothOppSessionStatus_names[446], 32}, 10},
+        {{&BluetoothOppSessionStatus_names[478], 30}, 0},
+        {{&BluetoothOppSessionStatus_names[508], 35}, 17},
+        {{&BluetoothOppSessionStatus_names[543], 40}, 5},
+};
+
+static const int BluetoothOppSessionStatus_entries_by_number[] = {
+    15,  // 0 -> OPP_SESSION_STATUS_UNSPECIFIED
+    9,  // 1 -> OPP_SESSION_STATUS_PENDING
+    11,  // 2 -> OPP_SESSION_STATUS_RUNNING
+    12,  // 3 -> OPP_SESSION_STATUS_SUCCESS
+    0,  // 4 -> OPP_SESSION_STATUS_BAD_REQUEST
+    17,  // 5 -> OPP_SESSION_STATUS_USER_STATUS_FORBIDDEN
+    7,  // 6 -> OPP_SESSION_STATUS_NOT_ACCEPTABLE
+    6,  // 7 -> OPP_SESSION_STATUS_LENGTH_REQUIRED
+    10,  // 8 -> OPP_SESSION_STATUS_PRECONDITION_FAILED
+    1,  // 9 -> OPP_SESSION_STATUS_CANCELED
+    14,  // 10 -> OPP_SESSION_STATUS_UNKNOWN_ERROR
+    5,  // 11 -> OPP_SESSION_STATUS_FILE_ERROR
+    3,  // 12 -> OPP_SESSION_STATUS_ERROR_NO_SDCARD
+    4,  // 13 -> OPP_SESSION_STATUS_ERROR_SDCARD_FULL
+    13,  // 14 -> OPP_SESSION_STATUS_UNHANDLED_OBEX_CODE
+    8,  // 15 -> OPP_SESSION_STATUS_OBEX_DATA_ERROR
+    2,  // 16 -> OPP_SESSION_STATUS_CONNECTION_ERROR
+    16,  // 17 -> OPP_SESSION_STATUS_UNSUPPORTED_TYPE
+};
+
+const std::string& BluetoothOppSessionStatus_Name(BluetoothOppSessionStatus value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BluetoothOppSessionStatus_entries, BluetoothOppSessionStatus_entries_by_number,
+          18, BluetoothOppSessionStatus_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BluetoothOppSessionStatus_entries, BluetoothOppSessionStatus_entries_by_number, 18,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BluetoothOppSessionStatus_strings[idx].get();
+}
+
+bool BluetoothOppSessionStatus_Parse(absl::string_view name, BluetoothOppSessionStatus* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BluetoothOppSessionStatus_entries, 18, name, &int_value);
+  if (success) {
+    *value = static_cast<BluetoothOppSessionStatus>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BluetoothOppTransferDirection_internal_data_[] = {
+    196608u, 0u, };
+bool BluetoothOppTransferDirection_IsValid(int value) {
+  return 0 <= value && value <= 2;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BluetoothOppTransferDirection_strings[3] = {};
+
+static const char BluetoothOppTransferDirection_names[] = {
+    "OPP_TRANSFER_DIRECTION_RECEIVE"
+    "OPP_TRANSFER_DIRECTION_SEND"
+    "OPP_TRANSFER_DIRECTION_UNSPECIFIED"
+};
+
+static const ::google::protobuf::internal::EnumEntry BluetoothOppTransferDirection_entries[] =
+    {
+        {{&BluetoothOppTransferDirection_names[0], 30}, 2},
+        {{&BluetoothOppTransferDirection_names[30], 27}, 1},
+        {{&BluetoothOppTransferDirection_names[57], 34}, 0},
+};
+
+static const int BluetoothOppTransferDirection_entries_by_number[] = {
+    2,  // 0 -> OPP_TRANSFER_DIRECTION_UNSPECIFIED
+    1,  // 1 -> OPP_TRANSFER_DIRECTION_SEND
+    0,  // 2 -> OPP_TRANSFER_DIRECTION_RECEIVE
+};
+
+const std::string& BluetoothOppTransferDirection_Name(BluetoothOppTransferDirection value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BluetoothOppTransferDirection_entries, BluetoothOppTransferDirection_entries_by_number,
+          3, BluetoothOppTransferDirection_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BluetoothOppTransferDirection_entries, BluetoothOppTransferDirection_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BluetoothOppTransferDirection_strings[idx].get();
+}
+
+bool BluetoothOppTransferDirection_Parse(absl::string_view name, BluetoothOppTransferDirection* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BluetoothOppTransferDirection_entries, 3, name, &int_value);
+  if (success) {
+    *value = static_cast<BluetoothOppTransferDirection>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BluetoothOppFileSize_internal_data_[] = {
+    1703936u, 0u, };
+bool BluetoothOppFileSize_IsValid(int value) {
+  return 0 <= value && value <= 25;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BluetoothOppFileSize_strings[26] = {};
+
+static const char BluetoothOppFileSize_names[] = {
+    "OPP_FILE_SIZE_128KB_TO_256KB"
+    "OPP_FILE_SIZE_128MB_TO_256MB"
+    "OPP_FILE_SIZE_16KB_TO_32KB"
+    "OPP_FILE_SIZE_16MB_TO_32MB"
+    "OPP_FILE_SIZE_1GB_TO_2GB"
+    "OPP_FILE_SIZE_1KB_TO_2KB"
+    "OPP_FILE_SIZE_1MB_TO_2MB"
+    "OPP_FILE_SIZE_256KB_TO_512KB"
+    "OPP_FILE_SIZE_256MB_TO_512MB"
+    "OPP_FILE_SIZE_2GB_TO_4GB"
+    "OPP_FILE_SIZE_2KB_TO_4KB"
+    "OPP_FILE_SIZE_2MB_TO_4MB"
+    "OPP_FILE_SIZE_32KB_TO_64KB"
+    "OPP_FILE_SIZE_32MB_TO_64MB"
+    "OPP_FILE_SIZE_4GB_TO_8GB"
+    "OPP_FILE_SIZE_4KB_TO_8KB"
+    "OPP_FILE_SIZE_4MB_TO_8MB"
+    "OPP_FILE_SIZE_512KB_TO_1MB"
+    "OPP_FILE_SIZE_512MB_TO_1GB"
+    "OPP_FILE_SIZE_64KB_TO_128KB"
+    "OPP_FILE_SIZE_64MB_TO_128MB"
+    "OPP_FILE_SIZE_8KB_TO_16KB"
+    "OPP_FILE_SIZE_8MB_TO_16MB"
+    "OPP_FILE_SIZE_ABOVE_8GB"
+    "OPP_FILE_SIZE_UNDER_1_KB"
+    "OPP_FILE_SIZE_UNSPECIFIED"
+};
+
+static const ::google::protobuf::internal::EnumEntry BluetoothOppFileSize_entries[] =
+    {
+        {{&BluetoothOppFileSize_names[0], 28}, 9},
+        {{&BluetoothOppFileSize_names[28], 28}, 19},
+        {{&BluetoothOppFileSize_names[56], 26}, 6},
+        {{&BluetoothOppFileSize_names[82], 26}, 16},
+        {{&BluetoothOppFileSize_names[108], 24}, 22},
+        {{&BluetoothOppFileSize_names[132], 24}, 2},
+        {{&BluetoothOppFileSize_names[156], 24}, 12},
+        {{&BluetoothOppFileSize_names[180], 28}, 10},
+        {{&BluetoothOppFileSize_names[208], 28}, 20},
+        {{&BluetoothOppFileSize_names[236], 24}, 23},
+        {{&BluetoothOppFileSize_names[260], 24}, 3},
+        {{&BluetoothOppFileSize_names[284], 24}, 13},
+        {{&BluetoothOppFileSize_names[308], 26}, 7},
+        {{&BluetoothOppFileSize_names[334], 26}, 17},
+        {{&BluetoothOppFileSize_names[360], 24}, 24},
+        {{&BluetoothOppFileSize_names[384], 24}, 4},
+        {{&BluetoothOppFileSize_names[408], 24}, 14},
+        {{&BluetoothOppFileSize_names[432], 26}, 11},
+        {{&BluetoothOppFileSize_names[458], 26}, 21},
+        {{&BluetoothOppFileSize_names[484], 27}, 8},
+        {{&BluetoothOppFileSize_names[511], 27}, 18},
+        {{&BluetoothOppFileSize_names[538], 25}, 5},
+        {{&BluetoothOppFileSize_names[563], 25}, 15},
+        {{&BluetoothOppFileSize_names[588], 23}, 25},
+        {{&BluetoothOppFileSize_names[611], 24}, 1},
+        {{&BluetoothOppFileSize_names[635], 25}, 0},
+};
+
+static const int BluetoothOppFileSize_entries_by_number[] = {
+    25,  // 0 -> OPP_FILE_SIZE_UNSPECIFIED
+    24,  // 1 -> OPP_FILE_SIZE_UNDER_1_KB
+    5,  // 2 -> OPP_FILE_SIZE_1KB_TO_2KB
+    10,  // 3 -> OPP_FILE_SIZE_2KB_TO_4KB
+    15,  // 4 -> OPP_FILE_SIZE_4KB_TO_8KB
+    21,  // 5 -> OPP_FILE_SIZE_8KB_TO_16KB
+    2,  // 6 -> OPP_FILE_SIZE_16KB_TO_32KB
+    12,  // 7 -> OPP_FILE_SIZE_32KB_TO_64KB
+    19,  // 8 -> OPP_FILE_SIZE_64KB_TO_128KB
+    0,  // 9 -> OPP_FILE_SIZE_128KB_TO_256KB
+    7,  // 10 -> OPP_FILE_SIZE_256KB_TO_512KB
+    17,  // 11 -> OPP_FILE_SIZE_512KB_TO_1MB
+    6,  // 12 -> OPP_FILE_SIZE_1MB_TO_2MB
+    11,  // 13 -> OPP_FILE_SIZE_2MB_TO_4MB
+    16,  // 14 -> OPP_FILE_SIZE_4MB_TO_8MB
+    22,  // 15 -> OPP_FILE_SIZE_8MB_TO_16MB
+    3,  // 16 -> OPP_FILE_SIZE_16MB_TO_32MB
+    13,  // 17 -> OPP_FILE_SIZE_32MB_TO_64MB
+    20,  // 18 -> OPP_FILE_SIZE_64MB_TO_128MB
+    1,  // 19 -> OPP_FILE_SIZE_128MB_TO_256MB
+    8,  // 20 -> OPP_FILE_SIZE_256MB_TO_512MB
+    18,  // 21 -> OPP_FILE_SIZE_512MB_TO_1GB
+    4,  // 22 -> OPP_FILE_SIZE_1GB_TO_2GB
+    9,  // 23 -> OPP_FILE_SIZE_2GB_TO_4GB
+    14,  // 24 -> OPP_FILE_SIZE_4GB_TO_8GB
+    23,  // 25 -> OPP_FILE_SIZE_ABOVE_8GB
+};
+
+const std::string& BluetoothOppFileSize_Name(BluetoothOppFileSize value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BluetoothOppFileSize_entries, BluetoothOppFileSize_entries_by_number,
+          26, BluetoothOppFileSize_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BluetoothOppFileSize_entries, BluetoothOppFileSize_entries_by_number, 26,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BluetoothOppFileSize_strings[idx].get();
+}
+
+bool BluetoothOppFileSize_Parse(absl::string_view name, BluetoothOppFileSize* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BluetoothOppFileSize_entries, 26, name, &int_value);
+  if (success) {
+    *value = static_cast<BluetoothOppFileSize>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BluetoothOppTransferDuration_internal_data_[] = {
+    589824u, 0u, };
+bool BluetoothOppTransferDuration_IsValid(int value) {
+  return 0 <= value && value <= 8;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BluetoothOppTransferDuration_strings[9] = {};
+
+static const char BluetoothOppTransferDuration_names[] = {
+    "OPP_TRANSFER_DURATION_15_TO_30_MIN"
+    "OPP_TRANSFER_DURATION_1_TO_5_MIN"
+    "OPP_TRANSFER_DURATION_1_TO_5_SEC"
+    "OPP_TRANSFER_DURATION_30_TO_60_SEC"
+    "OPP_TRANSFER_DURATION_5_TO_15_MIN"
+    "OPP_TRANSFER_DURATION_5_TO_30_SEC"
+    "OPP_TRANSFER_DURATION_ABOVE_30_MIN"
+    "OPP_TRANSFER_DURATION_UNDER_1_SEC"
+    "OPP_TRANSFER_DURATION_UNSPECIFIED"
+};
+
+static const ::google::protobuf::internal::EnumEntry BluetoothOppTransferDuration_entries[] =
+    {
+        {{&BluetoothOppTransferDuration_names[0], 34}, 7},
+        {{&BluetoothOppTransferDuration_names[34], 32}, 5},
+        {{&BluetoothOppTransferDuration_names[66], 32}, 2},
+        {{&BluetoothOppTransferDuration_names[98], 34}, 4},
+        {{&BluetoothOppTransferDuration_names[132], 33}, 6},
+        {{&BluetoothOppTransferDuration_names[165], 33}, 3},
+        {{&BluetoothOppTransferDuration_names[198], 34}, 8},
+        {{&BluetoothOppTransferDuration_names[232], 33}, 1},
+        {{&BluetoothOppTransferDuration_names[265], 33}, 0},
+};
+
+static const int BluetoothOppTransferDuration_entries_by_number[] = {
+    8,  // 0 -> OPP_TRANSFER_DURATION_UNSPECIFIED
+    7,  // 1 -> OPP_TRANSFER_DURATION_UNDER_1_SEC
+    2,  // 2 -> OPP_TRANSFER_DURATION_1_TO_5_SEC
+    5,  // 3 -> OPP_TRANSFER_DURATION_5_TO_30_SEC
+    3,  // 4 -> OPP_TRANSFER_DURATION_30_TO_60_SEC
+    1,  // 5 -> OPP_TRANSFER_DURATION_1_TO_5_MIN
+    4,  // 6 -> OPP_TRANSFER_DURATION_5_TO_15_MIN
+    0,  // 7 -> OPP_TRANSFER_DURATION_15_TO_30_MIN
+    6,  // 8 -> OPP_TRANSFER_DURATION_ABOVE_30_MIN
+};
+
+const std::string& BluetoothOppTransferDuration_Name(BluetoothOppTransferDuration value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BluetoothOppTransferDuration_entries, BluetoothOppTransferDuration_entries_by_number,
+          9, BluetoothOppTransferDuration_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BluetoothOppTransferDuration_entries, BluetoothOppTransferDuration_entries_by_number, 9,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BluetoothOppTransferDuration_strings[idx].get();
+}
+
+bool BluetoothOppTransferDuration_Parse(absl::string_view name, BluetoothOppTransferDuration* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BluetoothOppTransferDuration_entries, 9, name, &int_value);
+  if (success) {
+    *value = static_cast<BluetoothOppTransferDuration>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BluetoothOppTransferSpeed_internal_data_[] = {
+    524288u, 0u, };
+bool BluetoothOppTransferSpeed_IsValid(int value) {
+  return 0 <= value && value <= 7;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BluetoothOppTransferSpeed_strings[8] = {};
+
+static const char BluetoothOppTransferSpeed_names[] = {
+    "OPP_TRANSFER_SPEED_100_TO_175_KBPS"
+    "OPP_TRANSFER_SPEED_10_TO_50_KBPS"
+    "OPP_TRANSFER_SPEED_175_TO_250_KBPS"
+    "OPP_TRANSFER_SPEED_250_TO_500_KBPS"
+    "OPP_TRANSFER_SPEED_50_TO_100_KBPS"
+    "OPP_TRANSFER_SPEED_ABOVE_500_KBPS"
+    "OPP_TRANSFER_SPEED_UNDER_10_KBPS"
+    "OPP_TRANSFER_SPEED_UNSPECIFIED"
+};
+
+static const ::google::protobuf::internal::EnumEntry BluetoothOppTransferSpeed_entries[] =
+    {
+        {{&BluetoothOppTransferSpeed_names[0], 34}, 4},
+        {{&BluetoothOppTransferSpeed_names[34], 32}, 2},
+        {{&BluetoothOppTransferSpeed_names[66], 34}, 5},
+        {{&BluetoothOppTransferSpeed_names[100], 34}, 6},
+        {{&BluetoothOppTransferSpeed_names[134], 33}, 3},
+        {{&BluetoothOppTransferSpeed_names[167], 33}, 7},
+        {{&BluetoothOppTransferSpeed_names[200], 32}, 1},
+        {{&BluetoothOppTransferSpeed_names[232], 30}, 0},
+};
+
+static const int BluetoothOppTransferSpeed_entries_by_number[] = {
+    7,  // 0 -> OPP_TRANSFER_SPEED_UNSPECIFIED
+    6,  // 1 -> OPP_TRANSFER_SPEED_UNDER_10_KBPS
+    1,  // 2 -> OPP_TRANSFER_SPEED_10_TO_50_KBPS
+    4,  // 3 -> OPP_TRANSFER_SPEED_50_TO_100_KBPS
+    0,  // 4 -> OPP_TRANSFER_SPEED_100_TO_175_KBPS
+    2,  // 5 -> OPP_TRANSFER_SPEED_175_TO_250_KBPS
+    3,  // 6 -> OPP_TRANSFER_SPEED_250_TO_500_KBPS
+    5,  // 7 -> OPP_TRANSFER_SPEED_ABOVE_500_KBPS
+};
+
+const std::string& BluetoothOppTransferSpeed_Name(BluetoothOppTransferSpeed value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BluetoothOppTransferSpeed_entries, BluetoothOppTransferSpeed_entries_by_number,
+          8, BluetoothOppTransferSpeed_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BluetoothOppTransferSpeed_entries, BluetoothOppTransferSpeed_entries_by_number, 8,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BluetoothOppTransferSpeed_strings[idx].get();
+}
+
+bool BluetoothOppTransferSpeed_Parse(absl::string_view name, BluetoothOppTransferSpeed* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BluetoothOppTransferSpeed_entries, 8, name, &int_value);
+  if (success) {
+    *value = static_cast<BluetoothOppTransferSpeed>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t BluetoothOppMimeTypeCategory_internal_data_[] = {
+    262144u, 32u, 14u, };
+bool BluetoothOppMimeTypeCategory_IsValid(int value) {
+  return 0 <= value && value <= 7 && ((239u >> value) & 1) != 0;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    BluetoothOppMimeTypeCategory_strings[7] = {};
+
+static const char BluetoothOppMimeTypeCategory_names[] = {
+    "OPP_MIME_TYPE_CATEGORY_AUDIO"
+    "OPP_MIME_TYPE_CATEGORY_COMPRESSED"
+    "OPP_MIME_TYPE_CATEGORY_DOCUMENT"
+    "OPP_MIME_TYPE_CATEGORY_IMAGE"
+    "OPP_MIME_TYPE_CATEGORY_OTHER"
+    "OPP_MIME_TYPE_CATEGORY_UNSPECIFIED"
+    "OPP_MIME_TYPE_CATEGORY_VIDEO"
+};
+
+static const ::google::protobuf::internal::EnumEntry BluetoothOppMimeTypeCategory_entries[] =
+    {
+        {{&BluetoothOppMimeTypeCategory_names[0], 28}, 3},
+        {{&BluetoothOppMimeTypeCategory_names[28], 33}, 6},
+        {{&BluetoothOppMimeTypeCategory_names[61], 31}, 5},
+        {{&BluetoothOppMimeTypeCategory_names[92], 28}, 1},
+        {{&BluetoothOppMimeTypeCategory_names[120], 28}, 7},
+        {{&BluetoothOppMimeTypeCategory_names[148], 34}, 0},
+        {{&BluetoothOppMimeTypeCategory_names[182], 28}, 2},
+};
+
+static const int BluetoothOppMimeTypeCategory_entries_by_number[] = {
+    5,  // 0 -> OPP_MIME_TYPE_CATEGORY_UNSPECIFIED
+    3,  // 1 -> OPP_MIME_TYPE_CATEGORY_IMAGE
+    6,  // 2 -> OPP_MIME_TYPE_CATEGORY_VIDEO
+    0,  // 3 -> OPP_MIME_TYPE_CATEGORY_AUDIO
+    2,  // 5 -> OPP_MIME_TYPE_CATEGORY_DOCUMENT
+    1,  // 6 -> OPP_MIME_TYPE_CATEGORY_COMPRESSED
+    4,  // 7 -> OPP_MIME_TYPE_CATEGORY_OTHER
+};
+
+const std::string& BluetoothOppMimeTypeCategory_Name(BluetoothOppMimeTypeCategory value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          BluetoothOppMimeTypeCategory_entries, BluetoothOppMimeTypeCategory_entries_by_number,
+          7, BluetoothOppMimeTypeCategory_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      BluetoothOppMimeTypeCategory_entries, BluetoothOppMimeTypeCategory_entries_by_number, 7,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : BluetoothOppMimeTypeCategory_strings[idx].get();
+}
+
+bool BluetoothOppMimeTypeCategory_Parse(absl::string_view name, BluetoothOppMimeTypeCategory* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      BluetoothOppMimeTypeCategory_entries, 7, name, &int_value);
+  if (success) {
+    *value = static_cast<BluetoothOppMimeTypeCategory>(int_value);
+  }
+  return success;
+}
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace bluetooth
 }  // namespace android
-PROTOBUF_NAMESPACE_OPEN
-PROTOBUF_NAMESPACE_CLOSE
-
+namespace google {
+namespace protobuf {
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"
