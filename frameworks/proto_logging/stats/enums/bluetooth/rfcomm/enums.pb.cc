@@ -5,18 +5,18 @@
 
 #include <algorithm>
 #include <cstdint>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
 
+// Must be included last.
+#include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
-
-namespace _pb = ::PROTOBUF_NAMESPACE_ID;
-namespace _pbi = _pb::internal;
-
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace android {
 namespace bluetooth {
 namespace rfcomm {
@@ -26,143 +26,392 @@ namespace rfcomm {
 namespace android {
 namespace bluetooth {
 namespace rfcomm {
+PROTOBUF_CONSTINIT const uint32_t RfcommConnectionResult_internal_data_[] = {
+    524288u, 0u, };
 bool RfcommConnectionResult_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 7;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    RfcommConnectionResult_strings[8] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> RfcommConnectionResult_strings[8] = {};
+static const char RfcommConnectionResult_names[] = {
+    "RFCOMM_CONN_RESULT_FAILURE_UNKNOWN"
+    "RFCOMM_CONN_RESULT_GET_SOCKET_MANAGER_FAILED"
+    "RFCOMM_CONN_RESULT_NULL_BLUETOOTH_DEVICE"
+    "RFCOMM_CONN_RESULT_NULL_FILE_DESCRIPTOR"
+    "RFCOMM_CONN_RESULT_SOCKET_CONNECTION_CLOSED"
+    "RFCOMM_CONN_RESULT_SOCKET_CONNECTION_FAILED"
+    "RFCOMM_CONN_RESULT_SUCCESS"
+    "RFCOMM_CONN_RESULT_UNABLE_TO_SEND_RPC"
+};
 
-static const char RfcommConnectionResult_names[] =
-  "RFCOMM_CONN_RESULT_FAILURE_UNKNOWN"
-  "RFCOMM_CONN_RESULT_GET_SOCKET_MANAGER_FAILED"
-  "RFCOMM_CONN_RESULT_NULL_BLUETOOTH_DEVICE"
-  "RFCOMM_CONN_RESULT_NULL_FILE_DESCRIPTOR"
-  "RFCOMM_CONN_RESULT_SOCKET_CONNECTION_CLOSED"
-  "RFCOMM_CONN_RESULT_SOCKET_CONNECTION_FAILED"
-  "RFCOMM_CONN_RESULT_SUCCESS"
-  "RFCOMM_CONN_RESULT_UNABLE_TO_SEND_RPC";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry RfcommConnectionResult_entries[] = {
-  { {RfcommConnectionResult_names + 0, 34}, 0 },
-  { {RfcommConnectionResult_names + 34, 44}, 6 },
-  { {RfcommConnectionResult_names + 78, 40}, 5 },
-  { {RfcommConnectionResult_names + 118, 39}, 7 },
-  { {RfcommConnectionResult_names + 157, 43}, 3 },
-  { {RfcommConnectionResult_names + 200, 43}, 2 },
-  { {RfcommConnectionResult_names + 243, 26}, 1 },
-  { {RfcommConnectionResult_names + 269, 37}, 4 },
+static const ::google::protobuf::internal::EnumEntry RfcommConnectionResult_entries[] =
+    {
+        {{&RfcommConnectionResult_names[0], 34}, 0},
+        {{&RfcommConnectionResult_names[34], 44}, 6},
+        {{&RfcommConnectionResult_names[78], 40}, 5},
+        {{&RfcommConnectionResult_names[118], 39}, 7},
+        {{&RfcommConnectionResult_names[157], 43}, 3},
+        {{&RfcommConnectionResult_names[200], 43}, 2},
+        {{&RfcommConnectionResult_names[243], 26}, 1},
+        {{&RfcommConnectionResult_names[269], 37}, 4},
 };
 
 static const int RfcommConnectionResult_entries_by_number[] = {
-  0, // 0 -> RFCOMM_CONN_RESULT_FAILURE_UNKNOWN
-  6, // 1 -> RFCOMM_CONN_RESULT_SUCCESS
-  5, // 2 -> RFCOMM_CONN_RESULT_SOCKET_CONNECTION_FAILED
-  4, // 3 -> RFCOMM_CONN_RESULT_SOCKET_CONNECTION_CLOSED
-  7, // 4 -> RFCOMM_CONN_RESULT_UNABLE_TO_SEND_RPC
-  2, // 5 -> RFCOMM_CONN_RESULT_NULL_BLUETOOTH_DEVICE
-  1, // 6 -> RFCOMM_CONN_RESULT_GET_SOCKET_MANAGER_FAILED
-  3, // 7 -> RFCOMM_CONN_RESULT_NULL_FILE_DESCRIPTOR
+    0,  // 0 -> RFCOMM_CONN_RESULT_FAILURE_UNKNOWN
+    6,  // 1 -> RFCOMM_CONN_RESULT_SUCCESS
+    5,  // 2 -> RFCOMM_CONN_RESULT_SOCKET_CONNECTION_FAILED
+    4,  // 3 -> RFCOMM_CONN_RESULT_SOCKET_CONNECTION_CLOSED
+    7,  // 4 -> RFCOMM_CONN_RESULT_UNABLE_TO_SEND_RPC
+    2,  // 5 -> RFCOMM_CONN_RESULT_NULL_BLUETOOTH_DEVICE
+    1,  // 6 -> RFCOMM_CONN_RESULT_GET_SOCKET_MANAGER_FAILED
+    3,  // 7 -> RFCOMM_CONN_RESULT_NULL_FILE_DESCRIPTOR
 };
 
-const std::string& RfcommConnectionResult_Name(
-    RfcommConnectionResult value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          RfcommConnectionResult_entries,
-          RfcommConnectionResult_entries_by_number,
+const std::string& RfcommConnectionResult_Name(RfcommConnectionResult value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          RfcommConnectionResult_entries, RfcommConnectionResult_entries_by_number,
           8, RfcommConnectionResult_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      RfcommConnectionResult_entries,
-      RfcommConnectionResult_entries_by_number,
-      8, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     RfcommConnectionResult_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      RfcommConnectionResult_entries, RfcommConnectionResult_entries_by_number, 8,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : RfcommConnectionResult_strings[idx].get();
 }
-bool RfcommConnectionResult_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, RfcommConnectionResult* value) {
+
+bool RfcommConnectionResult_Parse(absl::string_view name, RfcommConnectionResult* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       RfcommConnectionResult_entries, 8, name, &int_value);
   if (success) {
     *value = static_cast<RfcommConnectionResult>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t SocketConnectionSecurity_internal_data_[] = {
+    196608u, 0u, };
 bool SocketConnectionSecurity_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 2;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    SocketConnectionSecurity_strings[3] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> SocketConnectionSecurity_strings[3] = {};
+static const char SocketConnectionSecurity_names[] = {
+    "SOCKET_SECURITY_INSECURE"
+    "SOCKET_SECURITY_SECURE"
+    "SOCKET_SECURITY_UNKNOWN"
+};
 
-static const char SocketConnectionSecurity_names[] =
-  "SOCKET_SECURITY_INSECURE"
-  "SOCKET_SECURITY_SECURE"
-  "SOCKET_SECURITY_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry SocketConnectionSecurity_entries[] = {
-  { {SocketConnectionSecurity_names + 0, 24}, 2 },
-  { {SocketConnectionSecurity_names + 24, 22}, 1 },
-  { {SocketConnectionSecurity_names + 46, 23}, 0 },
+static const ::google::protobuf::internal::EnumEntry SocketConnectionSecurity_entries[] =
+    {
+        {{&SocketConnectionSecurity_names[0], 24}, 2},
+        {{&SocketConnectionSecurity_names[24], 22}, 1},
+        {{&SocketConnectionSecurity_names[46], 23}, 0},
 };
 
 static const int SocketConnectionSecurity_entries_by_number[] = {
-  2, // 0 -> SOCKET_SECURITY_UNKNOWN
-  1, // 1 -> SOCKET_SECURITY_SECURE
-  0, // 2 -> SOCKET_SECURITY_INSECURE
+    2,  // 0 -> SOCKET_SECURITY_UNKNOWN
+    1,  // 1 -> SOCKET_SECURITY_SECURE
+    0,  // 2 -> SOCKET_SECURITY_INSECURE
 };
 
-const std::string& SocketConnectionSecurity_Name(
-    SocketConnectionSecurity value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          SocketConnectionSecurity_entries,
-          SocketConnectionSecurity_entries_by_number,
+const std::string& SocketConnectionSecurity_Name(SocketConnectionSecurity value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          SocketConnectionSecurity_entries, SocketConnectionSecurity_entries_by_number,
           3, SocketConnectionSecurity_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      SocketConnectionSecurity_entries,
-      SocketConnectionSecurity_entries_by_number,
-      3, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     SocketConnectionSecurity_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      SocketConnectionSecurity_entries, SocketConnectionSecurity_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : SocketConnectionSecurity_strings[idx].get();
 }
-bool SocketConnectionSecurity_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SocketConnectionSecurity* value) {
+
+bool SocketConnectionSecurity_Parse(absl::string_view name, SocketConnectionSecurity* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       SocketConnectionSecurity_entries, 3, name, &int_value);
   if (success) {
     *value = static_cast<SocketConnectionSecurity>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t PortResult_internal_data_[] = {
+    1769472u, 0u, };
+bool PortResult_IsValid(int value) {
+  return 0 <= value && value <= 26;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    PortResult_strings[27] = {};
 
+static const char PortResult_names[] = {
+    "PORT_RESULT_ALREADY_OPENED"
+    "PORT_RESULT_APP_NOT_REGISTERED"
+    "PORT_RESULT_BAD_BD_ADDR"
+    "PORT_RESULT_BAD_HANDLE"
+    "PORT_RESULT_CLOSED"
+    "PORT_RESULT_CMD_PENDING"
+    "PORT_RESULT_ERR_MAX"
+    "PORT_RESULT_INVALID_SCN"
+    "PORT_RESULT_LINE_ERR"
+    "PORT_RESULT_LOCAL_CLOSED"
+    "PORT_RESULT_LOCAL_TIMEOUT"
+    "PORT_RESULT_NOT_OPENED"
+    "PORT_RESULT_NO_MEM"
+    "PORT_RESULT_NO_RESOURCES"
+    "PORT_RESULT_PAGE_TIMEOUT"
+    "PORT_RESULT_PAR_NEG_FAILED"
+    "PORT_RESULT_PEER_CONNECTION_FAILED"
+    "PORT_RESULT_PEER_FAILED"
+    "PORT_RESULT_PEER_TIMEOUT"
+    "PORT_RESULT_PORT_NEG_FAILED"
+    "PORT_RESULT_SEC_FAILED"
+    "PORT_RESULT_START_FAILED"
+    "PORT_RESULT_SUCCESS"
+    "PORT_RESULT_TX_FULL"
+    "PORT_RESULT_TX_QUEUE_DISABLED"
+    "PORT_RESULT_UNDEFINED"
+    "PORT_RESULT_UNKNOWN_ERROR"
+};
+
+static const ::google::protobuf::internal::EnumEntry PortResult_entries[] =
+    {
+        {{&PortResult_names[0], 26}, 3},
+        {{&PortResult_names[26], 30}, 5},
+        {{&PortResult_names[56], 23}, 8},
+        {{&PortResult_names[79], 22}, 9},
+        {{&PortResult_names[101], 18}, 19},
+        {{&PortResult_names[119], 23}, 4},
+        {{&PortResult_names[142], 19}, 26},
+        {{&PortResult_names[161], 23}, 25},
+        {{&PortResult_names[184], 20}, 11},
+        {{&PortResult_names[204], 24}, 21},
+        {{&PortResult_names[228], 25}, 22},
+        {{&PortResult_names[253], 22}, 10},
+        {{&PortResult_names[275], 18}, 6},
+        {{&PortResult_names[293], 24}, 7},
+        {{&PortResult_names[317], 24}, 24},
+        {{&PortResult_names[341], 26}, 13},
+        {{&PortResult_names[367], 34}, 16},
+        {{&PortResult_names[401], 23}, 17},
+        {{&PortResult_names[424], 24}, 18},
+        {{&PortResult_names[448], 27}, 14},
+        {{&PortResult_names[475], 22}, 15},
+        {{&PortResult_names[497], 24}, 12},
+        {{&PortResult_names[521], 19}, 1},
+        {{&PortResult_names[540], 19}, 20},
+        {{&PortResult_names[559], 29}, 23},
+        {{&PortResult_names[588], 21}, 0},
+        {{&PortResult_names[609], 25}, 2},
+};
+
+static const int PortResult_entries_by_number[] = {
+    25,  // 0 -> PORT_RESULT_UNDEFINED
+    22,  // 1 -> PORT_RESULT_SUCCESS
+    26,  // 2 -> PORT_RESULT_UNKNOWN_ERROR
+    0,  // 3 -> PORT_RESULT_ALREADY_OPENED
+    5,  // 4 -> PORT_RESULT_CMD_PENDING
+    1,  // 5 -> PORT_RESULT_APP_NOT_REGISTERED
+    12,  // 6 -> PORT_RESULT_NO_MEM
+    13,  // 7 -> PORT_RESULT_NO_RESOURCES
+    2,  // 8 -> PORT_RESULT_BAD_BD_ADDR
+    3,  // 9 -> PORT_RESULT_BAD_HANDLE
+    11,  // 10 -> PORT_RESULT_NOT_OPENED
+    8,  // 11 -> PORT_RESULT_LINE_ERR
+    21,  // 12 -> PORT_RESULT_START_FAILED
+    15,  // 13 -> PORT_RESULT_PAR_NEG_FAILED
+    19,  // 14 -> PORT_RESULT_PORT_NEG_FAILED
+    20,  // 15 -> PORT_RESULT_SEC_FAILED
+    16,  // 16 -> PORT_RESULT_PEER_CONNECTION_FAILED
+    17,  // 17 -> PORT_RESULT_PEER_FAILED
+    18,  // 18 -> PORT_RESULT_PEER_TIMEOUT
+    4,  // 19 -> PORT_RESULT_CLOSED
+    23,  // 20 -> PORT_RESULT_TX_FULL
+    9,  // 21 -> PORT_RESULT_LOCAL_CLOSED
+    10,  // 22 -> PORT_RESULT_LOCAL_TIMEOUT
+    24,  // 23 -> PORT_RESULT_TX_QUEUE_DISABLED
+    14,  // 24 -> PORT_RESULT_PAGE_TIMEOUT
+    7,  // 25 -> PORT_RESULT_INVALID_SCN
+    6,  // 26 -> PORT_RESULT_ERR_MAX
+};
+
+const std::string& PortResult_Name(PortResult value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          PortResult_entries, PortResult_entries_by_number,
+          27, PortResult_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      PortResult_entries, PortResult_entries_by_number, 27,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : PortResult_strings[idx].get();
+}
+
+bool PortResult_Parse(absl::string_view name, PortResult* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      PortResult_entries, 27, name, &int_value);
+  if (success) {
+    *value = static_cast<PortResult>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t RfcommPortState_internal_data_[] = {
+    458752u, 0u, };
+bool RfcommPortState_IsValid(int value) {
+  return 0 <= value && value <= 6;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    RfcommPortState_strings[7] = {};
+
+static const char RfcommPortState_names[] = {
+    "PORT_STATE_CLOSED"
+    "PORT_STATE_DISC_WAIT_UA"
+    "PORT_STATE_OPENED"
+    "PORT_STATE_ORIG_WAIT_SEC_CHECK"
+    "PORT_STATE_SABME_WAIT_UA"
+    "PORT_STATE_TERM_WAIT_SEC_CHECK"
+    "PORT_STATE_UNKNOWN"
+};
+
+static const ::google::protobuf::internal::EnumEntry RfcommPortState_entries[] =
+    {
+        {{&RfcommPortState_names[0], 17}, 6},
+        {{&RfcommPortState_names[17], 23}, 5},
+        {{&RfcommPortState_names[40], 17}, 4},
+        {{&RfcommPortState_names[57], 30}, 2},
+        {{&RfcommPortState_names[87], 24}, 1},
+        {{&RfcommPortState_names[111], 30}, 3},
+        {{&RfcommPortState_names[141], 18}, 0},
+};
+
+static const int RfcommPortState_entries_by_number[] = {
+    6,  // 0 -> PORT_STATE_UNKNOWN
+    4,  // 1 -> PORT_STATE_SABME_WAIT_UA
+    3,  // 2 -> PORT_STATE_ORIG_WAIT_SEC_CHECK
+    5,  // 3 -> PORT_STATE_TERM_WAIT_SEC_CHECK
+    2,  // 4 -> PORT_STATE_OPENED
+    1,  // 5 -> PORT_STATE_DISC_WAIT_UA
+    0,  // 6 -> PORT_STATE_CLOSED
+};
+
+const std::string& RfcommPortState_Name(RfcommPortState value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          RfcommPortState_entries, RfcommPortState_entries_by_number,
+          7, RfcommPortState_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      RfcommPortState_entries, RfcommPortState_entries_by_number, 7,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : RfcommPortState_strings[idx].get();
+}
+
+bool RfcommPortState_Parse(absl::string_view name, RfcommPortState* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      RfcommPortState_entries, 7, name, &int_value);
+  if (success) {
+    *value = static_cast<RfcommPortState>(int_value);
+  }
+  return success;
+}
+PROTOBUF_CONSTINIT const uint32_t RfcommPortEvent_internal_data_[] = {
+    851968u, 0u, };
+bool RfcommPortEvent_IsValid(int value) {
+  return 0 <= value && value <= 12;
+}
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    RfcommPortEvent_strings[13] = {};
+
+static const char RfcommPortEvent_names[] = {
+    "PORT_EVENT_CLEAR"
+    "PORT_EVENT_CLOSE"
+    "PORT_EVENT_DATA"
+    "PORT_EVENT_DISC"
+    "PORT_EVENT_DM"
+    "PORT_EVENT_ESTABLISH_RSP"
+    "PORT_EVENT_OPEN"
+    "PORT_EVENT_SABME"
+    "PORT_EVENT_SEC_COMPLETE"
+    "PORT_EVENT_TIMEOUT"
+    "PORT_EVENT_UA"
+    "PORT_EVENT_UIH"
+    "PORT_EVENT_UNKNOWN"
+};
+
+static const ::google::protobuf::internal::EnumEntry RfcommPortEvent_entries[] =
+    {
+        {{&RfcommPortEvent_names[0], 16}, 10},
+        {{&RfcommPortEvent_names[16], 16}, 9},
+        {{&RfcommPortEvent_names[32], 15}, 11},
+        {{&RfcommPortEvent_names[47], 15}, 4},
+        {{&RfcommPortEvent_names[62], 13}, 3},
+        {{&RfcommPortEvent_names[75], 24}, 8},
+        {{&RfcommPortEvent_names[99], 15}, 7},
+        {{&RfcommPortEvent_names[114], 16}, 1},
+        {{&RfcommPortEvent_names[130], 23}, 12},
+        {{&RfcommPortEvent_names[153], 18}, 6},
+        {{&RfcommPortEvent_names[171], 13}, 2},
+        {{&RfcommPortEvent_names[184], 14}, 5},
+        {{&RfcommPortEvent_names[198], 18}, 0},
+};
+
+static const int RfcommPortEvent_entries_by_number[] = {
+    12,  // 0 -> PORT_EVENT_UNKNOWN
+    7,  // 1 -> PORT_EVENT_SABME
+    10,  // 2 -> PORT_EVENT_UA
+    4,  // 3 -> PORT_EVENT_DM
+    3,  // 4 -> PORT_EVENT_DISC
+    11,  // 5 -> PORT_EVENT_UIH
+    9,  // 6 -> PORT_EVENT_TIMEOUT
+    6,  // 7 -> PORT_EVENT_OPEN
+    5,  // 8 -> PORT_EVENT_ESTABLISH_RSP
+    1,  // 9 -> PORT_EVENT_CLOSE
+    0,  // 10 -> PORT_EVENT_CLEAR
+    2,  // 11 -> PORT_EVENT_DATA
+    8,  // 12 -> PORT_EVENT_SEC_COMPLETE
+};
+
+const std::string& RfcommPortEvent_Name(RfcommPortEvent value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          RfcommPortEvent_entries, RfcommPortEvent_entries_by_number,
+          13, RfcommPortEvent_strings);
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      RfcommPortEvent_entries, RfcommPortEvent_entries_by_number, 13,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : RfcommPortEvent_strings[idx].get();
+}
+
+bool RfcommPortEvent_Parse(absl::string_view name, RfcommPortEvent* value) {
+  int int_value;
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
+      RfcommPortEvent_entries, 13, name, &int_value);
+  if (success) {
+    *value = static_cast<RfcommPortEvent>(int_value);
+  }
+  return success;
+}
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace rfcomm
 }  // namespace bluetooth
 }  // namespace android
-PROTOBUF_NAMESPACE_OPEN
-PROTOBUF_NAMESPACE_CLOSE
-
+namespace google {
+namespace protobuf {
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"

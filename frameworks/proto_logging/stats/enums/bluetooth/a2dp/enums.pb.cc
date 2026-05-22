@@ -5,18 +5,18 @@
 
 #include <algorithm>
 #include <cstdint>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
 
+// Must be included last.
+#include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
-
-namespace _pb = ::PROTOBUF_NAMESPACE_ID;
-namespace _pbi = _pb::internal;
-
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace android {
 namespace bluetooth {
 namespace a2dp {
@@ -26,123 +26,113 @@ namespace a2dp {
 namespace android {
 namespace bluetooth {
 namespace a2dp {
+PROTOBUF_CONSTINIT const uint32_t PlaybackStateEnum_internal_data_[] = {
+    65536u, 32u, 1536u, };
 bool PlaybackStateEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 10:
-    case 11:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 11 && ((3073u >> value) & 1) != 0;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    PlaybackStateEnum_strings[3] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> PlaybackStateEnum_strings[3] = {};
+static const char PlaybackStateEnum_names[] = {
+    "PLAYBACK_STATE_NOT_PLAYING"
+    "PLAYBACK_STATE_PLAYING"
+    "PLAYBACK_STATE_UNKNOWN"
+};
 
-static const char PlaybackStateEnum_names[] =
-  "PLAYBACK_STATE_NOT_PLAYING"
-  "PLAYBACK_STATE_PLAYING"
-  "PLAYBACK_STATE_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry PlaybackStateEnum_entries[] = {
-  { {PlaybackStateEnum_names + 0, 26}, 11 },
-  { {PlaybackStateEnum_names + 26, 22}, 10 },
-  { {PlaybackStateEnum_names + 48, 22}, 0 },
+static const ::google::protobuf::internal::EnumEntry PlaybackStateEnum_entries[] =
+    {
+        {{&PlaybackStateEnum_names[0], 26}, 11},
+        {{&PlaybackStateEnum_names[26], 22}, 10},
+        {{&PlaybackStateEnum_names[48], 22}, 0},
 };
 
 static const int PlaybackStateEnum_entries_by_number[] = {
-  2, // 0 -> PLAYBACK_STATE_UNKNOWN
-  1, // 10 -> PLAYBACK_STATE_PLAYING
-  0, // 11 -> PLAYBACK_STATE_NOT_PLAYING
+    2,  // 0 -> PLAYBACK_STATE_UNKNOWN
+    1,  // 10 -> PLAYBACK_STATE_PLAYING
+    0,  // 11 -> PLAYBACK_STATE_NOT_PLAYING
 };
 
-const std::string& PlaybackStateEnum_Name(
-    PlaybackStateEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          PlaybackStateEnum_entries,
-          PlaybackStateEnum_entries_by_number,
+const std::string& PlaybackStateEnum_Name(PlaybackStateEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          PlaybackStateEnum_entries, PlaybackStateEnum_entries_by_number,
           3, PlaybackStateEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      PlaybackStateEnum_entries,
-      PlaybackStateEnum_entries_by_number,
-      3, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     PlaybackStateEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      PlaybackStateEnum_entries, PlaybackStateEnum_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : PlaybackStateEnum_strings[idx].get();
 }
-bool PlaybackStateEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, PlaybackStateEnum* value) {
+
+bool PlaybackStateEnum_Parse(absl::string_view name, PlaybackStateEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       PlaybackStateEnum_entries, 3, name, &int_value);
   if (success) {
     *value = static_cast<PlaybackStateEnum>(int_value);
   }
   return success;
 }
+PROTOBUF_CONSTINIT const uint32_t AudioCodingModeEnum_internal_data_[] = {
+    196608u, 0u, };
 bool AudioCodingModeEnum_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 2;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    AudioCodingModeEnum_strings[3] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> AudioCodingModeEnum_strings[3] = {};
+static const char AudioCodingModeEnum_names[] = {
+    "AUDIO_CODING_MODE_HARDWARE"
+    "AUDIO_CODING_MODE_SOFTWARE"
+    "AUDIO_CODING_MODE_UNKNOWN"
+};
 
-static const char AudioCodingModeEnum_names[] =
-  "AUDIO_CODING_MODE_HARDWARE"
-  "AUDIO_CODING_MODE_SOFTWARE"
-  "AUDIO_CODING_MODE_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry AudioCodingModeEnum_entries[] = {
-  { {AudioCodingModeEnum_names + 0, 26}, 1 },
-  { {AudioCodingModeEnum_names + 26, 26}, 2 },
-  { {AudioCodingModeEnum_names + 52, 25}, 0 },
+static const ::google::protobuf::internal::EnumEntry AudioCodingModeEnum_entries[] =
+    {
+        {{&AudioCodingModeEnum_names[0], 26}, 1},
+        {{&AudioCodingModeEnum_names[26], 26}, 2},
+        {{&AudioCodingModeEnum_names[52], 25}, 0},
 };
 
 static const int AudioCodingModeEnum_entries_by_number[] = {
-  2, // 0 -> AUDIO_CODING_MODE_UNKNOWN
-  0, // 1 -> AUDIO_CODING_MODE_HARDWARE
-  1, // 2 -> AUDIO_CODING_MODE_SOFTWARE
+    2,  // 0 -> AUDIO_CODING_MODE_UNKNOWN
+    0,  // 1 -> AUDIO_CODING_MODE_HARDWARE
+    1,  // 2 -> AUDIO_CODING_MODE_SOFTWARE
 };
 
-const std::string& AudioCodingModeEnum_Name(
-    AudioCodingModeEnum value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          AudioCodingModeEnum_entries,
-          AudioCodingModeEnum_entries_by_number,
+const std::string& AudioCodingModeEnum_Name(AudioCodingModeEnum value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          AudioCodingModeEnum_entries, AudioCodingModeEnum_entries_by_number,
           3, AudioCodingModeEnum_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      AudioCodingModeEnum_entries,
-      AudioCodingModeEnum_entries_by_number,
-      3, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     AudioCodingModeEnum_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      AudioCodingModeEnum_entries, AudioCodingModeEnum_entries_by_number, 3,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : AudioCodingModeEnum_strings[idx].get();
 }
-bool AudioCodingModeEnum_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, AudioCodingModeEnum* value) {
+
+bool AudioCodingModeEnum_Parse(absl::string_view name, AudioCodingModeEnum* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       AudioCodingModeEnum_entries, 3, name, &int_value);
   if (success) {
     *value = static_cast<AudioCodingModeEnum>(int_value);
   }
   return success;
 }
-
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace a2dp
 }  // namespace bluetooth
 }  // namespace android
-PROTOBUF_NAMESPACE_OPEN
-PROTOBUF_NAMESPACE_CLOSE
-
+namespace google {
+namespace protobuf {
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"

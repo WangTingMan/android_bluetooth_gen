@@ -5,18 +5,18 @@
 
 #include <algorithm>
 #include <cstdint>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
 
+// Must be included last.
+#include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
-
-namespace _pb = ::PROTOBUF_NAMESPACE_ID;
-namespace _pbi = _pb::internal;
-
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace android {
 namespace bluetooth {
 namespace hfp {
@@ -26,72 +26,66 @@ namespace hfp {
 namespace android {
 namespace bluetooth {
 namespace hfp {
+PROTOBUF_CONSTINIT const uint32_t ScoCodec_internal_data_[] = {
+    262144u, 0u, };
 bool ScoCodec_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 3;
 }
+static ::google::protobuf::internal::ExplicitlyConstructed<std::string>
+    ScoCodec_strings[4] = {};
 
-static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> ScoCodec_strings[4] = {};
+static const char ScoCodec_names[] = {
+    "SCO_CODEC_CVSD"
+    "SCO_CODEC_LC3"
+    "SCO_CODEC_MSBC"
+    "SCO_CODEC_UNKNOWN"
+};
 
-static const char ScoCodec_names[] =
-  "SCO_CODEC_CVSD"
-  "SCO_CODEC_LC3"
-  "SCO_CODEC_MSBC"
-  "SCO_CODEC_UNKNOWN";
-
-static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry ScoCodec_entries[] = {
-  { {ScoCodec_names + 0, 14}, 1 },
-  { {ScoCodec_names + 14, 13}, 3 },
-  { {ScoCodec_names + 27, 14}, 2 },
-  { {ScoCodec_names + 41, 17}, 0 },
+static const ::google::protobuf::internal::EnumEntry ScoCodec_entries[] =
+    {
+        {{&ScoCodec_names[0], 14}, 1},
+        {{&ScoCodec_names[14], 13}, 3},
+        {{&ScoCodec_names[27], 14}, 2},
+        {{&ScoCodec_names[41], 17}, 0},
 };
 
 static const int ScoCodec_entries_by_number[] = {
-  3, // 0 -> SCO_CODEC_UNKNOWN
-  0, // 1 -> SCO_CODEC_CVSD
-  2, // 2 -> SCO_CODEC_MSBC
-  1, // 3 -> SCO_CODEC_LC3
+    3,  // 0 -> SCO_CODEC_UNKNOWN
+    0,  // 1 -> SCO_CODEC_CVSD
+    2,  // 2 -> SCO_CODEC_MSBC
+    1,  // 3 -> SCO_CODEC_LC3
 };
 
-const std::string& ScoCodec_Name(
-    ScoCodec value) {
-  static const bool dummy =
-      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
-          ScoCodec_entries,
-          ScoCodec_entries_by_number,
+const std::string& ScoCodec_Name(ScoCodec value) {
+  static const bool kDummy =
+      ::google::protobuf::internal::InitializeEnumStrings(
+          ScoCodec_entries, ScoCodec_entries_by_number,
           4, ScoCodec_strings);
-  (void) dummy;
-  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
-      ScoCodec_entries,
-      ScoCodec_entries_by_number,
-      4, value);
-  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
-                     ScoCodec_strings[idx].get();
+  (void)kDummy;
+
+  int idx = ::google::protobuf::internal::LookUpEnumName(
+      ScoCodec_entries, ScoCodec_entries_by_number, 4,
+      value);
+  return idx == -1 ? ::google::protobuf::internal::GetEmptyString()
+                   : ScoCodec_strings[idx].get();
 }
-bool ScoCodec_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ScoCodec* value) {
+
+bool ScoCodec_Parse(absl::string_view name, ScoCodec* value) {
   int int_value;
-  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+  bool success = ::google::protobuf::internal::LookUpEnumValue(
       ScoCodec_entries, 4, name, &int_value);
   if (success) {
     *value = static_cast<ScoCodec>(int_value);
   }
   return success;
 }
-
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace hfp
 }  // namespace bluetooth
 }  // namespace android
-PROTOBUF_NAMESPACE_OPEN
-PROTOBUF_NAMESPACE_CLOSE
-
+namespace google {
+namespace protobuf {
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"
