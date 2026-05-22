@@ -201,4 +201,8 @@ std::optional<bool> src_sink_coexist() {
     return GetProp<std::optional<bool>>("bluetooth.a2dp.src_sink_coexist.enabled");
 }
 
+std::optional<std::int32_t> avdt_accept_open_timeout_ms() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.a2dp.avdt_accept_open_timeout_ms");
+}
+
 }  // namespace android::sysprop::bluetooth::A2dp

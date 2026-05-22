@@ -11,4 +11,6 @@ namespace android::sysprop::bluetooth::A2dp {
 
 std::optional<bool> src_sink_coexist();
 
+std::optional<std::int32_t> avdt_accept_open_timeout_ms();
+
 }  // namespace android::sysprop::bluetooth::A2dp

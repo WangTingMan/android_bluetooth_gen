@@ -11,4 +11,6 @@ namespace android::sysprop::bluetooth::Avrcp {
 
 std::optional<bool> absolute_volume();
 
+std::optional<std::int32_t> target_safe_media_volume();
+
 }  // namespace android::sysprop::bluetooth::Avrcp

@@ -201,4 +201,8 @@ std::optional<bool> absolute_volume() {
     return GetProp<std::optional<bool>>("bluetooth.avrcp.absolute_volume.enabled");
 }
 
+std::optional<std::int32_t> target_safe_media_volume() {
+    return GetProp<std::optional<std::int32_t>>("bluetooth.avrcp.target.safe_media_volume.config");
+}
+
 }  // namespace android::sysprop::bluetooth::Avrcp

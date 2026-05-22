@@ -21,4 +21,8 @@ std::optional<bool> codec_aptx_voice();
 
 std::optional<bool> swb_aptx_power_management();
 
+std::optional<bool> answer_call_with_video();
+
+std::optional<bool> send_ringtone_on_dnd();
+
 }  // namespace android::sysprop::bluetooth::Hfp
