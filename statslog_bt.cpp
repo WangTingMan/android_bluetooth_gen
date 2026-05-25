@@ -123,7 +123,7 @@ int stats_write(int32_t code, const BytesField& arg1, int32_t arg2, int32_t arg3
     return ret;
 }
 
-int stats_write(int32_t code, const BytesField& arg1, int32_t arg2, int32_t arg3, int32_t arg4, int64_t arg5, int64_t arg6, int32_t arg7, int32_t arg8, int32_t arg9, int32_t arg10) {
+int stats_write(int32_t code, const BytesField& arg1, int32_t arg2, int32_t arg3, int32_t arg4, int64_t arg5, int64_t arg6, int32_t arg7, int32_t arg8, int32_t arg9, int32_t arg10, int64_t arg11, int32_t arg12, bool arg13) {
     AStatsEvent* event = AStatsEvent_obtain();
     AStatsEvent_setAtomId(event, code);
     AStatsEvent_writeByteArray(event, reinterpret_cast<const uint8_t*>(arg1.arg), arg1.arg_length);
@@ -139,6 +139,9 @@ int stats_write(int32_t code, const BytesField& arg1, int32_t arg2, int32_t arg3
     AStatsEvent_writeInt32(event, arg8);
     AStatsEvent_writeInt32(event, arg9);
     AStatsEvent_writeInt32(event, arg10);
+    AStatsEvent_writeInt64(event, arg11);
+    AStatsEvent_writeInt32(event, arg12);
+    AStatsEvent_writeBool(event, arg13);
     const int ret = AStatsEvent_write(event);
     AStatsEvent_release(event);
     return ret;
@@ -190,6 +193,48 @@ int stats_write(int32_t code, const BytesField& arg1, int64_t arg2, int32_t arg3
     return ret;
 }
 
+int stats_write(int32_t code, const int32_t* uid, size_t uid_length, const std::vector<char const*>& tag, bool arg2, bool arg3, bool arg4, int32_t arg5, int32_t arg6, int32_t arg7, int64_t arg8, int64_t arg9, int32_t arg10, bool arg11, bool arg12, int32_t arg13, char const* arg14) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeAttributionChain(event, reinterpret_cast<const uint32_t*>(uid), tag.data(), static_cast<uint8_t>(uid_length));
+    AStatsEvent_writeBool(event, arg2);
+    AStatsEvent_writeBool(event, arg3);
+    AStatsEvent_writeBool(event, arg4);
+    AStatsEvent_writeInt32(event, arg5);
+    AStatsEvent_writeInt32(event, arg6);
+    AStatsEvent_writeInt32(event, arg7);
+    AStatsEvent_writeInt64(event, arg8);
+    AStatsEvent_writeInt64(event, arg9);
+    AStatsEvent_writeInt32(event, arg10);
+    AStatsEvent_writeBool(event, arg11);
+    AStatsEvent_writeBool(event, arg12);
+    AStatsEvent_writeInt32(event, arg13);
+    AStatsEvent_writeString(event, arg14);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
+int stats_write(int32_t code, const int32_t* uid, size_t uid_length, const std::vector<char const*>& tag, bool arg2, int32_t arg3, int32_t arg4, bool arg5, bool arg6, bool arg7, bool arg8, int32_t arg9, int64_t arg10, int32_t arg11, char const* arg12) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeAttributionChain(event, reinterpret_cast<const uint32_t*>(uid), tag.data(), static_cast<uint8_t>(uid_length));
+    AStatsEvent_writeBool(event, arg2);
+    AStatsEvent_writeInt32(event, arg3);
+    AStatsEvent_writeInt32(event, arg4);
+    AStatsEvent_writeBool(event, arg5);
+    AStatsEvent_writeBool(event, arg6);
+    AStatsEvent_writeBool(event, arg7);
+    AStatsEvent_writeBool(event, arg8);
+    AStatsEvent_writeInt32(event, arg9);
+    AStatsEvent_writeInt64(event, arg10);
+    AStatsEvent_writeInt32(event, arg11);
+    AStatsEvent_writeString(event, arg12);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
 int stats_write(int32_t code, const int32_t* uid, size_t uid_length, const std::vector<char const*>& tag, int32_t arg2) {
     AStatsEvent* event = AStatsEvent_obtain();
     AStatsEvent_setAtomId(event, code);
@@ -227,6 +272,61 @@ int stats_write(int32_t code, const int32_t* uid, size_t uid_length, const std::
     if (BLE_SCAN_STATE_CHANGED == code) {
         AStatsEvent_addBoolAnnotation(event, ASTATSLOG_ANNOTATION_ID_PRIMARY_FIELD, true);
     }
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
+int stats_write(int32_t code, const int32_t* uid, size_t uid_length, const std::vector<char const*>& tag, int32_t arg2, int32_t arg3, bool arg4, char const* arg5) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeAttributionChain(event, reinterpret_cast<const uint32_t*>(uid), tag.data(), static_cast<uint8_t>(uid_length));
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeInt32(event, arg3);
+    AStatsEvent_writeBool(event, arg4);
+    AStatsEvent_writeString(event, arg5);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
+int stats_write(int32_t code, const int32_t* uid, size_t uid_length, const std::vector<char const*>& tag, int32_t arg2, int32_t arg3, int64_t arg4, int64_t arg5, bool arg6, int64_t arg7, int32_t arg8, char const* arg9) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeAttributionChain(event, reinterpret_cast<const uint32_t*>(uid), tag.data(), static_cast<uint8_t>(uid_length));
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeInt32(event, arg3);
+    AStatsEvent_writeInt64(event, arg4);
+    AStatsEvent_writeInt64(event, arg5);
+    AStatsEvent_writeBool(event, arg6);
+    AStatsEvent_writeInt64(event, arg7);
+    AStatsEvent_writeInt32(event, arg8);
+    AStatsEvent_writeString(event, arg9);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
+int stats_write(int32_t code, const int32_t* uid, size_t uid_length, const std::vector<char const*>& tag, int32_t arg2, int32_t arg3, int64_t arg4, char const* arg5) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeAttributionChain(event, reinterpret_cast<const uint32_t*>(uid), tag.data(), static_cast<uint8_t>(uid_length));
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeInt32(event, arg3);
+    AStatsEvent_writeInt64(event, arg4);
+    AStatsEvent_writeString(event, arg5);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
+int stats_write(int32_t code, const int32_t* uid, size_t uid_length, const std::vector<char const*>& tag, int32_t arg2, int32_t arg3, char const* arg4) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeAttributionChain(event, reinterpret_cast<const uint32_t*>(uid), tag.data(), static_cast<uint8_t>(uid_length));
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeInt32(event, arg3);
+    AStatsEvent_writeString(event, arg4);
     const int ret = AStatsEvent_write(event);
     AStatsEvent_release(event);
     return ret;
@@ -304,6 +404,32 @@ int stats_write(int32_t code, int32_t arg1, bool arg2, bool arg3, bool arg4, boo
     return ret;
 }
 
+int stats_write(int32_t code, int32_t arg1, bool arg2, int64_t arg3, int64_t arg4, int64_t arg5, int32_t arg6, const BytesField& arg7) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeInt32(event, arg1);
+    AStatsEvent_writeBool(event, arg2);
+    AStatsEvent_writeInt64(event, arg3);
+    AStatsEvent_writeInt64(event, arg4);
+    AStatsEvent_writeInt64(event, arg5);
+    AStatsEvent_writeInt32(event, arg6);
+    AStatsEvent_writeByteArray(event, reinterpret_cast<const uint8_t*>(arg7.arg), arg7.arg_length);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
+int stats_write(int32_t code, int32_t arg1, int32_t arg2, const BytesField& arg3) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeInt32(event, arg1);
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeByteArray(event, reinterpret_cast<const uint8_t*>(arg3.arg), arg3.arg_length);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
 int stats_write(int32_t code, int32_t arg1, int32_t arg2, bool arg3, int32_t arg4, int64_t arg5, int32_t arg6, int64_t arg7, int64_t arg8) {
     AStatsEvent* event = AStatsEvent_obtain();
     AStatsEvent_setAtomId(event, code);
@@ -347,6 +473,9 @@ int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3) {
     AStatsEvent* event = AStatsEvent_obtain();
     AStatsEvent_setAtomId(event, code);
     AStatsEvent_writeInt32(event, arg1);
+    if (BLUETOOTH_OPP_LAUNCHER_CREATED == code) {
+        AStatsEvent_addBoolAnnotation(event, ASTATSLOG_ANNOTATION_ID_IS_UID, true);
+    }
     AStatsEvent_writeInt32(event, arg2);
     AStatsEvent_writeInt32(event, arg3);
     if (BLUETOOTH_GATT_APP_INFO == code) {
@@ -384,6 +513,22 @@ int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3, int32_t 
     return ret;
 }
 
+int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3, int32_t arg4, const BytesField& arg5) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeInt32(event, arg1);
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeInt32(event, arg3);
+    if (BLUETOOTH_CROSS_LAYER_EVENT_REPORTED == code) {
+        AStatsEvent_addBoolAnnotation(event, ASTATSLOG_ANNOTATION_ID_IS_UID, true);
+    }
+    AStatsEvent_writeInt32(event, arg4);
+    AStatsEvent_writeByteArray(event, reinterpret_cast<const uint8_t*>(arg5.arg), arg5.arg_length);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
 int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3, int32_t arg4, int32_t arg5) {
     AStatsEvent* event = AStatsEvent_obtain();
     AStatsEvent_setAtomId(event, code);
@@ -411,7 +556,44 @@ int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3, int32_t 
     return ret;
 }
 
-int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3, int32_t arg4, int32_t arg5, int32_t arg6, int32_t arg7, int32_t arg8, int32_t arg9, int32_t arg10, int64_t arg11, int64_t arg12, int64_t arg13, int64_t arg14, int64_t arg15, int64_t arg16, int64_t arg17, int64_t arg18, int64_t arg19) {
+int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3, int32_t arg4, int32_t arg5, int32_t arg6, const BytesField& arg7) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeInt32(event, arg1);
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeInt32(event, arg3);
+    AStatsEvent_writeInt32(event, arg4);
+    AStatsEvent_writeInt32(event, arg5);
+    AStatsEvent_writeInt32(event, arg6);
+    AStatsEvent_writeByteArray(event, reinterpret_cast<const uint8_t*>(arg7.arg), arg7.arg_length);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
+int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3, int32_t arg4, int32_t arg5, int32_t arg6, int32_t arg7, int32_t arg8, bool arg9, bool arg10, int32_t arg11) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeInt32(event, arg1);
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeInt32(event, arg3);
+    AStatsEvent_writeInt32(event, arg4);
+    AStatsEvent_writeInt32(event, arg5);
+    AStatsEvent_writeInt32(event, arg6);
+    if (BLUETOOTH_RFCOMM_CONNECTION_REPORTED_AT_CLOSE == code) {
+        AStatsEvent_addBoolAnnotation(event, ASTATSLOG_ANNOTATION_ID_IS_UID, true);
+    }
+    AStatsEvent_writeInt32(event, arg7);
+    AStatsEvent_writeInt32(event, arg8);
+    AStatsEvent_writeBool(event, arg9);
+    AStatsEvent_writeBool(event, arg10);
+    AStatsEvent_writeInt32(event, arg11);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
+int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3, int32_t arg4, int32_t arg5, int32_t arg6, int32_t arg7, int32_t arg8, int32_t arg9, int32_t arg10, int64_t arg11, int64_t arg12, int64_t arg13, int64_t arg14, int64_t arg15, int64_t arg16, int64_t arg17, int64_t arg18, int64_t arg19, int32_t arg20) {
     AStatsEvent* event = AStatsEvent_obtain();
     AStatsEvent_setAtomId(event, code);
     AStatsEvent_writeInt32(event, arg1);
@@ -433,6 +615,7 @@ int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3, int32_t 
     AStatsEvent_writeInt64(event, arg17);
     AStatsEvent_writeInt64(event, arg18);
     AStatsEvent_writeInt64(event, arg19);
+    AStatsEvent_writeInt32(event, arg20);
     const int ret = AStatsEvent_write(event);
     AStatsEvent_release(event);
     return ret;
@@ -459,6 +642,38 @@ int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3, int32_t 
     return ret;
 }
 
+int stats_write(int32_t code, int32_t arg1, int32_t arg2, int32_t arg3, int64_t arg4, int64_t arg5, int64_t arg6, int64_t arg7, int64_t arg8, int64_t arg9, int32_t arg10, int64_t arg11, int64_t arg12, int64_t arg13, int64_t arg14, int32_t arg15, int64_t arg16, int64_t arg17, int64_t arg18, int64_t arg19, int64_t arg20, int64_t arg21, int64_t arg22, int64_t arg23, int64_t arg24) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeInt32(event, arg1);
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeInt32(event, arg3);
+    AStatsEvent_writeInt64(event, arg4);
+    AStatsEvent_writeInt64(event, arg5);
+    AStatsEvent_writeInt64(event, arg6);
+    AStatsEvent_writeInt64(event, arg7);
+    AStatsEvent_writeInt64(event, arg8);
+    AStatsEvent_writeInt64(event, arg9);
+    AStatsEvent_writeInt32(event, arg10);
+    AStatsEvent_writeInt64(event, arg11);
+    AStatsEvent_writeInt64(event, arg12);
+    AStatsEvent_writeInt64(event, arg13);
+    AStatsEvent_writeInt64(event, arg14);
+    AStatsEvent_writeInt32(event, arg15);
+    AStatsEvent_writeInt64(event, arg16);
+    AStatsEvent_writeInt64(event, arg17);
+    AStatsEvent_writeInt64(event, arg18);
+    AStatsEvent_writeInt64(event, arg19);
+    AStatsEvent_writeInt64(event, arg20);
+    AStatsEvent_writeInt64(event, arg21);
+    AStatsEvent_writeInt64(event, arg22);
+    AStatsEvent_writeInt64(event, arg23);
+    AStatsEvent_writeInt64(event, arg24);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
 int stats_write(int32_t code, int32_t arg1, int32_t arg2, int64_t arg3, int32_t arg4) {
     AStatsEvent* event = AStatsEvent_obtain();
     AStatsEvent_setAtomId(event, code);
@@ -466,6 +681,36 @@ int stats_write(int32_t code, int32_t arg1, int32_t arg2, int64_t arg3, int32_t 
     AStatsEvent_writeInt32(event, arg2);
     AStatsEvent_writeInt64(event, arg3);
     AStatsEvent_writeInt32(event, arg4);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
+int stats_write(int32_t code, int32_t arg1, int32_t arg2, int64_t arg3, int64_t arg4, int64_t arg5, int64_t arg6, int64_t arg7, int64_t arg8, int64_t arg9, int64_t arg10, int64_t arg11, int64_t arg12, int64_t arg13, int64_t arg14, int64_t arg15, int64_t arg16, int64_t arg17, int64_t arg18, int64_t arg19, int64_t arg20, int64_t arg21, int64_t arg22) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeInt32(event, arg1);
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeInt64(event, arg3);
+    AStatsEvent_writeInt64(event, arg4);
+    AStatsEvent_writeInt64(event, arg5);
+    AStatsEvent_writeInt64(event, arg6);
+    AStatsEvent_writeInt64(event, arg7);
+    AStatsEvent_writeInt64(event, arg8);
+    AStatsEvent_writeInt64(event, arg9);
+    AStatsEvent_writeInt64(event, arg10);
+    AStatsEvent_writeInt64(event, arg11);
+    AStatsEvent_writeInt64(event, arg12);
+    AStatsEvent_writeInt64(event, arg13);
+    AStatsEvent_writeInt64(event, arg14);
+    AStatsEvent_writeInt64(event, arg15);
+    AStatsEvent_writeInt64(event, arg16);
+    AStatsEvent_writeInt64(event, arg17);
+    AStatsEvent_writeInt64(event, arg18);
+    AStatsEvent_writeInt64(event, arg19);
+    AStatsEvent_writeInt64(event, arg20);
+    AStatsEvent_writeInt64(event, arg21);
+    AStatsEvent_writeInt64(event, arg22);
     const int ret = AStatsEvent_write(event);
     AStatsEvent_release(event);
     return ret;
@@ -491,10 +736,29 @@ int stats_write(int32_t code, int32_t arg1, int32_t arg2, int64_t arg3, const st
     return ret;
 }
 
+int stats_write(int32_t code, int32_t arg1, int32_t arg2, const std::vector<int32_t>& arg3, int32_t arg4, int64_t arg5, int64_t arg6, int64_t arg7, int32_t arg8) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeInt32(event, arg1);
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeInt32Array(event, arg3.data(), arg3.size());
+    AStatsEvent_writeInt32(event, arg4);
+    AStatsEvent_writeInt64(event, arg5);
+    AStatsEvent_writeInt64(event, arg6);
+    AStatsEvent_writeInt64(event, arg7);
+    AStatsEvent_writeInt32(event, arg8);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
 int stats_write(int32_t code, int32_t arg1, int64_t arg2) {
     AStatsEvent* event = AStatsEvent_obtain();
     AStatsEvent_setAtomId(event, code);
     AStatsEvent_writeInt32(event, arg1);
+    if (BLUETOOTH_LE_BATCH_SCAN_REPORT_DELAY == code) {
+        AStatsEvent_addBoolAnnotation(event, ASTATSLOG_ANNOTATION_ID_IS_UID, true);
+    }
     AStatsEvent_writeInt64(event, arg2);
     const int ret = AStatsEvent_write(event);
     AStatsEvent_release(event);
@@ -529,6 +793,28 @@ int stats_write(int32_t code, int32_t arg1, char const* arg2) {
     return ret;
 }
 
+int stats_write(int32_t code, int32_t arg1, const std::vector<int32_t>& arg2, const std::vector<int32_t>& arg3, const std::vector<int32_t>& arg4, int32_t arg5, int32_t arg6, int32_t arg7, bool arg8, int32_t arg9, int32_t arg10, int32_t arg11) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeInt32(event, arg1);
+    AStatsEvent_writeInt32Array(event, arg2.data(), arg2.size());
+    if (CHANNEL_SOUNDING_REQUESTER_SESSION_REPORTED == code) {
+        AStatsEvent_addBoolAnnotation(event, ASTATSLOG_ANNOTATION_ID_IS_UID, true);
+    }
+    AStatsEvent_writeInt32Array(event, arg3.data(), arg3.size());
+    AStatsEvent_writeInt32Array(event, arg4.data(), arg4.size());
+    AStatsEvent_writeInt32(event, arg5);
+    AStatsEvent_writeInt32(event, arg6);
+    AStatsEvent_writeInt32(event, arg7);
+    AStatsEvent_writeBool(event, arg8);
+    AStatsEvent_writeInt32(event, arg9);
+    AStatsEvent_writeInt32(event, arg10);
+    AStatsEvent_writeInt32(event, arg11);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
 int stats_write(int32_t code, int64_t arg1) {
     AStatsEvent* event = AStatsEvent_obtain();
     AStatsEvent_setAtomId(event, code);
@@ -538,6 +824,49 @@ int stats_write(int32_t code, int64_t arg1) {
     return ret;
 }
 
+int stats_write(int32_t code, int64_t arg1, int32_t arg2, int32_t arg3, int32_t arg4, int32_t arg5, int32_t arg6, int32_t arg7, float arg8, int32_t arg9, int64_t arg10, bool arg11, int32_t arg12) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeInt64(event, arg1);
+    AStatsEvent_writeInt32(event, arg2);
+    AStatsEvent_writeInt32(event, arg3);
+    AStatsEvent_writeInt32(event, arg4);
+    AStatsEvent_writeInt32(event, arg5);
+    AStatsEvent_writeInt32(event, arg6);
+    AStatsEvent_writeInt32(event, arg7);
+    AStatsEvent_writeFloat(event, arg8);
+    AStatsEvent_writeInt32(event, arg9);
+    AStatsEvent_writeInt64(event, arg10);
+    AStatsEvent_writeBool(event, arg11);
+    AStatsEvent_writeInt32(event, arg12);
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
+int stats_write(int32_t code, const std::vector<int32_t>& arg1) {
+    AStatsEvent* event = AStatsEvent_obtain();
+    AStatsEvent_setAtomId(event, code);
+    AStatsEvent_writeInt32Array(event, arg1.data(), arg1.size());
+    const int ret = AStatsEvent_write(event);
+    AStatsEvent_release(event);
+    return ret;
+}
+
+
+int stats_write_non_chained(int32_t code, int32_t arg1, char const* arg2, bool arg3, bool arg4, bool arg5, int32_t arg6, int32_t arg7, int32_t arg8, int64_t arg9, int64_t arg10, int32_t arg11, bool arg12, bool arg13, int32_t arg14, char const* arg15) {
+    const int32_t* uid = &arg1;
+    const size_t uid_length = 1;
+    const std::vector<char const*> tag(1, arg2);
+    return stats_write(code,  uid,  uid_length, tag, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15);
+}
+
+int stats_write_non_chained(int32_t code, int32_t arg1, char const* arg2, bool arg3, int32_t arg4, int32_t arg5, bool arg6, bool arg7, bool arg8, bool arg9, int32_t arg10, int64_t arg11, int32_t arg12, char const* arg13) {
+    const int32_t* uid = &arg1;
+    const size_t uid_length = 1;
+    const std::vector<char const*> tag(1, arg2);
+    return stats_write(code,  uid,  uid_length, tag, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13);
+}
 
 int stats_write_non_chained(int32_t code, int32_t arg1, char const* arg2, int32_t arg3) {
     const int32_t* uid = &arg1;
@@ -551,6 +880,34 @@ int stats_write_non_chained(int32_t code, int32_t arg1, char const* arg2, int32_
     const size_t uid_length = 1;
     const std::vector<char const*> tag(1, arg2);
     return stats_write(code,  uid,  uid_length, tag, arg3, arg4, arg5, arg6);
+}
+
+int stats_write_non_chained(int32_t code, int32_t arg1, char const* arg2, int32_t arg3, int32_t arg4, bool arg5, char const* arg6) {
+    const int32_t* uid = &arg1;
+    const size_t uid_length = 1;
+    const std::vector<char const*> tag(1, arg2);
+    return stats_write(code,  uid,  uid_length, tag, arg3, arg4, arg5, arg6);
+}
+
+int stats_write_non_chained(int32_t code, int32_t arg1, char const* arg2, int32_t arg3, int32_t arg4, int64_t arg5, int64_t arg6, bool arg7, int64_t arg8, int32_t arg9, char const* arg10) {
+    const int32_t* uid = &arg1;
+    const size_t uid_length = 1;
+    const std::vector<char const*> tag(1, arg2);
+    return stats_write(code,  uid,  uid_length, tag, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
+}
+
+int stats_write_non_chained(int32_t code, int32_t arg1, char const* arg2, int32_t arg3, int32_t arg4, int64_t arg5, char const* arg6) {
+    const int32_t* uid = &arg1;
+    const size_t uid_length = 1;
+    const std::vector<char const*> tag(1, arg2);
+    return stats_write(code,  uid,  uid_length, tag, arg3, arg4, arg5, arg6);
+}
+
+int stats_write_non_chained(int32_t code, int32_t arg1, char const* arg2, int32_t arg3, int32_t arg4, char const* arg5) {
+    const int32_t* uid = &arg1;
+    const size_t uid_length = 1;
+    const std::vector<char const*> tag(1, arg2);
+    return stats_write(code,  uid,  uid_length, tag, arg3, arg4, arg5);
 }
 
 int stats_write_non_chained(int32_t code, int32_t arg1, char const* arg2, int32_t arg3, int32_t arg4, char const* arg5, int32_t arg6, int64_t arg7) {
